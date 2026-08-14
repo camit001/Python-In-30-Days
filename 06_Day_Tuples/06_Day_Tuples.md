@@ -1,4 +1,3 @@
-[06_Tuples_Amit_Kumar.md](https://github.com/user-attachments/files/31068368/06_Tuples_Amit_Kumar.md)
 <div align="center">
   <h1>30 Days Of Python: Day 6 - Tuples</h1>
 
