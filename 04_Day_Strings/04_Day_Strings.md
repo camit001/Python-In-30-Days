@@ -10,7 +10,7 @@
 
 [<< Day 3](../03_Day_Operators/03_operators.md) | [Day 5 >>](../05_Day_Lists/05_lists.md)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+**[30DaysOfPython]**
 
 - [Day 4](#day-4)
   - [Strings](#strings)
@@ -236,7 +236,7 @@ print(f) # n
 
 In programming counting starts from zero. Therefore the first letter of a string is at zero index and the last letter of a string is the length of a string minus one.
 
-![String index](../images/string_index.png)
+**[String index]**
 
 ```py
 language = 'Python'
