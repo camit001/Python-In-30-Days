@@ -14,9 +14,9 @@
 
 </div>
 
-[<< Day 1](../01_Day_Introduction.md) | [Day 3 >>](../03_Day_Operators/03_operators.md)
+**[<<Day 01](../../01_Day_Introduction/01_Day_Introduction.md) | [Day 3 >>](../../03_Day_Operators/03_operators.md)**
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython]
 
 - [📘 Day 2](#-day-2)
   - [Built in functions](#built-in-functions)
