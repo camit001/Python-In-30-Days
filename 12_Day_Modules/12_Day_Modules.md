@@ -7,7 +7,7 @@
 
 [<< Day 11](../11_Day_Functions/11_Day_Functions.md) | [Day 13 >>](../13_Day_List_comprehension/13_list_comprehension.md)
 
-**30DaysOfPython**
+**[30DaysOfPython]**
 
 - [Day 12](#-day-12)
   - [Modules](#modules)
