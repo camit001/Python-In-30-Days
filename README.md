@@ -9,7 +9,7 @@ A structured 30-day learning journey from Python fundamentals to practical topic
 | Day | Topic |
 | --: | --- |
 | [01](./01_Day_Introduction/01_Day_Introduction.md) | [Introduction](./01_Day_Introduction/01_Day_Introduction.md) |
-| [02](./02_Day_Variables_built_in_functions/02_Day_Variables_built_in_functions.md) | [Variables & Built-in Functions](./02_Day_Variables_built_in_functions/02_Day_Variables_built_in_functions.md) |
+| [02](./02_Day_Variables_builtin_functions/02_Day_Variables_builtin_functions) | [Variables & Built-in Functions](./02_Day_Variables_builtin_functions/02_Day_Variables_builtin_functions) |
 | [03](./03_Day_Operators/03_Day_Operators.md) | [Operators](./03_Day_Operators/03_Day_Operators.md) |
 | [04](./04_Day_Strings/04_Day_Strings.md) | [Strings](./04_Day_Strings/04_Day_Strings.md) |
 | [05](./05_Day_Lists/05_Day_Lists.md) | [Lists](./05_Day_Lists/05_Day_Lists.md) |
