@@ -25,7 +25,6 @@
     - [Arbitrary Number of Arguments](#arbitrary-number-of-arguments)
     - [Default and Arbitrary Number of Parameters in Functions](#default-and-arbitrary-number-of-parameters-in-functions)
     - [Function as a Parameter of Another Function](#function-as-a-parameter-of-another-function)
-  - [Testimony](#testimony)
   - [💻 Exercises: Day 11](#-exercises-day-11)
     - [Exercises: Level 1](#exercises-level-1)
     - [Exercises: Level 2](#exercises-level-2)
@@ -405,9 +404,6 @@ print(do_something(square_number, 3)) # 27
 
 🌕 You achieved quite a lot so far.  Keep going! You have just completed day 11 challenges and you are 11 steps a head in to your way to greatness. Now do some exercises for your brain and muscles.
 
-## Testimony
-
-Now it is time to express your thoughts about the Author and 30DaysOfPython. You can leave your testimonial on this [link](https://testimonial-s3sw.onrender.com/)
 
 ## 💻 Exercises: Day 11
 
