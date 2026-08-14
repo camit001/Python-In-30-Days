@@ -1,3 +1,4 @@
+
 <div align="center">
   <h1> 30 Days Of Python: Day 2 - Variables, Builtin Functions</h1>
   <!-- <a class="header-badge" target="_blank" href="">
@@ -35,21 +36,6 @@
 
 In Python we have lots of built-in functions. Built-in functions are globally available for your use that mean you can make use of the built-in functions without importing or configuring. Some of the most commonly used Python built-in functions are the following: _print()_, _len()_, _type()_, _int()_, _float()_, _str()_, _input()_, _list()_, _dict()_, _min()_, _max()_, _sum()_, _sorted()_, _open()_, _file()_, _help()_, and _dir()_. In the following table you will see an exhaustive list of Python built-in functions taken from [python documentation](https://docs.python.org/3/library/functions.html).
 
-![Built-in Functions](../images/builtin-functions.png)
-
-Let us open the Python shell and start using some of the most common built-in functions.
-
-![Built-in functions](../images/builtin-functions_practice.png)
-
-Let us practice more by using different built-in functions
-
-![Help and Dir Built in Functions](../images/help_and_dir_builtin.png)
-
-As you can see from the terminal above, Python has got reserved words. We do not use reserved words to declare variables or functions. We will cover variables in the next section.
-
-I believe, by now you are familiar with built-in functions. Let us do one more practice of built-in functions and we will move on to the next section.
-
-![Min Max Sum](../images/builtin-functional-final.png)
 
 ## Variables
 
@@ -101,18 +87,18 @@ _Example:_
 
 ```py
 # Variables in Python
-first_name = 'Asabeneh'
-last_name = 'Yetayeh'
-country = 'Finland'
-city = 'Helsinki'
+first_name = 'Amit'
+last_name = 'Kumar'
+country = 'India'
+city = 'Mumbai'
 age = 250
 is_married = True
 skills = ['HTML', 'CSS', 'JS', 'React', 'Python']
 person_info = {
-   'firstname':'Asabeneh',
-   'lastname':'Yetayeh',
-   'country':'Finland',
-   'city':'Helsinki'
+   'firstname':'Amit',
+   'lastname':'Kumar',
+   'country':'India',
+   'city':'Mumbai'
    }
 ```
 
@@ -152,7 +138,7 @@ Multiple variables can also be declared in one line:
 **Example:**
 
 ```py
-first_name, last_name, country, age, is_married = 'Asabeneh', 'Yetayeh', 'Helsink', 250, True
+first_name, last_name, country, age, is_married = 'Amit', 'Kumar', 'India', 250, True
 
 print(first_name, last_name, country, age, is_married)
 print('First name:', first_name)
@@ -186,21 +172,21 @@ There are several data types in Python. To identify the data type we use the _ty
 # Different python data types
 # Let's declare variables with various data types
 
-first_name = 'Asabeneh'     # str
-last_name = 'Yetayeh'       # str
-country = 'Finland'         # str
-city= 'Helsinki'            # str
+first_name = 'Amit'     # str
+last_name = 'Kumar'       # str
+country = 'India'         # str
+city= 'Mumbai'            # str
 age = 250                   # int, it is not my real age, don't worry about it
 
 # Printing out types
-print(type('Asabeneh'))          # str
+print(type('Amit'))          # str
 print(type(first_name))          # str
 print(type(10))                  # int
 print(type(3.14))                # float
 print(type(1 + 1j))              # complex
 print(type(True))                # bool
 print(type([1, 2, 3, 4]))        # list
-print(type({'name':'Asabeneh'})) # dict
+print(type({'name':'Amit'})) # dict
 print(type((1,2)))               # tuple
 print(type(zip([1,2],[3,4])))    # zip
 ```
@@ -237,8 +223,8 @@ num_int = int(num_float)
 print('num_int', int(num_int))      # 10
 
 # str to list
-first_name = 'Asabeneh'
-print(first_name)               # 'Asabeneh'
+first_name = 'Amit'
+print(first_name)               # 'Amit'
 first_name_to_list = list(first_name)
 print(first_name_to_list)            # ['A', 's', 'a', 'b', 'e', 'n', 'e', 'h']
 ```
@@ -270,8 +256,8 @@ Number data types in Python:
 3. Declare a first name variable and assign a value to it
 4. Declare a last name variable and assign a value to it
 5. Declare a full name variable and assign a value to it
-6. Declare a country variable and assign a value to it
-7. Declare a city variable and assign a value to it
+6. Declare a country variable and assign the value 'India' to it
+7. Declare a city variable and assign the value 'Mumbai' to it
 8. Declare an age variable and assign a value to it
 9. Declare a year variable and assign a value to it
 10. Declare a variable is_married and assign a value to it
