@@ -5,7 +5,7 @@ A structured 30-day learning journey from Python fundamentals to practical topic
 
 ## Roadmap
 
-
+<!--
 | Day | Topic |
 | --: | --- |
 | [01](./01_Day_Introduction/01_Day_Introduction.md) | [Introduction](./01_Day_Introduction/01_Day_Introduction.md) |
@@ -39,7 +39,7 @@ A structured 30-day learning journey from Python fundamentals to practical topic
 | [29](./29_Day_Building_API/29_Day_Building_API.md) | [Building API](./29_Day_Building_API/29_Day_Building_API.md) |
 | [30](./30_Day_Conclusions/30_Day_Conclusions.md) | [Conclusions](./30_Day_Conclusions/30_Day_Conclusions.md) |
 ## Daily Learning Plan
-
+-->
 ### Day 01 — Introduction
 
 **Focus:** Python basics, syntax, interpreter, comments, input/output, indentation.
