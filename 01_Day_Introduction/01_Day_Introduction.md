@@ -1,5 +1,7 @@
 # Python — Introduction, Theory, Core Concepts and Interview Notes
 
+**[Day 2 >>](02_Day_Variables_builtin_functions/02_Day_Variables_builtin_functions.md)**
+
 ## 1. Introduction to Python
 
 Python is a high-level, general-purpose, interpreted programming language known for its simple syntax, readability, and large ecosystem of libraries.
@@ -2309,3 +2311,6 @@ For a Data Engineer, understanding Python should go beyond syntax. The most impo
 13. Writing maintainable and testable data-processing code
 
 The goal should be to understand **why Python behaves the way it does**, not just memorize syntax.
+
+
+**[Day 2 >>](02_Day_Variables_builtin_functions/02_Day_Variables_builtin_functions.md)**
