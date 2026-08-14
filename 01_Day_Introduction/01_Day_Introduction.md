@@ -1,4 +1,19 @@
-# Python — Introduction, Theory, Core Concepts and Interview Notes
+
+<div align="center">
+  <h1> # Python — Introduction, Theory, Core Concepts and Interview Notes</h1>
+  <!-- <a class="header-badge" target="_blank" href="">
+  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
+  </a>
+  <a class="header-badge" target="_blank" href="">
+  <img alt="Twitter Follow" src=""> -->
+  </a>
+
+<sub>Author:
+<a href="https://github.com/camit001" target="_blank">Amit Kumar</a><br>
+
+</sub>
+
+</div>
 
 **[Day 2 >>](02_Day_Variables_builtin_functions/02_variables_builtin_functions.md)**
 
