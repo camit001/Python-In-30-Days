@@ -9,7 +9,7 @@
 
 </div>
 
-[<< Day 7 ](../07_Day_Sets/07_Sets.md) | [Day 9 >>](../09_Day_Conditionals/09_conditionals.md)
+[<< Day 7 ](../07_Day_Sets/07_Day_Sets.md) | [Day 9 >>](../09_Day_Conditionals/09_conditionals.md)
 
 **[30DaysOfPython]**
 
