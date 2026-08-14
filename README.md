@@ -1,5 +1,5 @@
-[README_30_Days_of_Python.md](https://github.com/camit001/Python-In-30-Days/README.md)
-# 30 Days of Python
+[README_Python-In-30-Days.md](https://github.com/camit001/Python-In-30-Days/README.md)
+# Python-In-30-Days
 
 A structured 30-day learning journey from Python fundamentals to practical topics including web scraping, Pandas, MongoDB, APIs and API development.
 
