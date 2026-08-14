@@ -14,7 +14,7 @@
 
 </div>
 
-**[<<Day 01](../01_Day_Introduction/01_Day_Introduction.md) | [Day 3 >>](../../03_Day_Operators/03_operators.md)**
+**[<<Day 01](01_Day_Introduction/01_Day_Introduction.md) | [Day 3 >>](03_Day_Operators/03_operators.md)**
 
 [30DaysOfPython]
 
