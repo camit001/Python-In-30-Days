@@ -1,6 +1,6 @@
 # Python — Introduction, Theory, Core Concepts and Interview Notes
 
-**[Day 2 >>](../02_Day_Variables_built_in_functions/02_variables_builtin_functions.md)**
+**[Day 2 >>](02_Day_Variables_builtin_functions/02_variables_builtin_functions.md)**
 
 ## 1. Introduction to Python
 
