@@ -1,6 +1,6 @@
+[06_Tuples_Amit_Kumar.md](https://github.com/user-attachments/files/31068368/06_Tuples_Amit_Kumar.md)
 <div align="center">
-  <h1> 30 Days Of Python: Day 6 - Tuples</h1>
-  
+  <h1>30 Days Of Python: Day 6 - Tuples</h1>
 
 <sub>Author:
 <a href="https://github.com/camit001" target="_blank">Amit Kumar</a><br>
@@ -9,9 +9,9 @@
 
 </div>
 
-[<< Day 5](../05_Day_Lists/05_lists.md) | [Day 7 >>](../07_Day_Sets/07_sets.md)
+[<< Day 5](../05_Day_Lists/05_Lists_Amit_Kumar.md) | [Day 7 >>](../07_Day_Sets/07_sets.md)
 
-**[30DaysOfPython]**
+**30DaysOfPython**
 
 - [Day 6:](#day-6)
   - [Tuples](#tuples)
@@ -41,7 +41,7 @@ A tuple is a collection of different data types which is ordered and unchangeabl
 ### Creating a Tuple
 
 - Empty tuple: Creating an empty tuple
-  
+
   ```py
   # syntax
   empty_tuple = ()
@@ -50,7 +50,7 @@ A tuple is a collection of different data types which is ordered and unchangeabl
   ```
 
 - Tuple with initial values
-  
+
   ```py
   # syntax
   tpl = ('item1', 'item2','item3')
@@ -216,6 +216,18 @@ fruits = ('banana', 'orange', 'mango', 'lemon')
 del fruits
 ```
 
+## Personal Example
+
+```py
+personal_info = ("Amit Kumar", "India", "Mumbai")
+
+print("Name:", personal_info[0])
+print("Country:", personal_info[1])
+print("City:", personal_info[2])
+```
+
+This example demonstrates how a tuple can store related values that should not be changed after creation.
+
 🌕 You are so brave, you made it to this far. You have just completed day 6 challenges and you are 6 steps a head in to your way to greatness. Now do some exercises for your brain and for your muscle.
 
 ## 💻 Exercises: Day 6
@@ -231,12 +243,12 @@ del fruits
 ### Exercises: Level 2
 
 1. Unpack siblings and parents from family_members
-1. Create fruits, vegetables and animal products tuples. Join the three tuples and assign it to a variable called food_stuff_tp.
-1. Change the about food_stuff_tp  tuple to a food_stuff_lt list
-1. Slice out the middle item or items from the food_stuff_tp tuple or food_stuff_lt list.
-1. Slice out the first three items and the last three items from food_stuff_lt list
-1. Delete the food_stuff_tp tuple completely
-1. Check if an item exists in  tuple:
+2. Create fruits, vegetables and animal products tuples. Join the three tuples and assign it to a variable called food_stuff_tp.
+3. Change the about food_stuff_tp tuple to a food_stuff_lt list
+4. Slice out the middle item or items from the food_stuff_tp tuple or food_stuff_lt list.
+5. Slice out the first three items and the last three items from food_stuff_lt list
+6. Delete the food_stuff_tp tuple completely
+7. Check if an item exists in tuple:
 
 - Check if 'Estonia' is a nordic country
 - Check if 'Iceland' is a nordic country
@@ -245,5 +257,4 @@ del fruits
   nordic_countries = ('Denmark', 'Finland','Iceland', 'Norway', 'Sweden')
   ```
 
-
-[<< Day 5](../05_Day_Lists/05_lists.md) | [Day 7 >>](../07_Day_Sets/07_sets.md)
+[<< Day 5](../05_Day_Lists/05_Lists_Amit_Kumar.md) | [Day 7 >>](../07_Day_Sets/07_sets.md)
