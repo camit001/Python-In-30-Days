@@ -9,7 +9,7 @@
 
 </div>
 
-[<< Day 20](../Day_20_Python_Package_Manager/20_Python_Package_Manager.md) | [Day 22 >>](../Day_22_Web_Scraping/22_Web_Scraping.md)
+[<< Day 20](../Day_20_Python_package_manager/20_Python_package_manager.md) | [Day 22 >>](../Day_22_Web_scraping/22_Web_scraping.md)
 
 **Python In 30 Days**
 
@@ -565,4 +565,4 @@ Frequency Distribution: [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 20](../Day_20_Python_Package_Manager/20_Python_Package_Manager.md) | [Day 22 >>](../Day_22_Web_Scraping/22_Web_Scraping.md)
+[<< Day 20](../Day_20_Python_package_manager/20_Python_package_manager.md) | [Day 22 >>](../Day_22_Web_scraping/22_Web_scraping.md)
