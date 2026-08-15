@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>30 Days Of Python: Day 7 - Sets</h1>
+  <h1>Python In 30 Days: Day 7 - Sets</h1>
 
 <sub>Author:
 <a href="https://github.com/camit001" target="_blank">Amit Kumar</a><br>
@@ -8,9 +8,9 @@
 
 </div>
 
-[<< Day 6](../06_Day_Tuples/06_Day_Tuples.md) | [Day 8 >>](../08_Day_Dictionaries/08_dictionaries.md)
+[<< Day 6](../Day_06_Tuples/Day_06_Tuples.md) | [Day 8 >>](../Day_08_Dictionaries/Day_08_Dictionaries.md)
 
-**30DaysOfPython**
+**Python In 30 Days**
 
 - [📘 Day 7](#-day-7)
   - [Sets](#sets)
@@ -38,7 +38,7 @@
 
 ## Sets
 
-Set is a collection of items. Let me take you back to your elementary or high school Mathematics lesson. The Mathematics definition of a set can be applied also in Python. Set is a collection of unordered and un-indexed distinct elements. In Python set is used to store unique items, and it is possible to find the _union_, _intersection_, _difference_, _symmetric difference_, _subset_, _super set_ and _disjoint set_ among sets.
+A set is a collection of unique items. Let me take you back to your elementary or high school Mathematics lesson. The Mathematics definition of a set can be applied also in Python. A set is an unordered collection of distinct elements. Sets do not support indexing or slicing. In Python set is used to store unique items, and it is possible to find the _union_, _intersection_, _difference_, _symmetric difference_, _subset_, _super set_ and _disjoint set_ among sets.
 
 ### Creating a Set
 
@@ -67,7 +67,7 @@ fruits = {'banana', 'orange', 'mango', 'lemon'}
 
 ### Getting Set's Length
 
-We use **len()** method to find the length of a set.
+We use the built-in `len()` function to find the number of items in a set.
 
 ```py
 # syntax
@@ -84,11 +84,11 @@ len(fruits)
 
 ### Accessing Items in a Set
 
-We use loops to access items. We will see this in loop section
+Because sets are unordered and do not support indexing, we normally access their items by iterating over them.
 
 ### Checking an Item
 
-To check if an item exist in a list we use _in_ membership operator.
+To check whether an item exists in a set, use the `in` membership operator.
 
 ```py
 # syntax
@@ -105,7 +105,7 @@ print('mango' in fruits ) # True
 
 ### Adding Items to a Set
 
-Once a set is created we cannot change any items and we can also add additional items.
+A set is mutable, so you can add or remove items. However, you cannot change an existing item by index because sets are unordered.
 
 - Add one item using _add()_
 
@@ -149,7 +149,7 @@ st = {'item1', 'item2', 'item3', 'item4'}
 st.remove('item2')
 ```
 
-The pop() methods remove a random item from a list and it returns the removed item.
+The `pop()` method removes and returns an arbitrary item from a set. Because sets are unordered, you should not rely on which item is removed.
 
 **Example:**
 
@@ -203,19 +203,19 @@ del fruits
 
 ### Converting List to Set
 
-We can convert list to set and set to list. Converting list to set removes duplicates and only unique items will be reserved.
+We can convert list to set and set to list. Converting a list to a set removes duplicate values, leaving only unique items.
 
 ```py
 # syntax
 lst = ['item1', 'item2', 'item3', 'item4', 'item1']
-st = set(lst)  # {'item2', 'item4', 'item1', 'item3'} - the order is random, because sets in general are unordered
+st = set(lst)  # duplicates are removed; do not rely on the display order
 ```
 
 **Example:**
 
 ```py
 fruits = ['banana', 'orange', 'mango', 'lemon','orange', 'banana']
-fruits = set(fruits) # {'mango', 'lemon', 'banana', 'orange'}
+fruits = set(fruits)  # duplicates are removed
 ```
 
 ### Joining Sets
@@ -287,10 +287,10 @@ python.intersection(dragon)     # {'o', 'n'}
 
 ### Checking Subset and Super Set
 
-A set can be a subset or super set of other sets:
+A set can be a subset or superset of another set:
 
 - Subset: _issubset()_
-- Super set: _issuperset_
+- Superset: `issuperset()`
 
 ```py
 # syntax
@@ -315,14 +315,14 @@ python.issubset(dragon)     # False
 
 ### Checking the Difference Between Two Sets
 
-It returns the difference between two sets or using _-_ symbol.
+The `difference()` method returns the items that are in one set but not in the other. The `-` operator can be used as shorthand.
 
 ```py
 # syntax
 st1 = {'item1', 'item2', 'item3', 'item4'}
 st2 = {'item2', 'item3'}
 st2.difference(st1) # set() : st2 - st1
-st1.difference(st2) # {'item1', 'item4'} => st1\st2  : st2 - st1
+st1.difference(st2) # {'item1', 'item4'} => st1 - st2
 ```
 
 **Example:**
@@ -342,7 +342,7 @@ dragon.difference(python)     # {'d', 'r', 'a', 'g'}
 
 ### Finding Symmetric Difference Between Two Sets
 
-It returns the symmetric difference between two sets. It means that it returns a set that contains all items from both sets, except items that are present in both sets, mathematically: (A\B) ∪ (B\A)
+The `symmetric_difference()` method returns the items that belong to either set, but not to both. It means that it returns a set that contains all items from both sets, except items that are present in both sets, mathematically: (A\B) ∪ (B\A)
 
 ```py
 # syntax
@@ -367,7 +367,7 @@ python.symmetric_difference(dragon)  # {'r', 't', 'p', 'y', 'g', 'a', 'd', 'h'}
 
 ### Joining Sets
 
-If two sets do not have a common item or items we call them disjoint sets. We can check if two sets are joint or disjoint using _isdisjoint()_ method.
+If two sets have no items in common, they are called disjoint sets. We can check whether two sets are disjoint using _isdisjoint()_ method.
 
 ```py
 # syntax
@@ -388,6 +388,55 @@ dragon = {'d', 'r', 'a', 'g', 'o','n'}
 python.isdisjoint(dragon)  # False, there are common items {'o', 'n'}
 ```
 
+### Practical Set Basics
+
+Sets are especially useful when you care about **uniqueness** rather than order.
+
+For example, if a data source contains duplicate customer IDs:
+
+```py
+customer_ids = [101, 102, 101, 103, 102, 104]
+
+unique_customer_ids = set(customer_ids)
+
+print(unique_customer_ids)
+```
+
+The duplicate IDs are removed automatically.
+
+**Important:** Sets do not preserve a reliable positional order for indexing.
+
+```py
+numbers = {10, 20, 30}
+
+# numbers[0]       # TypeError: 'set' object is not subscriptable
+```
+
+If you need ordered, index-based access, use a list:
+
+```py
+numbers = [10, 20, 30]
+
+print(numbers[0])  # 10
+```
+
+### Set Operations at a Glance
+
+Think of two sets as two groups of values:
+
+```text
+A = {1, 2, 3}
+B = {3, 4, 5}
+
+Union        A | B   -> {1, 2, 3, 4, 5}
+Intersection A & B   -> {3}
+Difference   A - B   -> {1, 2}
+Symmetric    A ^ B   -> {1, 2, 4, 5}
+Difference
+```
+
+**Practical tip:** In data engineering, sets are useful for tasks such as finding unique values, checking membership, comparing two collections, and identifying values present in one dataset but missing from another.
+
 ## Personal Example
 
 ```py
@@ -407,7 +456,25 @@ print("Difference:", cities.difference(other_cities))
 
 This example demonstrates unique values, membership, union, intersection, and difference using a set.
 
-🌕 You are a rising star. You have just completed day 7 challenges and you are 7 steps ahead in to your way to greatness. Now do some exercises for your brain and muscles.
+🌕 You have completed Day 7 and learned how sets handle unique values and set operations. Now practice the exercises below.
+
+### Quick Set Method Reference
+
+| Method / Operator | Purpose | Example |
+|---|---|---|
+| `add()` | Adds one item | `items.add('Python')` |
+| `update()` | Adds multiple items | `items.update(['SQL', 'PySpark'])` |
+| `remove()` | Removes an item and raises an error if missing | `items.remove('SQL')` |
+| `discard()` | Removes an item without raising an error if missing | `items.discard('SQL')` |
+| `pop()` | Removes and returns an arbitrary item | `items.pop()` |
+| `clear()` | Removes all items | `items.clear()` |
+| `union()` / `|` | Combines unique items | `a | b` |
+| `intersection()` / `&` | Finds common items | `a & b` |
+| `difference()` / `-` | Finds items only in the left set | `a - b` |
+| `symmetric_difference()` / `^` | Finds items in either set, but not both | `a ^ b` |
+| `issubset()` | Checks whether all items are contained in another set | `a.issubset(b)` |
+| `issuperset()` | Checks whether a set contains another set | `a.issuperset(b)` |
+| `isdisjoint()` | Checks whether two sets have no common items | `a.isdisjoint(b)` |
 
 ## 💻 Exercises: Day 7
 
@@ -423,7 +490,7 @@ age = [22, 19, 24, 25, 26, 24, 25, 24]
 
 1. Find the length of the set it_companies
 2. Add 'Twitter' to it_companies
-3. Insert multiple IT companies at once to the set it_companies
+3. Add multiple IT companies at once to the set `it_companies` using `update()`
 4. Remove one of the companies from the set it_companies
 5. What is the difference between remove and discard
 
@@ -443,6 +510,14 @@ age = [22, 19, 24, 25, 26, 24, 25, 24]
 2. Explain the difference between the following data types: string, list, tuple and set
 3. _I am a teacher and I love to inspire and teach people._ How many unique words have been used in the sentence? Use the split methods and set to get the unique words.
 
-🎉 CONGRATULATIONS ! 🎉
+### Extra Practice
 
-[<< Day 6](../06_Day_Tuples/06_Tuples_Amit_Kumar.md) | [Day 8 >>](../08_Day_Dictionaries/08_dictionaries.md)
+8. Create a list containing duplicate employee IDs and use a set to find the unique IDs.
+9. Given two sets of skills, find the skills common to both employees.
+10. Given two sets of database tables, find which tables exist in the first set but not the second.
+11. Check whether one set is a subset of another.
+12. Create two sets with no common values and verify that they are disjoint.
+
+🎉 CONGRATULATIONS! 🎉
+
+[<< Day 6](../Day_06_Tuples/Day_06_Tuples.md) | [Day 8 >>](../Day_08_Dictionaries/Day_08_Dictionaries.md)
