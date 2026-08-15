@@ -8,7 +8,7 @@
 
 </div>
 
-[<< Day 6](../Day_06_Tuples/Day_06_Tuples.md) | [Day 8 >>](../Day_08_Dictionaries/Day_08_Dictionaries.md)
+[<< Day 6](../Day_06_Tuples/06_Tuples.md) | [Day 8 >>](../Day_08_Dictionaries/08_Dictionaries.md)
 
 **Python In 30 Days**
 
@@ -520,4 +520,4 @@ age = [22, 19, 24, 25, 26, 24, 25, 24]
 
 🎉 CONGRATULATIONS! 🎉
 
-[<< Day 6](../Day_06_Tuples/Day_06_Tuples.md) | [Day 8 >>](../Day_08_Dictionaries/Day_08_Dictionaries.md)
+[<< Day 6](../Day_06_Tuples/06_Tuples.md) | [Day 8 >>](../Day_08_Dictionaries/08_Dictionaries.md)
