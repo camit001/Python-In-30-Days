@@ -768,4 +768,4 @@ names = ['Amit', 'Anita', 'Rahul', 'Ravi', 'Priya']
 
 🎉 CONGRATULATIONS! 🎉
 
-[<< Day 12](../Day_12_Modules/12_Modules.md) | [Day 14 >>](../Day_14_Higher_Order_Functions/14_Higher_Order_Functions.md)
+[<< Day 12](../Day_12_Modules/12_Modules.md) | [Day 14 >>](../Day_14_Higher_order_functions/14_Higher_order_functions.md)
