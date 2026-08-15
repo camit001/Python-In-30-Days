@@ -9,7 +9,7 @@
 
 </div>
 
-[<< Day 29](../Day_29_Building_API/29_Building_API.md) | [Projects](../Projects/Python_30_Days_Projects.md)
+[<< Day 29](../Day_29_Building_API/29_Building_API.md) | [Projects](../Projects/Python_30_Days_Projects)
 
 **[Python In 30 Days]**
 
@@ -155,11 +155,11 @@ The project also introduces virtual environments, package installation, MongoDB 
 
 Use the project document as the practical part of the 30-day journey:
 
-**[Open Python Projects](../Projects/Python_30_Days_Projects.md)**
+**[Open Python Projects](../Projects/Python_30_Days_Projects)**
 
 ### Project 01
 
-[Student Result Analyzer](../Projects/Python_30_Days_Projects.md#project-01--student-result-analyzer)
+[Student Result Analyzer](../Projects/Python_30_Days_Projects/project-01--student-result-analyzer.md)
 
 ### Project 02
 
