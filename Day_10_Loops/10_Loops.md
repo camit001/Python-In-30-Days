@@ -1,17 +1,15 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 10 - Loops</h1>
-  
+  <h1>Python In 30 Days: Day 10 - Loops</h1>
 
 <sub>Author:
 <a href="https://github.com/camit001" target="_blank">Amit Kumar</a><br>
-
 </sub>
 
 </div>
 
-[<< Day 9](../09_Day_Conditionals/09_Day_Conditionals.md) | [Day 11 >>](../11_Day_Functions/11_functions.md)
+[<< Day 9](../Day_09_Conditionals/09_Conditionals.md) | [Day 11 >>](../Day_11_Functions/11_Functions.md)
 
-**[30DaysOfPython]**
+**Python In 30 Days**
 
 - [📘 Day 10](#-day-10)
   - [Loops](#loops)
@@ -23,430 +21,714 @@
     - [Nested For Loop](#nested-for-loop)
     - [For Else](#for-else)
     - [Pass](#pass)
+    - [While True Loop](#while-true-loop)
+    - [Enumerate](#enumerate)
+    - [Zip](#zip)
+    - [Reversed Iteration](#reversed-iteration)
+    - [Looping Through Dictionary Items](#looping-through-dictionary-items)
+    - [Looping With Conditions](#looping-with-conditions)
+    - [Comprehensions](#comprehensions)
+    - [Choosing the Right Loop](#choosing-the-right-loop)
   - [💻 Exercises: Day 10](#-exercises-day-10)
-    - [Exercises: Level 1](#exercises-level-1)
-    - [Exercises: Level 2](#exercises-level-2)
-    
 
 # 📘 Day 10
 
 ## Loops
 
-Life is full of routines. In programming we also do lots of repetitive tasks. In order to handle repetitive task programming languages use loops. Python programming language also provides the following types of two loops:
+Programs often need to repeat an operation multiple times. Python provides two primary loop statements:
 
-1. while loop
-2. for loop
+1. `while` loop
+2. `for` loop
+
+Python does not have a separate `do...while` loop. When that behavior is needed, it can be created with `while True` and a `break` condition.
+
+---
 
 ### While Loop
 
-We use the reserved word _while_ to make a while loop. It is used to execute a block of statements repeatedly until a given condition is satisfied. When the condition becomes false, the lines of code after the loop will be continued to be executed.
-
-```py
-  # syntax
-while condition:
-    code goes here
-```
-
-**Example:**
-
-```py
-count = 0
-while count < 5:
-    print(count)
-    count = count + 1
-#prints from 0 to 4
-```
-
-In the above while loop, the condition becomes false when count is 5. That is when the loop stops.
-If we are interested to run block of code once the condition is no longer true, we can use _else_.
-
-```py
-  # syntax
-while condition:
-    code goes here
-else:
-    code goes here
-```
-
-**Example:**
-
-```py
-count = 0
-while count < 5:
-    print(count)
-    count = count + 1
-else:
-    print(count)
-```
-
-The above loop condition will be false when count is 5 and the loop stops, and execution starts the else statement. As a result 5 will be printed.
-
-### Break and Continue - Part 1
-
-- Break: We use break when we like to get out of or stop the loop.
+A `while` loop repeatedly executes a block of code while its condition is `True`.
 
 ```py
 # syntax
 while condition:
-    code goes here
-    if another_condition:
-        break
+    code
 ```
 
 **Example:**
 
 ```py
 count = 0
+
 while count < 5:
     print(count)
-    count = count + 1
+    count += 1
+
+# 0
+# 1
+# 2
+# 3
+# 4
+```
+
+The condition becomes false when `count` reaches `5`, so the loop stops.
+
+#### While Else
+
+A `while` loop can have an `else` block. The `else` block runs when the loop finishes normally, but not when the loop is terminated by `break`.
+
+```py
+count = 0
+
+while count < 5:
+    print(count)
+    count += 1
+else:
+    print('Loop completed')
+```
+
+---
+
+### Break and Continue - Part 1
+
+#### `break`
+
+`break` immediately stops the current loop.
+
+```py
+count = 0
+
+while count < 5:
+    print(count)
+    count += 1
+
     if count == 3:
         break
 ```
 
-The above while loop only prints 0, 1, 2, but when it reaches 3 it stops.
+Output:
 
-- Continue: With the continue statement we can skip the current iteration, and continue with the next:
-
-```py
-  # syntax
-while condition:
-    code goes here
-    if another_condition:
-        continue
+```text
+0
+1
+2
 ```
 
-**Example:**
+#### `continue`
+
+`continue` skips the rest of the current iteration and moves to the next iteration.
 
 ```py
 count = 0
+
 while count < 5:
     if count == 3:
         count += 1
         continue
+
     print(count)
-    count = count + 1
+    count += 1
 ```
 
-The above while loop only prints 0, 1, 2 and 4 (skips 3).
+Output:
+
+```text
+0
+1
+2
+4
+```
+
+**Important:** When using `continue` in a `while` loop, make sure the loop variable is still updated. Otherwise, you may accidentally create an infinite loop.
+
+---
 
 ### For Loop
 
-A _for_ keyword is used to make a for loop, similar with other programming languages, but with some syntax differences. Loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).
-
--Using For loop on list
+A `for` loop iterates over an iterable such as a list, tuple, set, dictionary, string, or `range()` object.
 
 ```py
 # syntax
-for iterator in lst:
-    code goes here
+for item in iterable:
+    code
 ```
 
-**Example:**
+#### For Loop With a List
 
 ```py
 numbers = [0, 1, 2, 3, 4, 5]
-for number in numbers: # number is temporary name to refer to the list's items, valid only inside this loop
-    print(number)       # the numbers will be printed line by line, from 0 to 5
+
+for number in numbers:
+    print(number)
 ```
 
--Using For loop on string
-
-```py
-# syntax
-for iterator in string:
-    code goes here
-```
-
-**Example:**
+#### For Loop With a String
 
 ```py
 language = 'Python'
+
 for letter in language:
     print(letter)
+```
 
+You can also access characters by index:
 
+```py
 for i in range(len(language)):
     print(language[i])
 ```
 
--Using For loop on tuple
-
-```py
-# syntax
-for iterator in tpl:
-    code goes here
-```
-
-**Example:**
+#### For Loop With a Tuple
 
 ```py
 numbers = (0, 1, 2, 3, 4, 5)
+
 for number in numbers:
     print(number)
 ```
 
-- For loop with dictionary
-  Looping through a dictionary gives you the key of the dictionary.
+#### For Loop With a Set
 
 ```py
-  # syntax
-for iterator in dct:
-    code goes here
-```
-
-**Example:**
-
-```py
-person = {
-    'first_name':'Asabeneh',
-    'last_name':'Yetayeh',
-    'age':250,
-    'country':'Finland',
-    'is_marred':True,
-    'skills':['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],
-    'address':{
-        'street':'Space street',
-        'zipcode':'02210'
-    }
+it_companies = {
+    'Facebook',
+    'Google',
+    'Microsoft',
+    'Apple',
+    'IBM',
+    'Oracle',
+    'Amazon'
 }
-for key in person:
-    print(key)
 
-for key, value in person.items():
-    print(key, value) # this way we get both keys and values printed out
-```
-
--Using For Loop in set
-
-```py
-# syntax
-for iterator in st:
-    code goes here
-```
-
-**Example:**
-
-```py
-it_companies = {'Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon'}
 for company in it_companies:
     print(company)
 ```
 
+Because sets are unordered, do not rely on the order in which their items are printed.
+
+#### For Loop With a Dictionary
+
+Looping directly through a dictionary gives its keys.
+
+```py
+person = {
+    'first_name': 'Amit',
+    'last_name': 'Kumar',
+    'age': 25,
+    'country': 'India',
+    'skills': ['Python', 'SQL', 'PySpark'],
+    'address': {
+        'city': 'Mumbai',
+        'zipcode': '400001'
+    }
+}
+
+for key in person:
+    print(key)
+```
+
+To get both keys and values:
+
+```py
+for key, value in person.items():
+    print(key, value)
+```
+
+---
+
 ### Break and Continue - Part 2
 
-Short reminder:
-_Break_: We use break when we want to stop our loop before it is completed.
+#### `break` With a `for` Loop
 
 ```py
-# syntax
-for iterator in sequence:
-    code goes here
-    if condition:
-        break
-```
+numbers = (0, 1, 2, 3, 4, 5)
 
-**Example:**
-
-```py
-numbers = (0,1,2,3,4,5)
 for number in numbers:
     print(number)
+
     if number == 3:
         break
 ```
 
-In the above example, the loop stops when it reaches 3.
+The loop stops as soon as `number` reaches `3`.
 
-Continue: We use continue when we want to skip some of the steps in the iteration of the loop.
-
-```py
-  # syntax
-for iterator in sequence:
-    code goes here
-    if condition:
-        continue
-```
-
-**Example:**
+#### `continue` With a `for` Loop
 
 ```py
-numbers = (0,1,2,3,4,5)
+numbers = (0, 1, 2, 3, 4, 5)
+
 for number in numbers:
-    print(number)
     if number == 3:
         continue
-    print('Next number should be ', number + 1) if number != 5 else print("loop's end") # for short hand conditions need both if and else statements
-print('outside the loop')
+
+    print(number)
 ```
 
-In the example above, if the number equals 3, the step _after_ the condition (but inside the loop) is skipped and the execution of the loop continues if there are any iterations left.
+Output:
+
+```text
+0
+1
+2
+4
+5
+```
+
+---
 
 ### The Range Function
 
-The _range()_ function is used to return a list of numbers. The _range(start, end, step)_ takes three parameters: starting, ending and increment. By default it starts from 0 and the increment is 1. The range sequence needs at least 1 argument (end).
-Creating sequences using range
+The `range()` function generates a sequence of integers.
+
+Its syntax is:
 
 ```py
-lst = list(range(11))
-print(lst) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-st = set(range(1, 11))    # 2 arguments indicate start and end of the sequence, step set to default 1
-print(st) # {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-
-lst = list(range(0,11,2))
-print(lst) # [0, 2, 4, 6, 8, 10]
-st = set(range(0,11,2))
-print(st) #  {0, 2, 4, 6, 8, 10}
-
-# for backward from start to end 
-lst = list(range(11,0,-2))
-print(lst) # [11,9,7,5,3,1]
+range(start, stop, step)
 ```
+
+- `start` is optional and defaults to `0`.
+- `stop` is required and is **not included**.
+- `step` is optional and defaults to `1`.
 
 ```py
-# syntax
-for iterator in range(start, end, step):
+print(list(range(5)))
+# [0, 1, 2, 3, 4]
+
+print(list(range(2, 7)))
+# [2, 3, 4, 5, 6]
+
+print(list(range(0, 11, 2)))
+# [0, 2, 4, 6, 8, 10]
+
+print(list(range(10, 0, -2)))
+# [10, 8, 6, 4, 2]
 ```
 
-**Example:**
+`range()` returns a range object, not a list. Convert it to a list when you specifically need a list.
 
 ```py
 for number in range(11):
-    print(number)   # prints 0 to 10, not including 11
+    print(number)
 ```
+
+This prints `0` through `10`.
+
+---
 
 ### Nested For Loop
 
-We can write loops inside a loop.
+A loop can be placed inside another loop.
 
 ```py
-# syntax
-for x in y:
-    for t in x:
-        print(t)
+for row in range(3):
+    for column in range(3):
+        print(row, column)
 ```
+
+Nested loops are useful for working with grids, combinations, and nested data structures.
 
 **Example:**
 
 ```py
 person = {
-    'first_name': 'Asabeneh',
-    'last_name': 'Yetayeh',
-    'age': 250,
-    'country': 'Finland',
-    'is_marred': True,
-    'skills': ['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],
-    'address': {
-        'street': 'Space street',
-        'zipcode': '02210'
-    }
+    'name': 'Amit',
+    'skills': ['Python', 'SQL', 'PySpark']
 }
+
 for key in person:
     if key == 'skills':
         for skill in person['skills']:
             print(skill)
 ```
 
+---
+
 ### For Else
 
-If we want to execute some message when the loop ends, we use else.
+A `for` loop can have an `else` block.
+
+The `else` block runs when the loop finishes normally. It does **not** run if the loop exits through `break`.
 
 ```py
-# syntax
-for iterator in range(start, end, step):
-    do something
+for number in range(5):
+    print(number)
 else:
-    print('The loop ended')
+    print('Loop completed')
 ```
 
-**Example:**
+A common practical use is searching:
 
 ```py
-for number in range(11):
-    print(number)   # prints 0 to 10, not including 11
+numbers = [10, 20, 30, 40]
+target = 30
+
+for number in numbers:
+    if number == target:
+        print('Found')
+        break
 else:
-    print('The loop stops at', number)
+    print('Not found')
 ```
+
+Because `30` was found and `break` was executed, the `else` block does not run.
+
+---
 
 ### Pass
 
-In python when statement is required (after semicolon), but we don't like to execute any code there, we can write the word _pass_ to avoid errors. Also we can use it as a placeholder, for future statements.
-
-**Example:**
+`pass` does nothing. It is useful as a placeholder when Python requires a statement but you are not ready to write the implementation.
 
 ```py
 for number in range(6):
     pass
 ```
 
-🌕 You established a big milestone, you are unstoppable. Keep going! You have just completed day 10 challenges and you are 10 steps a head in to your way to greatness. Now do some exercises for your brain and muscles.
+It can also be used while designing a function:
+
+```py
+def process_data():
+    pass
+```
+
+---
+
+## While True Loop
+
+Python does not have a `do...while` loop. A common alternative is `while True` with a `break`.
+
+```py
+while True:
+    value = input('Enter q to quit: ')
+
+    if value == 'q':
+        break
+
+    print('You entered:', value)
+```
+
+This is useful when the number of iterations is unknown and the program should decide when to stop.
+
+**Warning:** A `while True` loop must have a reachable exit condition when you want it to terminate. Otherwise, it will continue indefinitely.
+
+---
+
+## Enumerate
+
+`enumerate()` is useful when you need both the index and the value while iterating.
+
+Without `enumerate()`:
+
+```py
+skills = ['Python', 'SQL', 'PySpark']
+
+for i in range(len(skills)):
+    print(i, skills[i])
+```
+
+With `enumerate()`:
+
+```py
+skills = ['Python', 'SQL', 'PySpark']
+
+for index, skill in enumerate(skills):
+    print(index, skill)
+```
+
+Output:
+
+```text
+0 Python
+1 SQL
+2 PySpark
+```
+
+You can choose the starting index:
+
+```py
+for index, skill in enumerate(skills, start=1):
+    print(index, skill)
+```
+
+---
+
+## Zip
+
+`zip()` allows you to iterate over multiple iterables at the same time.
+
+```py
+names = ['Amit', 'Rahul', 'Priya']
+scores = [90, 85, 95]
+
+for name, score in zip(names, scores):
+    print(name, score)
+```
+
+Output:
+
+```text
+Amit 90
+Rahul 85
+Priya 95
+```
+
+`zip()` stops when the shortest iterable is exhausted.
+
+This is especially useful when working with related columns or parallel lists.
+
+---
+
+## Reversed Iteration
+
+Use `reversed()` when you want to iterate over an iterable from the end toward the beginning.
+
+```py
+numbers = [1, 2, 3, 4, 5]
+
+for number in reversed(numbers):
+    print(number)
+```
+
+Output:
+
+```text
+5
+4
+3
+2
+1
+```
+
+For a range, a negative step is often clearer:
+
+```py
+for number in range(5, 0, -1):
+    print(number)
+```
+
+---
+
+## Looping Through Dictionary Items
+
+Dictionaries are commonly processed using `items()`, `keys()`, or `values()`.
+
+```py
+employee = {
+    'name': 'Amit Kumar',
+    'department': 'Data Engineering',
+    'location': 'Mumbai'
+}
+
+for key, value in employee.items():
+    print(f'{key}: {value}')
+```
+
+Only keys:
+
+```py
+for key in employee:
+    print(key)
+```
+
+Only values:
+
+```py
+for value in employee.values():
+    print(value)
+```
+
+---
+
+## Looping With Conditions
+
+A loop can contain an `if` statement to process only matching values.
+
+```py
+numbers = range(1, 11)
+
+for number in numbers:
+    if number % 2 == 0:
+        print(number)
+```
+
+Output:
+
+```text
+2
+4
+6
+8
+10
+```
+
+You can combine filtering and processing:
+
+```py
+employees = [
+    {'name': 'Amit', 'age': 25},
+    {'name': 'Rahul', 'age': 17},
+    {'name': 'Priya', 'age': 30}
+]
+
+for employee in employees:
+    if employee['age'] >= 18:
+        print(employee['name'])
+```
+
+---
+
+## Comprehensions
+
+List comprehensions are a compact way to create a new list from an iterable.
+
+Normal loop:
+
+```py
+squares = []
+
+for number in range(1, 6):
+    squares.append(number ** 2)
+
+print(squares)
+```
+
+List comprehension:
+
+```py
+squares = [number ** 2 for number in range(1, 6)]
+
+print(squares)
+# [1, 4, 9, 16, 25]
+```
+
+With a condition:
+
+```py
+even_numbers = [
+    number
+    for number in range(1, 11)
+    if number % 2 == 0
+]
+
+print(even_numbers)
+# [2, 4, 6, 8, 10]
+```
+
+Do not use comprehensions for complicated multi-step logic. A normal loop is often easier to read.
+
+---
+
+## Choosing the Right Loop
+
+| Situation | Recommended approach |
+|---|---|
+| Repeat while a condition is true | `while` |
+| Iterate over items in a collection | `for` |
+| Repeat a known number of times | `for` + `range()` |
+| Stop the loop early | `break` |
+| Skip the current iteration | `continue` |
+| Need index + value | `enumerate()` |
+| Iterate over multiple collections together | `zip()` |
+| Iterate backward | `reversed()` or `range(..., -1)` |
+| Search and detect whether `break` occurred | `for ... else` |
+| Build a simple transformed list | List comprehension |
+| Placeholder for future code | `pass` |
+
+### A Simple Mental Model
+
+```text
+for      -> "Go through these items"
+while    -> "Keep going while this is true"
+break    -> "Stop now"
+continue -> "Skip this one"
+range    -> "Generate a sequence of numbers"
+enumerate -> "Give me the index and value"
+zip      -> "Give me matching items together"
+```
+
+🌕 You have completed Day 10 and learned how Python repeats, skips, stops, and controls execution. These loop patterns are foundational for data processing and automation. Now practice the exercises below.
 
 ## 💻 Exercises: Day 10
 
 ### Exercises: Level 1
 
-1. Iterate 0 to 10 using for loop, do the same using while loop.
-2. Iterate 10 to 0 using for loop, do the same using while loop.
-3. Write a loop that makes seven calls to print(), so we get on the output the following triangle:
+1. Iterate from `0` to `10` using a `for` loop. Do the same using a `while` loop.
+2. Iterate from `10` to `0` using a `for` loop. Do the same using a `while` loop.
+3. Write a loop that prints the following triangle:
 
-   ```py
-     #
-     ##
-     ###
-     ####
-     #####
-     ######
-     #######
-   ```
+```text
+#
+##
+###
+####
+#####
+######
+#######
+```
 
 4. Use nested loops to create the following:
 
-   ```sh
-   # # # # # # # #
-   # # # # # # # #
-   # # # # # # # #
-   # # # # # # # #
-   # # # # # # # #
-   # # # # # # # #
-   # # # # # # # #
-   # # # # # # # #
-   ```
+```text
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+```
 
-5. Print the following pattern:
+5. Print:
 
-   ```sh
-   0 x 0 = 0
-   1 x 1 = 1
-   2 x 2 = 4
-   3 x 3 = 9
-   4 x 4 = 16
-   5 x 5 = 25
-   6 x 6 = 36
-   7 x 7 = 49
-   8 x 8 = 64
-   9 x 9 = 81
-   10 x 10 = 100
-   ```
+```text
+0 x 0 = 0
+1 x 1 = 1
+2 x 2 = 4
+3 x 3 = 9
+4 x 4 = 16
+5 x 5 = 25
+6 x 6 = 36
+7 x 7 = 49
+8 x 8 = 64
+9 x 9 = 81
+10 x 10 = 100
+```
 
-6. Iterate through the list, ['Python', 'Numpy','Pandas','Django', 'Flask'] using a for loop and print out the items.
-7. Use for loop to iterate from 0 to 100 and print only even numbers
-8. Use for loop to iterate from 0 to 100 and print only odd numbers
+6. Iterate through:
+
+```py
+['Python', 'NumPy', 'Pandas', 'Django', 'Flask']
+```
+
+using a `for` loop and print each item.
+
+7. Use a `for` loop to iterate from `0` to `100` and print only even numbers.
+8. Use a `for` loop to iterate from `0` to `100` and print only odd numbers.
 
 ### Exercises: Level 2
 
-1.  Use for loop to iterate from 0 to 100 and print the sum of all numbers.
+1. Use a `for` loop to iterate from `0` to `100` and print the sum of all numbers.
 
-```sh
+```text
 The sum of all numbers is 5050.
 ```
 
-2. Use for loop to iterate from 0 to 100 and print the sum of all evens and the sum of all odds.
+2. Use a `for` loop to iterate from `0` to `100` and print the sum of all evens and the sum of all odds.
 
-   ```sh
-   The sum of all evens is 2550. And the sum of all odds is 2500.
-   ```
+```text
+The sum of all evens is 2550. And the sum of all odds is 2500.
+```
 
+### Extra Practice
 
-🎉 CONGRATULATIONS ! 🎉
+3. Use `enumerate()` to print the position and value of every item in a list.
+4. Use `zip()` to combine a list of employee names with their salaries.
+5. Use a `while True` loop to repeatedly ask the user for input until they enter `q`.
+6. Use `for ... else` to search for a number in a list and print `Not found` when it does not exist.
+7. Reverse a list using `reversed()` and a loop.
+8. Create a list of squares from `1` to `10` using a list comprehension.
+9. Create a list containing only numbers divisible by `3` from `1` to `100`.
+10. Use nested loops to print a multiplication table from `1` to `5`.
 
-[<< Day 9](../09_Day_Conditionals/09_Day_Conditionals.md) | [Day 11 >>](../11_Day_Functions/11_functions.md)
+🎉 CONGRATULATIONS! 🎉
+
+[<< Day 9](../Day_09_Conditionals/09_Conditionals.md) | [Day 11 >>](../Day_11_Functions/11_Functions.md)
