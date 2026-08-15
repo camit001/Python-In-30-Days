@@ -10,7 +10,7 @@
 
 </div>
 
-[<< Day 28](../Day_28_API/28_API.md) | [Day 30 >>](../Day_30_Conclusions/30_conclusions.md)
+[<< Day 28](../Day_28_API/28_API.md) | [Day 30 >>](../Day_30_Conclusions/30_Conclusions.md)
 
 **[Python In 30 Days]**
 
@@ -609,4 +609,4 @@ Delta Lake
 
 🎉 CONGRATULATIONS! 🎉
 
-[<< Day 28](../Day_28_API/28_API.md) | [Day 30 >>](../Day_30_Conclusions/30_conclusions.md)
+[<< Day 28](../Day_28_API/28_API.md) | [Day 30 >>](../Day_30_Conclusions/30_Conclusions.md)
