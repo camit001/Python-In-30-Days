@@ -1,6 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 28 - API </h1>
-  
+  <h1>Python In 30 Days: Day 28 - API</h1>
 
 <sub>Author:
 <a href="https://github.com/camit001" target="_blank">Amit Kumar</a><br>
@@ -8,149 +7,603 @@
 </sub>
 
 </div>
-</div>
 
-[<< Day 27](../27_Day_Python_with_mongodb/27_python_with_mongodb.md) | [Day 29 >>](../29_Day_Building_API/29_building_API.md)
+[<< Day 27](../Day_27_Python_with_mongodb/27_python_with_mongodb.md) | [Day 29 >>](../Day_29_Building_API/29_Building_API.md)
 
-**[30DaysOfPython]**
+**[Python In 30 Days]**
 
 - [📘 Day 28](#-day-28)
-- [Application Programming Interface(API)](#application-programming-interfaceapi)
+- [Application Programming Interface (API)](#application-programming-interface-api)
   - [API](#api)
   - [Building API](#building-api)
-  - [HTTP(Hypertext Transfer Protocol)](#httphypertext-transfer-protocol)
+  - [HTTP (Hypertext Transfer Protocol)](#http-hypertext-transfer-protocol)
   - [Structure of HTTP](#structure-of-http)
-  - [Initial Request Line(Status Line)](#initial-request-linestatus-line)
-    - [Initial Response Line(Status Line)](#initial-response-linestatus-line)
+  - [Initial Request Line](#initial-request-line)
+    - [Initial Response Line (Status Line)](#initial-response-line-status-line)
     - [Header Fields](#header-fields)
-    - [The message body](#the-message-body)
+    - [The Message Body](#the-message-body)
     - [Request Methods](#request-methods)
+    - [Common HTTP Status Codes](#common-http-status-codes)
+    - [REST API Concepts](#rest-api-concepts)
+    - [JSON in APIs](#json-in-apis)
+    - [Calling an API with Python](#calling-an-api-with-python)
   - [💻 Exercises: Day 28](#-exercises-day-28)
 
 # 📘 Day 28
 
-# Application Programming Interface(API)
+## Application Programming Interface (API)
 
-## API
+### API
 
-API stands for Application Programming Interface. The kind of API we will cover in this section is going to be Web APIs.
-Web APIs are the defined interfaces through which interactions happen between an enterprise and applications that use its assets, which also is a Service Level Agreement (SLA) to specify the functional provider and expose the service path or URL for its API users.
+API stands for **Application Programming Interface**. In this section, we focus on **Web APIs**, which allow different applications and services to communicate with each other.
 
-In the context of web development, an API is defined as a set of specifications, such as Hypertext Transfer Protocol (HTTP) request messages, along with a definition of the structure of response messages, usually in an XML or a JavaScript Object Notation (JSON) format.
+A Web API defines how a client can request data or perform an operation on a server. APIs commonly use **HTTP** for communication and **JSON** for exchanging structured data.
 
-Web API has been moving away from Simple Object Access Protocol (SOAP) based web services and service-oriented architecture (SOA) towards more direct representational state transfer (REST) style web resources.
+For example, a Python application can request customer data from a server, while another application can send new data to that same server through an API.
 
-Social media services, web APIs have allowed web communities to share content and data between communities and different platforms. 
+Modern Web APIs commonly follow REST-style principles. A REST API uses resources, URLs, HTTP methods, and HTTP status codes to communicate between clients and servers.
 
-Using API, content that is created in one place dynamically can be posted and updated to multiple locations on the web.
+> **Note:** API design is broader than REST. REST is one common architectural style for Web APIs.
 
-For example, Twitter's REST API allows developers to access core Twitter data and the Search API provides methods for developers to interact with Twitter Search and trends data.
+### Building API
 
-Many applications provide API end points. Some  examples of API such as the countries [API](https://restcountries.eu/rest/v2/all), [cat's breed API](https://api.thecatapi.com/v1/breeds).
+A RESTful API commonly exposes **CRUD** operations:
 
-In this section, we will cover a RESTful API that uses HTTP request methods to GET, PUT, POST and DELETE data.
+| Operation | HTTP Method | Typical Purpose |
+|---|---|---|
+| Create | `POST` | Create a new resource |
+| Read | `GET` | Retrieve resources |
+| Update | `PUT` / `PATCH` | Update a resource |
+| Delete | `DELETE` | Delete a resource |
 
-## Building API
+In the previous sections, we learned Python, Flask, and MongoDB. These technologies can be combined to build a REST API that reads and modifies data stored in MongoDB.
 
-RESTful API is an application program interface (API) that uses HTTP requests to GET, PUT, POST and DELETE data. In the previous sections, we have learned about python, flask and mongoDB. We will use the knowledge we acquire to develop a RESTful API using Python flask and mongoDB database. Every application which has CRUD(Create, Read, Update, Delete) operation has an API to create data, to get data, to update data or to delete data from a database.
+For example:
 
-To build an API, it is good to understand HTTP protocol and HTTP request and response cycle.
+```text
+GET    /students
+GET    /students/101
+POST   /students
+PUT    /students/101
+DELETE /students/101
+```
 
-## HTTP(Hypertext Transfer Protocol)
+Each endpoint represents a resource or an operation on a resource.
 
-HTTP is an established communication protocol between a client and a server. A client in this case is a browser and server is the place where you access data. HTTP is a network protocol used to deliver resources which could be files on the World Wide Web, whether they are HTML files, image files, query results, scripts, or other file types.
+## HTTP (Hypertext Transfer Protocol)
 
-A browser is an HTTP client because it sends requests to an HTTP server (Web server), which then sends responses back to the client.
+HTTP is an application-layer communication protocol used between clients and servers.
+
+A client, such as a browser, mobile application, or Python program, sends an HTTP request to a server. The server processes the request and sends an HTTP response.
+
+The basic communication flow is:
+
+```text
+Client
+   |
+   | HTTP Request
+   v
+Server
+   |
+   | HTTP Response
+   v
+Client
+```
+
+An HTTP request can contain:
+
+- HTTP method
+- URL/path
+- headers
+- query parameters
+- optional request body
+
+An HTTP response can contain:
+
+- status code
+- headers
+- optional response body
 
 ## Structure of HTTP
 
-HTTP uses client-server model. An HTTP client opens a connection and sends a request message to an HTTP server and the HTTP server returns response message which is the requested resources. When the request response cycle completes the server closes the connection.
+HTTP messages generally contain:
 
-![HTTP request response cycle](../images/http_request_response_cycle.png)
+1. A start line
+2. Zero or more headers
+3. A blank line
+4. An optional message body
 
-The format of the request and response messages are similar. Both kinds of messages have
+Example request:
 
-- an initial line,
-- zero or more header lines,
-- a blank line (i.e. a CRLF by itself), and
-- an optional message body (e.g. a file, or query data, or query output).
-
-Let us an example of request and response messages by navigating this site:https://thirtydaysofpython-v1-final.herokuapp.com/. This site has been deployed on Heroku free dyno and in some months may not work because of high request. Support this work to make the server run all the time. 
-
-
-## Initial Request Line(Status Line)
-
-The initial request line is different from the response.
-A request line has three parts, separated by spaces:
-
-- method name(GET, POST, HEAD)
-- path of the requested resource,
-- the version of HTTP being used. eg GET / HTTP/1.1
-
-GET is the most common HTTP that helps to get or read resource and POST is a common request method to create resource.
-
-### Initial Response Line(Status Line)
-
-The initial response line, called the status line, also has three parts separated by spaces:
-
-- HTTP version
-- Response status code that gives the result of the request, and a reason which describes the status code. Example of status lines are:
-  HTTP/1.0 200 OK
-  or
-  HTTP/1.0 404 Not Found
-  Notes:
-
-The most common status codes are:
-200 OK: The request succeeded, and the resulting resource (e.g. file or script output) is returned in the message body.
-500 Server Error
-A complete list of HTTP status code can be found [here](https://httpstatuses.com/). It can be also found [here](https://httpstatusdogs.com/).
-
-### Header Fields
-
-As you have seen in the above screenshot, header lines provide information about the request or response, or about the object sent in the message body.
-
-```sh
-GET / HTTP/1.1
-Host: thirtydaysofpython-v1-final.herokuapp.com
-Connection: keep-alive
-Pragma: no-cache
-Cache-Control: no-cache
-Upgrade-Insecure-Requests: 1
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36
-Sec-Fetch-User: ?1
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Sec-Fetch-Site: same-origin
-Sec-Fetch-Mode: navigate
-Referer: https://thirtydaysofpython-v1-final.herokuapp.com/post
-Accept-Encoding: gzip, deflate, br
-Accept-Language: en-GB,en;q=0.9,fi-FI;q=0.8,fi;q=0.7,en-CA;q=0.6,en-US;q=0.5,fr;q=0.4
+```http
+GET /students HTTP/1.1
+Host: example.com
+Accept: application/json
 ```
 
-### The message body
+Example response:
 
-An HTTP message may have a body of data sent after the header lines. In a response, this is where the requested resource is returned to the client (the most common use of the message body), or perhaps explanatory text if there's an error. In a request, this is where user-entered data or uploaded files are sent to the server.
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-If an HTTP message includes a body, there are usually header lines in the message that describe the body. In particular,
+{
+    "name": "Amit Kumar",
+    "city": "Mumbai"
+}
+```
 
-The Content-Type: header gives the MIME-type of the data in the body(text/html, application/json, text/plain, text/css, image/gif).
-The Content-Length: header gives the number of bytes in the body.
+### Initial Request Line
 
-### Request Methods
+The initial request line contains:
 
-The GET, POST, PUT and DELETE are the HTTP request methods which we are going to implement an API or a CRUD operation application.
+- HTTP method
+- requested path
+- HTTP version
 
-1. GET: GET method is used to retrieve and get information from the given server using a given URI. Requests using GET should only retrieve data and should have no other effect on the data.
+Example:
 
-2. POST: POST request is used to create data and send data to the server, for example, creating a new post, file upload, etc. using HTML forms.
+```http
+GET /students HTTP/1.1
+```
 
-3. PUT: Replaces all current representations of the target resource with the uploaded content and we use it modify or update data.
+Here:
 
-4. DELETE: Removes data
+- `GET` is the HTTP method.
+- `/students` is the requested resource.
+- `HTTP/1.1` is the HTTP version.
+
+### Initial Response Line (Status Line)
+
+The response status line contains:
+
+- HTTP version
+- status code
+- reason phrase
+
+Example:
+
+```http
+HTTP/1.1 200 OK
+```
+
+The status code tells the client what happened with the request.
+
+### Common HTTP Status Codes
+
+| Status Code | Meaning | Typical Use |
+|---|---|---|
+| `200 OK` | Request succeeded | Successful GET/update response |
+| `201 Created` | Resource created | Successful POST |
+| `204 No Content` | Success with no response body | Successful DELETE |
+| `400 Bad Request` | Invalid request | Missing/invalid input |
+| `401 Unauthorized` | Authentication required/failed | Invalid credentials/token |
+| `403 Forbidden` | Access denied | User lacks permission |
+| `404 Not Found` | Resource not found | Invalid endpoint or ID |
+| `405 Method Not Allowed` | Method not supported | Wrong HTTP method |
+| `500 Internal Server Error` | Server-side failure | Unexpected application error |
+
+A useful rule for beginners is:
+
+```text
+2xx = success
+4xx = client/request problem
+5xx = server problem
+```
+
+## Header Fields
+
+Headers provide additional information about an HTTP request or response.
+
+Example:
+
+```http
+GET /students HTTP/1.1
+Host: example.com
+Accept: application/json
+Authorization: Bearer <token>
+```
+
+Common headers include:
+
+- `Content-Type`: describes the format of the message body.
+- `Accept`: tells the server which response format the client prefers.
+- `Authorization`: carries authentication information.
+- `User-Agent`: identifies the client.
+- `Cache-Control`: provides caching instructions.
+
+For JSON APIs, you will commonly see:
+
+```http
+Content-Type: application/json
+```
+
+## The Message Body
+
+An HTTP message can contain a body.
+
+For a `POST` or `PUT` request, the body commonly contains the data being sent to the server.
+
+Example:
+
+```http
+POST /students HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Amit Kumar",
+    "country": "India",
+    "city": "Mumbai",
+    "age": 25
+}
+```
+
+The `Content-Type` header tells the server how to interpret the body.
+
+## Request Methods
+
+The most common HTTP methods used when building REST APIs are:
+
+### 1. GET
+
+`GET` retrieves data.
+
+```http
+GET /students
+```
+
+A GET request should not be used to modify server-side data.
+
+### 2. POST
+
+`POST` creates a new resource or submits data for processing.
+
+```http
+POST /students
+```
+
+Example JSON body:
+
+```json
+{
+    "name": "Amit Kumar",
+    "city": "Mumbai"
+}
+```
+
+### 3. PUT
+
+`PUT` is commonly used to replace the representation of an existing resource.
+
+```http
+PUT /students/101
+```
+
+### 4. PATCH
+
+`PATCH` is commonly used for a partial update.
+
+```http
+PATCH /students/101
+```
+
+For example, changing only the student's city without sending every field.
+
+### 5. DELETE
+
+`DELETE` removes a resource.
+
+```http
+DELETE /students/101
+```
+
+## REST API Concepts
+
+A REST API usually organizes data around **resources**.
+
+For example, if the resource is `students`:
+
+```text
+GET    /students       -> Get all students
+GET    /students/101   -> Get student 101
+POST   /students       -> Create a student
+PUT    /students/101   -> Replace student 101
+PATCH  /students/101   -> Partially update student 101
+DELETE /students/101   -> Delete student 101
+```
+
+### Path Parameters
+
+A path parameter identifies a specific resource.
+
+```text
+/students/101
+```
+
+Here `101` can represent a student ID.
+
+### Query Parameters
+
+Query parameters are useful for filtering, sorting, pagination, and searching.
+
+```text
+/students?city=Mumbai
+/students?limit=10
+/students?city=Mumbai&sort=name
+```
+
+### Request Body
+
+The request body carries data sent to the server, especially with `POST`, `PUT`, and `PATCH`.
+
+## JSON in APIs
+
+JSON stands for **JavaScript Object Notation**. It is one of the most common formats used for API requests and responses.
+
+Example:
+
+```json
+{
+    "name": "Amit Kumar",
+    "country": "India",
+    "city": "Mumbai",
+    "skills": ["Python", "SQL", "PySpark"]
+}
+```
+
+The equivalent Python dictionary is:
+
+```py
+student = {
+    "name": "Amit Kumar",
+    "country": "India",
+    "city": "Mumbai",
+    "skills": ["Python", "SQL", "PySpark"]
+}
+```
+
+When working with APIs, JSON data is commonly converted between Python objects and JSON using the `json` module.
+
+```py
+import json
+
+student = {
+    "name": "Amit Kumar",
+    "city": "Mumbai"
+}
+
+json_data = json.dumps(student)
+print(json_data)
+
+python_data = json.loads(json_data)
+print(python_data)
+```
+
+## Calling an API with Python
+
+Python can consume APIs using libraries such as `requests`.
+
+Install it with:
+
+```sh
+pip install requests
+```
+
+Example:
+
+```py
+import requests
+
+url = "https://api.github.com"
+
+response = requests.get(url)
+
+print(response.status_code)
+print(response.headers.get("Content-Type"))
+print(response.json())
+```
+
+### Sending Query Parameters
+
+Instead of manually building a URL, pass query parameters using `params`.
+
+```py
+import requests
+
+url = "https://api.example.com/students"
+
+params = {
+    "city": "Mumbai",
+    "limit": 10
+}
+
+response = requests.get(url, params=params)
+
+print(response.url)
+print(response.status_code)
+```
+
+### Sending JSON Data
+
+```py
+import requests
+
+url = "https://api.example.com/students"
+
+student = {
+    "name": "Amit Kumar",
+    "city": "Mumbai"
+}
+
+response = requests.post(url, json=student)
+
+print(response.status_code)
+print(response.json())
+```
+
+### Handling API Errors
+
+Do not assume every request succeeds. Computers enjoy disappointing people at inconvenient moments.
+
+```py
+import requests
+
+response = requests.get("https://api.example.com/students")
+
+if response.ok:
+    print(response.json())
+else:
+    print("Request failed:", response.status_code)
+```
+
+You can also use:
+
+```py
+response.raise_for_status()
+```
+
+This raises an exception when the response contains an HTTP error status.
+
+## Simple Flask API Example
+
+The following example shows the basic structure of a Flask API.
+
+```py
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+students = [
+    {
+        "id": 1,
+        "name": "Amit Kumar",
+        "city": "Mumbai"
+    },
+    {
+        "id": 2,
+        "name": "Rahul Sharma",
+        "city": "Pune"
+    }
+]
+
+@app.get("/students")
+def get_students():
+    return jsonify(students)
+
+@app.get("/students/<int:student_id>")
+def get_student(student_id):
+    for student in students:
+        if student["id"] == student_id:
+            return jsonify(student)
+
+    return jsonify({"error": "Student not found"}), 404
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+Run:
+
+```sh
+python app.py
+```
+
+Then request:
+
+```text
+http://127.0.0.1:5000/students
+```
+
+This example uses an in-memory Python list. In a real application, the data would normally come from a database such as MongoDB or PostgreSQL.
+
+## API Best Practices
+
+When designing an API:
+
+1. Use meaningful resource names.
+2. Use the appropriate HTTP method.
+3. Return meaningful HTTP status codes.
+4. Validate incoming data.
+5. Keep secrets such as API keys and database passwords out of source code.
+6. Return consistent JSON responses.
+7. Add authentication and authorization when required.
+8. Use pagination for large collections.
+9. Log errors without exposing sensitive information.
+10. Document your endpoints.
+
+A simple response format can make an API easier to consume:
+
+```json
+{
+    "success": true,
+    "data": {
+        "id": 101,
+        "name": "Amit Kumar"
+    },
+    "message": "Student retrieved successfully"
+}
+```
 
 ## 💻 Exercises: Day 28
 
-1. Read about API and HTTP
+### Exercises: Level 1
 
-🎉 CONGRATULATIONS ! 🎉
+1. Read about APIs and HTTP.
+2. Explain the difference between a client and a server.
+3. Explain the difference between `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
+4. Explain the difference between path parameters and query parameters.
+5. Explain the meaning of HTTP status codes `200`, `201`, `400`, `401`, `403`, `404`, and `500`.
 
-[<< Day 27](../27_Day_Python_with_mongodb/27_python_with_mongodb.md) | [Day 29 >>](../29_Day_Building_API/29_building_API.md)
+### Exercises: Level 2
+
+1. Install the `requests` package.
+2. Call a public API using `requests.get()`.
+3. Print the status code.
+4. Print the response headers.
+5. Convert the response to JSON using `.json()`.
+6. Pass query parameters using the `params` argument.
+7. Handle unsuccessful requests using `raise_for_status()`.
+
+### Exercises: Level 3
+
+Build a Flask API for a `students` resource.
+
+Implement:
+
+```text
+GET    /students
+GET    /students/<id>
+POST   /students
+PUT    /students/<id>
+PATCH  /students/<id>
+DELETE /students/<id>
+```
+
+Return appropriate HTTP status codes and JSON responses.
+
+### Exercises: Level 4 - Data Engineering Practice
+
+Build a small **Employee Data API** using Flask.
+
+Create endpoints to:
+
+1. Get all employees.
+2. Get an employee by ID.
+3. Filter employees by city.
+4. Filter employees by department.
+5. Add a new employee.
+6. Update an employee.
+7. Delete an employee.
+8. Add pagination using `limit` and `offset`.
+9. Store the employee data in MongoDB.
+10. Return consistent JSON responses.
+
+Example:
+
+```text
+GET /employees?department=Data%20Engineering&limit=10&offset=0
+```
+
+🎉 CONGRATULATIONS! 🎉
+
+[<< Day 27](../Day_27_Python_with_mongodb/27_python_with_mongodb.md) | [Day 29 >>](../Day_29_Building_API/29_Building_API.md)
