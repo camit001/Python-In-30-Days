@@ -13,7 +13,7 @@
 </sub>
 </div>
 
-[<< Day 2](../Day_02_Variables_builtin_functions/02_Variables_builtin_functions.md) | [Day 4 >>](../Day_04_Strings/04_Strings.md)
+[<< Day 2](../Day_02_Variables_builtin_functions/02_variables_builtin_functions.md) | [Day 4 >>](../Day_04_Strings/04_Strings.md)
 
 **Python In 30 Days**
 
