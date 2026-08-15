@@ -8,7 +8,7 @@
 
 </div>
 
-[<< Day 27](../Day_27_Python_with_mongodb/27_python_with_mongodb.md) | [Day 29 >>](../Day_29_Building_API/29_Building_API.md)
+[<< Day 27](../Day_27_Python_with_mongodb/27_Python_with_mongodb.md) | [Day 29 >>](../Day_29_Building_API/29_Building_API.md)
 
 **[Python In 30 Days]**
 
@@ -606,4 +606,4 @@ GET /employees?department=Data%20Engineering&limit=10&offset=0
 
 🎉 CONGRATULATIONS! 🎉
 
-[<< Day 27](../Day_27_Python_with_mongodb/27_python_with_mongodb.md) | [Day 29 >>](../Day_29_Building_API/29_Building_API.md)
+[<< Day 27](../Day_27_Python_with_mongodb/27_Python_with_mongodb.md) | [Day 29 >>](../Day_29_Building_API/29_Building_API.md)
