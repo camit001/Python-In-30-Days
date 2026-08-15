@@ -83,7 +83,7 @@ Build a program that reads student examination data and:
 - Calculates class average
 - Counts students in each grade
 
-The project practices CSV handling, dictionaries, loops, functions, conditions, lambda, `max()`, and `sum()`. fileciteturn18file0L7-L18 fileciteturn18file0L111-L130
+The project practices CSV handling, dictionaries, loops, functions, conditions, lambda, `max()`, and `sum()`. 
 
 ### Project 02 - Expense Tracker
 
@@ -96,7 +96,7 @@ Build an application that:
 - Finds the highest expense
 - Performs monthly analysis
 
-The project works with CSV data, dictionaries, loops, lambda, `max()`, and `sum()`. fileciteturn18file0L135-L147 fileciteturn18file0L165-L172
+The project works with CSV data, dictionaries, loops, lambda, `max()`, and `sum()`. 
 
 ### Project 03 - Sales Data Analyzer
 
@@ -110,7 +110,7 @@ Build a program that analyzes retail sales data and calculates:
 - Best-selling product
 - Best-performing region
 
-This project introduces both a basic Python implementation and a Pandas implementation using `groupby()` and aggregation. fileciteturn18file0L231-L243 fileciteturn18file0L315-L340
+This project introduces both a basic Python implementation and a Pandas implementation using `groupby()` and aggregation. 
 
 ### Project 04 - Employee Data Analyzer
 
@@ -124,7 +124,7 @@ Build a program that analyzes employee information and finds:
 - Employees earning above average
 - Highest-paid employee
 
-The project combines CSV processing, dictionaries, loops, conditions, functions, lambda, `sum()`, and `max()`. fileciteturn18file0L367-L380 fileciteturn18file0L399-L407
+The project combines CSV processing, dictionaries, loops, conditions, functions, lambda, `sum()`, and `max()`. 
 
 ### Project 05 - Student Management REST API
 
@@ -149,7 +149,7 @@ PUT     /students/{student_id}
 DELETE  /students/{student_id}
 ```
 
-The project also introduces virtual environments, package installation, MongoDB connectivity, Swagger documentation, and CRUD operations. fileciteturn18file0L488-L514 fileciteturn18file0L538-L548
+The project also introduces virtual environments, package installation, MongoDB connectivity, Swagger documentation, and CRUD operations. 
 
 ## Project Navigation
 
@@ -163,25 +163,30 @@ Use the project document as the practical part of the 30-day journey:
 
 ### Project 02
 
-[Expense Tracker](../Projects/Python_30_Days_Projects.md#project-02--expense-tracker)
+[Expense Tracker](../Projects/Python_30_Days_Projects.md/project-02--expense-tracker.md)
 
 ### Project 03
 
-[Sales Data Analyzer](../Projects/Python_30_Days_Projects.md#project-03--sales-data-analyzer)
+[Sales Data Analyzer](../Projects/Python_30_Days_Projects.md/project-03--sales-data-analyzer.md)
 
 ### Project 04
 
-[Employee Data Analyzer](../Projects/Python_30_Days_Projects.md#project-04--employee-data-analyzer)
+[Employee Data Analyzer](../Projects/Python_30_Days_Projects.md/project-04--employee-data-analyzer.md)
 
 ### Project 05
 
-[Student Management REST API](../Projects/Python_30_Days_Projects.md#project-05--student-management-rest-api)
+[Student Management REST API](../Projects/Python_30_Days_Projects.md/project-05--student-management-rest-api.md)
+
+### BONUS Project 05
+
+[Surprise 🎉🎉](../Projects/Python_30_Days_Projects.md/final-project--python-data-pipeline-project-.md)
+
 
 > **Note:** The project navigation above assumes the project file is stored at `Projects/Python_30_Days_Projects.md`, matching the relative Markdown navigation pattern used by the Day files.
 
 ## How the Projects Progress
 
-The supplied project roadmap progresses from Python fundamentals toward application development. fileciteturn18file0L743-L778
+The supplied project roadmap progresses from Python fundamentals toward application development. 
 
 ```text
 Project 01
@@ -221,7 +226,7 @@ FastAPI + MongoDB + REST
 
 ## Recommended Learning Strategy
 
-For every project, follow the workflow from the project document: fileciteturn18file0L781-L805
+For every project, follow the workflow from the project document: 
 
 ```text
 1. Read the problem statement
@@ -249,7 +254,7 @@ Do not treat the provided solution as the destination. Use it to compare your ap
 
 ## Final Learning Path
 
-The project document summarizes the learning path as: fileciteturn18file0L839-L865
+The project document summarizes the learning path as: 
 
 ```text
 Python Basics
@@ -378,7 +383,7 @@ Base API
    +--> Unit tests
 ```
 
-The project document itself suggests extensions such as Pydantic models, validation, proper HTTP status codes, authentication, pagination, search/filtering, logging, unit tests, deployment, and a frontend. fileciteturn18file0L728-L738
+The project document itself suggests extensions such as Pydantic models, validation, proper HTTP status codes, authentication, pagination, search/filtering, logging, unit tests, deployment, and a frontend.
 
 ## Final Goal
 
@@ -408,4 +413,4 @@ Reaching Day 30 is the end of this structured journey, not the end of Python.
 
 🎉 **CONGRATULATIONS! YOU COMPLETED 30 DAYS OF PYTHON!** 🎉
 
-[<< Day 29](../Day_29_Building_API/29_Building_API.md) | [Projects](../Projects/Python_30_Days_Projects.md)
+[<< Day 29](../Day_29_Building_API/29_Building_API.md) | [Projects](../Projects/Python_30_Days_Projects)
