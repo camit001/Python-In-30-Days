@@ -15,7 +15,7 @@
 
 </div>
 
-**[Day 2 >>](Day_02_Variables_builtin_functions/02_variables_builtin_functions.md)**
+**[Day 2 >>](../Day_02_Variables_builtin_functions/02_variables_builtin_functions.md)**
 
 ## 1. Introduction to Python
 
