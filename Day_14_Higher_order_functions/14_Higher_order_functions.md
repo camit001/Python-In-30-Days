@@ -360,4 +360,4 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 13](../Day_13_List_Comprehension/13_List_Comprehension.md) | [Day 15>>](../Day_15_Python_Type_Errors/15_Python_Type_Errors.md)
+[<< Day 13](../Day_13_List_comprehension/13_List_comprehension.md) | [Day 15>>](../Day_15_Python_type_errors/15_Python_type_errors.md)
