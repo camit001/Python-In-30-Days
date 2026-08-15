@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 5 - Lists</h1>
+  <h1> Python In 30 Days: Day 5 - Lists</h1>
   
 
 <sub>Author:
@@ -8,9 +8,9 @@
 
 </div>
 
-[<< Day 4](../04_Day_Strings/04_Strings_Amit_Kumar.md) | [Day 6 >>](../06_Day_Tuples/06_tuples.md)
+[<< Day 4](../Day_04_Strings/04_Strings.md) | [Day 6 >>](../Day_06_Tuples/06_Tuples.md)
 
-**[30DaysOfPython]**
+**Python In 30 Days**
 
 - [Day 5](#day-5)
   - [Lists](#lists)
@@ -57,14 +57,14 @@ print("City:", personal_info[2])
 ```
 
 
-There are four collection data types in Python :
+Python has four commonly used built-in collection data types:
 
-- List: is a collection which is ordered and changeable(modifiable). Allows duplicate members.
-- Tuple: is a collection which is ordered and unchangeable or unmodifiable(immutable). Allows duplicate members.
-- Set: is a collection which is unordered, un-indexed and unmodifiable, but we can add new items to the set. Duplicate members are not allowed.
-- Dictionary: is a collection which is unordered, changeable(modifiable) and indexed. No duplicate members.
+- List: an ordered, mutable collection that allows duplicate items.
+- Tuple: an ordered, immutable collection that allows duplicate items.
+- Set: an unordered collection of unique items. Sets are mutable, so items can be added or removed.
+- Dictionary: a mutable collection of key-value pairs. Keys must be unique.
 
-A list is collection of different data types which is ordered and modifiable(mutable). A list can be empty or it may have different data type items.
+A list is an ordered and mutable collection that can contain values of different data types. A list can be empty or it may have different data type items.
 
 ### How to Create a List
 
@@ -100,7 +100,7 @@ Lists with initial values. We use _len()_ to find the length of a list.
 fruits = ['banana', 'orange', 'mango', 'lemon']                     # list of fruits
 vegetables = ['Tomato', 'Potato', 'Cabbage','Onion', 'Carrot']      # list of vegetables
 animal_products = ['milk', 'meat', 'butter', 'yoghurt']             # list of animal products
-web_techs = ['HTML', 'CSS', 'JS', 'React','Redux', 'Node', 'MongDB'] # list of web technologies
+web_techs = ['HTML', 'CSS', 'JavaScript', 'React','Redux', 'Node', 'MongoDB'] # list of web technologies
 countries = ['Finland', 'Estonia', 'Denmark', 'Sweden', 'Norway'] 
 
 # Print the lists and its length
@@ -124,7 +124,7 @@ Vegetables: ['Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']
 Number of vegetables: 5
 Animal products: ['milk', 'meat', 'butter', 'yoghurt']
 Number of animal products: 4
-Web technologies: ['HTML', 'CSS', 'JS', 'React', 'Redux', 'Node', 'MongDB']
+Web technologies: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node', 'MongoDB']
 Number of web technologies: 7
 Countries: ['Finland', 'Estonia', 'Denmark', 'Sweden', 'Norway']
 Number of countries: 5
@@ -219,7 +219,7 @@ all_fruits = fruits[0:4] # it returns all the fruits
 all_fruits = fruits[0:] # if we don't set where to stop it takes all the rest
 orange_and_mango = fruits[1:3] # it does not include the first index
 orange_mango_lemon = fruits[1:]
-orange_and_lemon = fruits[::2] # here we used a 3rd argument, step. It will take every 2cnd item - ['banana', 'mango']
+orange_and_lemon = fruits[::2]  # step=2 selects every second item - ['banana', 'mango']
 ```
 
 - Negative Indexing: We can specify a range of negative indexes by specifying the start, end and step, the return value will be a new list.
@@ -231,6 +231,46 @@ orange_and_mango = fruits[-3:-1] # it does not include the last index,['orange',
 orange_mango_lemon = fruits[-3:] # this will give starting from -3 to the end,['orange', 'mango', 'lemon']
 reverse_fruits = fruits[::-1] # a negative step will take the list in reverse order,['lemon', 'mango', 'orange', 'banana']
 ```
+
+### Practical List Basics
+
+Lists are one of the most important Python data structures because they let you store multiple values in one ordered, mutable collection.
+
+A useful way to think about a list is:
+
+```text
+Index:    0        1        2
+Value:  Python    SQL    PySpark
+```
+
+```py
+skills = ['Python', 'SQL', 'PySpark']
+
+print(skills[0])       # Python
+print(skills[-1])      # PySpark
+print(skills[0:2])     # ['Python', 'SQL']
+```
+
+**Important:** list methods such as `append()`, `insert()`, `remove()`, `sort()`, and `reverse()` modify the existing list.
+
+```py
+skills = ['Python', 'SQL']
+
+skills.append('PySpark')
+print(skills)           # ['Python', 'SQL', 'PySpark']
+```
+
+A common beginner mistake is expecting `append()` or `sort()` to return the modified list:
+
+```py
+skills = ['Python', 'SQL']
+result = skills.append('PySpark')
+
+print(result)           # None
+print(skills)           # ['Python', 'SQL', 'PySpark']
+```
+
+**Practical tip:** use `sorted(my_list)` when you want a new sorted list and `my_list.sort()` when you intentionally want to modify the original list.
 
 ### Modifying Lists
 
@@ -249,7 +289,7 @@ print(fruits)        #  ['avocado', 'apple', 'mango', 'lime']
 
 ### Checking Items in a List
 
-Checking an item if it is a member of a list using *in* operator. See the example below.
+To check whether an item exists in a list, use the `in` operator. See the example below.
 
 ```py
 fruits = ['banana', 'orange', 'mango', 'lemon']
@@ -261,7 +301,7 @@ print(does_exist)  # False
 
 ### Adding Items to a List
 
-To add item to the end of an existing list we use the method *append()*.
+To add an item to the end of a list, use the `append()` method.
 
 ```py
 # syntax
@@ -279,7 +319,7 @@ print(fruits)
 
 ### Inserting Items into a List
 
-We can use *insert()* method to insert a single item at a specified index in a list. Note that other items are shifted to the right. The *insert()* methods takes two arguments:index and an item to insert.
+We can use the `insert()` method to insert a single item at a specified index in a list. Note that other items are shifted to the right. The `insert()` method takes two arguments: the index and the item to insert.
 
 ```py
 # syntax
@@ -297,7 +337,7 @@ print(fruits)
 
 ### Removing Items from a List
 
-The remove method removes a specified item from a list
+The `remove()` method removes the first occurrence of a specified item from a list.
 
 ```py
 # syntax
@@ -315,7 +355,7 @@ print(fruits)  # ['orange', 'mango', 'banana']
 
 ### Removing Items Using Pop
 
-The *pop()* method removes the specified index, (or the last item if index is not specified):
+The `pop()` method removes and returns an item at the specified index, or the last item if no index is specified.
 
 ```py
 # syntax
@@ -335,7 +375,7 @@ print(fruits)       # ['orange', 'mango']
 
 ### Removing Items Using Del
 
-The *del* keyword removes the specified index and it can also be used to delete items within index range. It can also delete the list completely
+The `del` keyword can remove an item at a specified index and it can also be used to delete items within index range. It can also delete the list completely
 
 ```py
 # syntax
@@ -350,7 +390,7 @@ del fruits[0]
 print(fruits)       # ['orange', 'mango', 'lemon', 'kiwi', 'lime']
 del fruits[1]
 print(fruits)       # ['orange', 'lemon', 'kiwi', 'lime']
-del fruits[1:3]     # this deletes items between given indexes, so it does not delete the item with index 3!
+del fruits[1:3]     # deletes indexes 1 and 2; index 3 is not included
 print(fruits)       # ['orange', 'lime']
 del fruits
 print(fruits)       # This should give: NameError: name 'fruits' is not defined
@@ -374,7 +414,7 @@ print(fruits)       # []
 
 ### Copying a List
 
-It is possible to copy a list by reassigning it to a new variable in the following way: list2 = list1. Now, list2 is a reference of list1, any changes we make in list2 will also modify the original, list1. But there are lots of case in which we do not like to modify the original instead we like to have a different copy. One of way of avoiding the problem above is using _copy()_.
+Assigning `list2 = list1` does not create a new list. Both variables refer to the same list. Now, list2 is a reference of list1, any changes we make in list2 will also modify the original, list1. If you need an independent shallow copy, use `copy()`.
 
 ```py
 # syntax
@@ -412,7 +452,7 @@ print(fruits_and_vegetables ) # ['banana', 'orange', 'mango', 'lemon', 'Tomato',
 ```
 
 - Joining using extend() method
-  The *extend()* method allows to append list in a list. See the example below.
+  The `extend()` method adds each item from another iterable to the end of the list. See the example below.
 
 ```py
 # syntax
@@ -495,7 +535,7 @@ print(ages) # [24, 25, 24, 26, 25, 24, 19, 22]
 
 ### Sorting List Items
 
-To sort lists we can use _sort()_ method or _sorted()_ built-in functions. The _sort()_ method reorders the list items in ascending order and modifies the original list. If an argument of _sort()_ method reverse is equal to true, it will arrange the list in descending order.
+To sort lists, we can use the `sort()` method or the built-in `sorted()` function. The `sort()` method reorders the items and modifies the original list. If the `reverse` argument of `sort()` is `True`, it will arrange the list in descending order.
 
 - sort(): this method modifies the original list
 
@@ -522,7 +562,7 @@ To sort lists we can use _sort()_ method or _sorted()_ built-in functions. The _
   print(ages) #  [26, 25, 25, 24, 24, 24, 22, 19]
   ```
 
-  sorted(): returns the ordered list without modifying the original list
+  `sorted()` returns a new sorted list without modifying the original list.
   **Example:**
 
   ```py
@@ -534,7 +574,23 @@ To sort lists we can use _sort()_ method or _sorted()_ built-in functions. The _
   print(fruits)     # ['orange', 'mango', 'lemon', 'banana']
   ```
 
-🌕 You are diligent and you have already achieved quite a lot. You have just completed day 5 challenges and you are 5 steps a head in to your way to greatness. Now do some exercises for your brain and muscles.
+🌕 You have completed Day 5 and covered the core operations you need to work confidently with Python lists. Now practice the exercises below.
+
+### Quick List Method Reference
+
+| Method / Function | Purpose | Example |
+|---|---|---|
+| `append()` | Adds one item to the end | `items.append('Python')` |
+| `insert()` | Adds an item at an index | `items.insert(1, 'SQL')` |
+| `remove()` | Removes the first matching item | `items.remove('SQL')` |
+| `pop()` | Removes and returns an item | `items.pop()` |
+| `clear()` | Removes all items | `items.clear()` |
+| `copy()` | Creates a shallow copy | `new = items.copy()` |
+| `count()` | Counts an item's occurrences | `items.count('Python')` |
+| `index()` | Finds the first matching index | `items.index('Python')` |
+| `reverse()` | Reverses the original list | `items.reverse()` |
+| `sort()` | Sorts the original list | `items.sort()` |
+| `sorted()` | Returns a new sorted list | `sorted(items)` |
 
 ## 💻 Exercises: Day 5
 
@@ -568,7 +624,7 @@ To sort lists we can use _sort()_ method or _sorted()_ built-in functions. The _
 26. Join the following lists:
 
     ```py
-    front_end = ['HTML', 'CSS', 'JS', 'React', 'Redux']
+    front_end = ['HTML', 'CSS', 'JavaScript', 'React', 'Redux']
     back_end = ['Node','Express', 'MongoDB']
     ```
 
@@ -590,6 +646,6 @@ ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
 - Compare the value of (min - average) and (max - average), use _abs()_ method
 
 
-🎉 CONGRATULATIONS ! 🎉
+🎉 CONGRATULATIONS! 🎉
 
-[<< Day 4](../04_Day_Strings/04_Strings_Amit_Kumar.md) | [Day 6 >>](../06_Day_Tuples/06_tuples.md)
+[<< Day 4](../Day_04_Strings/04_Strings.md) | [Day 6 >>](../Day_06_Tuples/06_Tuples.md)
