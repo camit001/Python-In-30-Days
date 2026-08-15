@@ -1,5 +1,7 @@
+
+
 <div align="center">
-  <h1> 30 Days Of Python: Day 24 - Statistics</h1>
+  <h1> Python In 30 Days: Day 24 - Statistics (NumPy)</h1>
   
 
 <sub>Author:
@@ -8,7 +10,1321 @@
 </sub>
 </div>
 
-[<< Day 23](../23_Day_Virtual_environment/23_Virtual_environment.md) | [Day 25 >>](../25_Day_Pandas/25_Pandas.md)
+[<< Day 23](../Day_23_Virtual_environment/23_Virtual_environment.md) | [Day 25 >>](../Day_25_Pandas/25_Pandas.md)
+
+**Python In 30 Days**
+
+- [📘 Day 24](#-day-24)
+  - [Python for Statistical Analysis](#python-for-statistical-analysis)
+  - [Statistics](#statistics)
+  - [Data](#data)
+  - [Statistics Module](#statistics-module)
+- [NumPy](#NumPy)
+- [Exercises](#Exercises)
+
+# 📘 Day 24
+
+## Python for Statistical Analysis
+
+## Statistics
+
+Statistics is the discipline that studies the _collection_, _organization_, _displaying_, _analysing_, _interpretation_ and _presentation_ of data.
+Statistics is a branch of Mathematics that is recommended to be a prerequisite for data science and machine learning. Statistics is a very broad field but we will focus in this section only on the most relevant part.
+After completing this challenge, you may go onto the web development, data analysis, machine learning and data science path. Whatever path you may follow, at some point in your career you will get data which you may work on. Having some statistical knowledge will help you to make decisions based on data, _data tells as they say_.
+
+## Data
+
+What is data? Data is any set of characters that is gathered and translated for some purpose, usually analysis. It can be any character, including text and numbers, pictures, sound, or video. If data is not put in a context, it doesn't make any sense to a human or computer. To make sense from data we need to work on the data using different tools.
+
+The work flow of data analysis, data science or machine learning starts from data. Data can be provided from some data source or it can be created. There are structured and unstructured data.
+
+Data can be found in small or big format. Most of the data types we will get have been covered in the file handling section.
+
+## Statistics Module
+
+The Python _statistics_ module provides functions for calculating mathematical statistics of numerical data. The module is not intended to be a competitor to third-party libraries such as NumPy, SciPy, or proprietary full-featured statistics packages aimed at professional statisticians such as Minitab, SAS and Matlab. It is aimed at the level of graphing and scientific calculators.
+
+# NumPy
+
+In the first section we defined Python as a great general-purpose programming language on its own, but with the help of other popular libraries as(NumPy, scipy, matplotlib, pandas etc) it becomes a powerful environment for scientific computing.
+
+NumPy is the core library for scientific computing in Python. It provides a high-performance multidimensional array object, and tools for working with arrays.
+
+So far, we have been using VS Code. For data analysis and experimentation, you can also use Jupyter Notebook. You can install Jupyter Notebook separately or use Anaconda, which includes many commonly used data-science packages.
+
+```sh
+python -m pip install NumPy
+```
+
+## Importing NumPy
+
+
+```py
+    # How to import NumPy
+    import numpy as np
+    # How to check the version of the NumPy package
+    print('NumPy:', np.__version__)
+    # Checking the available methods
+    print(dir(np))
+```
+
+## Creating NumPy array using
+
+### Creating int NumPy arrays
+
+```py
+    # Creating python List
+    python_list = [1,2,3,4,5]
+
+    # Checking data types
+    print('Type:', type (python_list)) # <class 'list'>
+    #
+    print(python_list) # [1, 2, 3, 4, 5]
+
+    two_dimensional_list = [[0,1,2], [3,4,5], [6,7,8]]
+
+    print(two_dimensional_list)  # [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+
+    # Creating NumPy(Numerical Python) array from python list
+
+    NumPy_array_from_list = np.array(python_list)
+    print(type (NumPy_array_from_list))   # <class 'numpy.ndarray'>
+    print(NumPy_array_from_list) # array([1, 2, 3, 4, 5])
+```
+
+### Creating float NumPy arrays
+
+Creating a float NumPy array from list with a float data type parameter
+
+```py
+    # Python list
+    python_list = [1,2,3,4,5]
+
+    numpy_array_from_list2 = np.array(python_list, dtype=float)
+    print(numpy_array_from_list2) # array([1., 2., 3., 4., 5.])
+```
+
+### Creating boolean NumPy arrays
+
+Creating a boolean a NumPy array from list
+
+```py
+    NumPy_bool_array = np.array([0, 1, -1, 0, 0], dtype=bool)
+    print(NumPy_bool_array) # array([False,  True,  True, False, False])
+```
+
+### Creating multidimensional array using NumPy
+
+A NumPy array may have one or multiple rows and columns
+
+```py
+    two_dimensional_list = [[0,1,2], [3,4,5], [6,7,8]]
+    NumPy_two_dimensional_list = np.array(two_dimensional_list)
+    print(type (NumPy_two_dimensional_list))
+    print(NumPy_two_dimensional_list)
+```
+
+```sh
+    <class 'numpy.ndarray'>
+    [[0 1 2]
+     [3 4 5]
+     [6 7 8]]
+```
+
+### Converting NumPy array to list
+
+```python
+# We can always convert an array back to a python list using tolist().
+np_to_list = NumPy_array_from_list.tolist()
+print(type (np_to_list))
+print('one dimensional array:', np_to_list)
+print('two dimensional array: ', NumPy_two_dimensional_list.tolist())
+```
+
+```sh
+    <class 'list'>
+    one dimensional array: [1, 2, 3, 4, 5]
+    two dimensional array:  [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+```
+
+### Creating NumPy array from tuple
+
+```py
+# NumPy array from tuple
+# Creating tuple in Python
+python_tuple = (1,2,3,4,5)
+print(type (python_tuple)) # <class 'tuple'>
+print('python_tuple: ', python_tuple) # python_tuple:  (1, 2, 3, 4, 5)
+
+NumPy_array_from_tuple = np.array(python_tuple)
+print(type (NumPy_array_from_tuple)) # <class 'numpy.ndarray'>
+print('NumPy_array_from_tuple: ', NumPy_array_from_tuple) # NumPy_array_from_tuple:  [1 2 3 4 5]
+```
+
+### Shape of NumPy array
+
+The shape method provide the shape of the array as a tuple. The first is the row and the second is the column. If the array is just one dimensional it returns the size of the array.
+
+```py
+    nums = np.array([1, 2, 3, 4, 5])
+    print(nums)
+    print('shape of nums: ', nums.shape)
+    NumPy_two_dimensional_list = np.array([[0,1,2],[3,4,5],[6,7,8]])
+    print(NumPy_two_dimensional_list)
+    print('shape of NumPy_two_dimensional_list: ', NumPy_two_dimensional_list.shape)
+    three_by_four_array = np.array([[0, 1, 2, 3],
+        [4,5,6,7],
+        [8,9,10,11]]
+    print(three_by_four_array)
+    print('shape of three_by_four_array: ', three_by_four_array.shape)
+
+```
+
+```sh
+    [1 2 3 4 5]
+    shape of nums:  (5,)
+    [[0 1 2]
+     [3 4 5]
+     [6 7 8]]
+    shape of NumPy_two_dimensional_list:  (3, 3)
+    (3, 4)
+```
+
+### Data type of NumPy array
+
+Type of data types: str, int, float, complex, bool, list, None
+
+```py
+int_lists = [-3, -2, -1, 0, 1, 2,3]
+int_array = np.array(int_lists)
+float_array = np.array(int_lists, dtype=float)
+
+print(int_array)
+print(int_array.dtype)
+print(float_array)
+print(float_array.dtype)
+```
+
+```sh
+    [-3 -2 -1  0  1  2  3]
+    int64
+    [-3. -2. -1.  0.  1.  2.  3.]
+    float64
+```
+
+### Size of a NumPy array
+
+In NumPy to know the number of items in a NumPy array list we use size
+
+```py
+NumPy_array_from_list = np.array([1, 2, 3, 4, 5])
+two_dimensional_list = np.array([[0, 1, 2],
+                              [3, 4, 5],
+                              [6, 7, 8]])
+
+print('The size:', NumPy_array_from_list.size) # 5
+print('The size:', two_dimensional_list.size)  # 9
+
+```
+
+```sh
+    The size: 5
+    The size: 9
+```
+
+## Practical NumPy Example
+
+NumPy is especially useful when working with numerical datasets. For example, suppose Amit and Priya have daily sales values that we want to analyze.
+
+```py
+import numpy as np
+
+amit_sales = np.array([120, 150, 130, 170, 160])
+priya_sales = np.array([100, 140, 125, 180, 155])
+
+total_sales = amit_sales + priya_sales
+average_sales = np.mean(total_sales)
+
+print("Total daily sales:", total_sales)
+print("Average combined sales:", average_sales)
+```
+
+This example demonstrates why NumPy is useful for data analysis: operations can be performed on complete arrays without writing a separate loop for every element.
+
+### Boolean Filtering
+
+We can also filter NumPy arrays using conditions.
+
+```py
+sales = np.array([120, 80, 150, 60, 200, 95])
+
+high_sales = sales[sales >= 100]
+
+print(high_sales)
+# [120 150 200]
+```
+
+Boolean filtering is an important concept for data analysis because it allows us to select records that satisfy a condition.
+
+## Mathematical Operation using NumPy
+
+NumPy array is not like exactly like python list. To do mathematical operation in Python list we have to loop through the items but NumPy can allow to do any mathematical operation without looping.
+Mathematical Operation:
+
+- Addition (+)
+- Subtraction (-)
+- Multiplication (\*)
+- Division (/)
+- Modules (%)
+- Floor Division(//)
+- Exponential(\*\*)
+
+### Addition
+
+```py
+# Mathematical Operation
+# Addition
+NumPy_array_from_list = np.array([1, 2, 3, 4, 5])
+print('original array: ', NumPy_array_from_list)
+ten_plus_original = NumPy_array_from_list  + 10
+print(ten_plus_original)
+
+```
+
+```sh
+    original array:  [1 2 3 4 5]
+    [11 12 13 14 15]
+```
+
+### Subtraction
+
+```python
+# Subtraction
+NumPy_array_from_list = np.array([1, 2, 3, 4, 5])
+print('original array: ', NumPy_array_from_list)
+ten_minus_original = NumPy_array_from_list  - 10
+print(ten_minus_original)
+```
+
+```sh
+    original array:  [1 2 3 4 5]
+    [-9 -8 -7 -6 -5]
+```
+
+### Multiplication
+
+```python
+# Multiplication
+NumPy_array_from_list = np.array([1, 2, 3, 4, 5])
+print('original array: ', NumPy_array_from_list)
+ten_times_original = NumPy_array_from_list * 10
+print(ten_times_original)
+```
+
+```sh
+    original array:  [1 2 3 4 5]
+    [10 20 30 40 50]
+```
+
+### Division
+
+```python
+# Division
+NumPy_array_from_list = np.array([1, 2, 3, 4, 5])
+print('original array: ', NumPy_array_from_list)
+ten_times_original = NumPy_array_from_list / 10
+print(ten_times_original)
+```
+
+```sh
+    original array:  [1 2 3 4 5]
+    [0.1 0.2 0.3 0.4 0.5]
+```
+
+### Modulus
+
+```python
+# Modulus; Finding the remainder
+NumPy_array_from_list = np.array([1, 2, 3, 4, 5])
+print('original array: ', NumPy_array_from_list)
+ten_times_original = NumPy_array_from_list % 3
+print(ten_times_original)
+```
+
+```sh
+    original array:  [1 2 3 4 5]
+    [1 2 0 1 2]
+```
+
+### Floor Division
+
+```py
+# Floor division: the division result without the remainder
+NumPy_array_from_list = np.array([1, 2, 3, 4, 5])
+print('original array: ', NumPy_array_from_list)
+ten_times_original = NumPy_array_from_list // 10
+print(ten_times_original)
+```
+
+### Exponential
+
+```py
+# Exponential is finding some number the power of another:
+NumPy_array_from_list = np.array([1, 2, 3, 4, 5])
+print('original array: ', NumPy_array_from_list)
+ten_times_original = NumPy_array_from_list  ** 2
+print(ten_times_original)
+```
+
+```sh
+    original array:  [1 2 3 4 5]
+    [ 1  4  9 16 25]
+```
+
+## Checking data types
+
+```py
+#Int,  Float numbers
+NumPy_int_arr = np.array([1,2,3,4])
+NumPy_float_arr = np.array([1.1, 2.0,3.2])
+NumPy_bool_arr = np.array([-3, -2, 0, 1,2,3], dtype='bool')
+
+print(NumPy_int_arr.dtype)
+print(NumPy_float_arr.dtype)
+print(NumPy_bool_arr.dtype)
+```
+
+```sh
+    int64
+    float64
+    bool
+```
+
+### Converting types
+
+We can convert the data types of NumPy array
+
+1. Int to Float
+
+```py
+NumPy_int_arr = np.array([1,2,3,4], dtype = 'float')
+NumPy_int_arr
+```
+
+    array([1., 2., 3., 4.])
+
+2. Float to Int
+
+```py
+NumPy_int_arr = np.array([1., 2., 3., 4.], dtype = 'int')
+NumPy_int_arr
+```
+
+```sh
+    array([1, 2, 3, 4])
+```
+
+3. Int to boolean
+
+```py
+np.array([-3, -2, 0, 1,2,3], dtype='bool')
+
+```
+
+```sh
+    array([ True,  True, False,  True,  True,  True])
+```
+
+4. Int to str
+
+```py
+NumPy_float_list.astype('int').astype('str')
+```
+
+```sh
+    array(['1', '2', '3'], dtype='<U21')
+```
+
+## Multi-dimensional Arrays
+
+```py
+# 2 Dimension Array
+two_dimension_array = np.array([(1,2,3),(4,5,6), (7,8,9)])
+print(type (two_dimension_array))
+print(two_dimension_array)
+print('Shape: ', two_dimension_array.shape)
+print('Size:', two_dimension_array.size)
+print('Data type:', two_dimension_array.dtype)
+```
+
+```sh
+    <class 'numpy.ndarray'>
+    [[1 2 3]
+     [4 5 6]
+     [7 8 9]]
+    Shape:  (3, 3)
+    Size: 9
+    Data type: int64
+```
+
+### Getting items from a NumPy array
+
+```py
+# 2 Dimension Array
+two_dimension_array = np.array([[1,2,3],[4,5,6], [7,8,9]])
+first_row = two_dimension_array[0]
+second_row = two_dimension_array[1]
+third_row = two_dimension_array[2]
+print('First row:', first_row)
+print('Second row:', second_row)
+print('Third row: ', third_row)
+```
+
+```sh
+    First row: [1 2 3]
+    Second row: [4 5 6]
+    Third row:  [7 8 9]
+```
+
+```py
+first_column= two_dimension_array[:,0]
+second_column = two_dimension_array[:,1]
+third_column = two_dimension_array[:,2]
+print('First column:', first_column)
+print('Second column:', second_column)
+print('Third column: ', third_column)
+print(two_dimension_array)
+
+```
+
+```sh
+    First column: [1 4 7]
+    Second column: [2 5 8]
+    Third column:  [3 6 9]
+    [[1 2 3]
+     [4 5 6]
+     [7 8 9]]
+```
+
+## Slicing NumPy array
+
+Slicing in NumPy is similar to slicing in python list
+
+```py
+two_dimension_array = np.array([[1,2,3],[4,5,6], [7,8,9]])
+first_two_rows_and_columns = two_dimension_array[0:2, 0:2]
+print(first_two_rows_and_columns)
+```
+
+```sh
+    [[1 2]
+     [4 5]]
+```
+
+### How to reverse the rows and the whole array?
+
+```py
+two_dimension_array[::]
+```
+
+```sh
+    array([[1, 2, 3],
+           [4, 5, 6],
+           [7, 8, 9]])
+```
+
+### Reverse the row and column positions
+
+```py
+    two_dimension_array = np.array([[1,2,3],[4,5,6], [7,8,9]])
+    two_dimension_array[::-1,::-1]
+```
+
+```sh
+    array([[9, 8, 7],
+           [6, 5, 4],
+           [3, 2, 1]])
+```
+
+## How to represent missing values ?
+
+```python
+    print(two_dimension_array)
+    two_dimension_array[1,1] = 55
+    two_dimension_array[1,2] =44
+    print(two_dimension_array)
+```
+
+```sh
+    [[1 2 3]
+     [4 5 6]
+     [7 8 9]]
+    [[ 1  2  3]
+     [ 4 55 44]
+     [ 7  8  9]]
+```
+
+```py
+    # NumPy Zeroes
+    # numpy.zeros(shape, dtype=float, order='C')
+    NumPy_zeroes = np.zeros((3,3),dtype=int,order='C')
+    NumPy_zeroes
+```
+
+```sh
+    array([[0, 0, 0],
+           [0, 0, 0],
+           [0, 0, 0]])
+```
+
+```py
+# NumPy Zeroes
+NumPy_ones = np.ones((3,3),dtype=int,order='C')
+print(NumPy_ones)
+```
+
+```sh
+    [[1 1 1]
+     [1 1 1]
+     [1 1 1]]
+```
+
+```py
+twoes = NumPy_ones * 2
+```
+
+```py
+# Reshape
+# numpy.reshape(), numpy.flatten()
+first_shape  = np.array([(1,2,3), (4,5,6)])
+print(first_shape)
+reshaped = first_shape.reshape(3,2)
+print(reshaped)
+
+```
+
+```sh
+    [[1 2 3]
+     [4 5 6]]
+    [[1 2]
+     [3 4]
+     [5 6]]
+```
+
+```py
+flattened = reshaped.flatten()
+flattened
+```
+
+```sh
+    array([1, 2, 3, 4, 5, 6])
+```
+
+```py
+    ## Horizontal Stack
+    np_list_one = np.array([1,2,3])
+    np_list_two = np.array([4,5,6])
+
+    print(np_list_one + np_list_two)
+
+    print('Horizontal Append:', np.hstack((np_list_one, np_list_two)))
+```
+
+```sh
+    [5 7 9]
+    Horizontal Append: [1 2 3 4 5 6]
+```
+
+```py
+    ## Vertical Stack
+    print('Vertical Append:', np.vstack((np_list_one, np_list_two)))
+```
+
+```sh
+    Vertical Append: [[1 2 3]
+     [4 5 6]]
+```
+
+#### Generating Random Numbers
+
+```py
+    # Generate a random float  number
+    random_float = np.random.random()
+    random_float
+```
+
+```sh
+    0.018929887384753874
+```
+
+```py
+    # Generate a random float  number
+    random_floats = np.random.random(5)
+    random_floats
+```
+
+```sh
+    array([0.26392192, 0.35842215, 0.87908478, 0.41902195, 0.78926418])
+```
+
+```py
+    # Generating a 3x3 array of random integers between 2 and 9
+
+    random_int = np.random.randint(0, 11)
+    random_int
+```
+
+```sh
+    4
+```
+
+```py
+    # Generating 4 random integers between 2 and 9
+    random_int = np.random.randint(2, 10, size=4)
+    random_int
+```
+
+```sh
+    array([8, 8, 8, 2])
+```
+
+```py
+    # Generating a 3x3 array of random integers between 2 and 9
+    random_int = np.random.randint(2, 10, size=(3, 3))
+    random_int
+```
+
+```sh
+    array([[3, 5, 3],
+           [7, 3, 6],
+           [2, 3, 3]])
+```
+
+### Generating random numbers
+
+```py
+    # np.random.normal(mu, sigma, size)
+    normal_array = np.random.normal(79, 15, 80)
+    normal_array
+
+```
+
+```sh
+    array([ 89.49990595,  82.06056961, 107.21445842,  38.69307086,
+            47.85259157,  93.07381061,  76.40724259,  78.55675184,
+            72.17358173,  47.9888899 ,  65.10370622,  76.29696568,
+            95.58234254,  68.14897213,  38.75862686, 122.5587927 ,
+            67.0762565 ,  95.73990864,  81.97454563,  92.54264805,
+            59.37035153,  77.76828101,  52.30752166,  64.43109931,
+            62.63695351,  90.04616138,  75.70009094,  49.87586877,
+            80.22002414,  68.56708848,  76.27791052,  67.24343975,
+            81.86363935,  78.22703433, 102.85737041,  65.15700341,
+            84.87033426,  76.7569997 ,  64.61321853,  67.37244562,
+            74.4068773 ,  58.65119655,  71.66488727,  53.42458179,
+            70.26872028,  60.96588544,  83.56129414,  72.14255326,
+            81.00787609,  71.81264853,  72.64168853,  86.56608717,
+            94.94667321,  82.32676973,  70.5165446 ,  85.43061003,
+            72.45526212,  87.34681775,  87.69911217, 103.02831489,
+            75.28598596,  67.17806893,  92.41274447, 101.06662611,
+            87.70013935,  70.73980645,  46.40368207,  50.17947092,
+            61.75618542,  90.26191397,  78.63968639,  70.84550744,
+            88.91826581, 103.91474733,  66.3064638 ,  79.49726264,
+            70.81087439,  83.90130623,  87.58555972,  59.95462521])
+```
+
+## NumPy and Statistics
+
+```py
+import matplotlib.pyplot as plt
+
+plt.hist(normal_array, bins=50)
+plt.show()
+```
+
+```sh
+    (array([2., 0., 0., 0., 1., 2., 2., 0., 2., 0., 0., 1., 2., 2., 1., 4., 3.,
+            4., 2., 7., 2., 2., 5., 4., 2., 4., 3., 2., 1., 5., 3., 0., 3., 2.,
+            1., 0., 0., 1., 3., 0., 1., 0., 0., 0., 0., 0., 0., 0., 0., 1.]),
+     array([ 38.69307086,  40.37038529,  42.04769973,  43.72501417,
+             45.4023286 ,  47.07964304,  48.75695748,  50.43427191,
+             52.11158635,  53.78890079,  55.46621523,  57.14352966,
+             58.8208441 ,  60.49815854,  62.17547297,  63.85278741,
+             65.53010185,  67.20741628,  68.88473072,  70.56204516,
+             72.23935959,  73.91667403,  75.59398847,  77.27130291,
+             78.94861734,  80.62593178,  82.30324622,  83.98056065,
+             85.65787509,  87.33518953,  89.01250396,  90.6898184 ,
+             92.36713284,  94.04444727,  95.72176171,  97.39907615,
+             99.07639058, 100.75370502, 102.43101946, 104.1083339 ,
+            105.78564833, 107.46296277, 109.14027721, 110.81759164,
+            112.49490608, 114.17222052, 115.84953495, 117.52684939,
+            119.20416383, 120.88147826, 122.5587927 ]),
+     <a list of 50 Patch objects>)
+```
+
+### Matrix in NumPy
+
+```py
+
+four_by_four_matrix = np.matrix(np.ones((4,4), dtype=float))
+```
+
+```py
+four_by_four_matrix
+```
+
+```sh
+matrix([[1., 1., 1., 1.],
+            [1., 1., 1., 1.],
+            [1., 1., 1., 1.],
+            [1., 1., 1., 1.]])
+```
+
+```py
+np.asarray(four_by_four_matrix)[2] = 2
+four_by_four_matrix
+```
+
+```sh
+
+matrix([[1., 1., 1., 1.],
+            [1., 1., 1., 1.],
+            [2., 2., 2., 2.],
+            [1., 1., 1., 1.]])
+```
+
+### NumPy numpy.arange()
+
+#### What is `arange()`?
+
+Sometimes, you want to create values that are evenly spaced within a defined interval. For instance, you want to create values from 1 to 10; you can use numpy.arange() function
+
+```py
+# creating list using range(starting, stop, step)
+lst = range(0, 11, 2)
+lst
+```
+
+```python
+range(0, 11, 2)
+```
+
+```python
+for l in lst:
+    print(l)
+```
+
+```sh 0
+    2
+    4
+    6
+    8
+    10
+```
+
+```py
+# Similar to range arange numpy.arange(start, stop, step)
+whole_numbers = np.arange(0, 20, 1)
+whole_numbers
+```
+
+```sh
+array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+           17, 18, 19])
+```
+
+```py
+natural_numbers = np.arange(1, 20, 1)
+natural_numbers
+```
+
+```py
+odd_numbers = np.arange(1, 20, 2)
+odd_numbers
+```
+
+```sh
+    array([ 1,  3,  5,  7,  9, 11, 13, 15, 17, 19])
+```
+
+```py
+even_numbers = np.arange(2, 20, 2)
+even_numbers
+```
+
+```sh
+    array([ 2,  4,  6,  8, 10, 12, 14, 16, 18])
+```
+
+### Creating sequence of numbers using linspace
+
+```py
+# numpy.linspace()
+# numpy.logspace() in Python with Example
+# For instance, it can be used to create 10 values from 1 to 5 evenly spaced.
+np.linspace(1.0, 5.0, num=10)
+```
+
+```sh
+    array([1.        , 1.44444444, 1.88888889, 2.33333333, 2.77777778,
+           3.22222222, 3.66666667, 4.11111111, 4.55555556, 5.        ])
+```
+
+```py
+# not to include the last value in the interval
+np.linspace(1.0, 5.0, num=5, endpoint=False)
+```
+
+```
+array([1. , 1.8, 2.6, 3.4, 4.2])
+```
+
+```py
+# LogSpace
+# LogSpace returns even spaced numbers on a log scale. Logspace has the same parameters as np.linspace.
+
+# Syntax:
+
+# numpy.logspace(start, stop, num, endpoint)
+
+np.logspace(2, 4.0, num=4)
+```
+
+```sh
+
+array([  100.        ,   464.15888336,  2154.43469003, 10000.        ])
+```
+
+```py
+# to check the size of an array
+x = np.array([1,2,3], dtype=np.complex128)
+```
+
+```py
+x
+```
+
+```sh
+    array([1.+0.j, 2.+0.j, 3.+0.j])
+```
+
+```py
+x.itemsize
+```
+
+```sh
+16
+```
+
+```py
+# indexing and Slicing NumPy Arrays in Python
+np_list = np.array([(1,2,3), (4,5,6)])
+np_list
+
+```
+
+```sh
+    array([[1, 2, 3],
+           [4, 5, 6]])
+```
+
+```py
+print('First row: ', np_list[0])
+print('Second row: ', np_list[1])
+
+```
+
+```sh
+
+    First row:  [1 2 3]
+    Second row:  [4 5 6]
+```
+
+```p
+print('First column: ', np_list[:,0])
+print('Second column: ', np_list[:,1])
+print('Third column: ', np_list[:,2])
+
+```
+
+```sh
+    First column:  [1 4]
+    Second column:  [2 5]
+    Third column:  [3 6]
+```
+
+### NumPy Statistical Functions with Example
+
+NumPy has quite useful statistical functions for finding minimum, maximum, mean, median, percentile,standard deviation and variance, etc from the given elements in the array.
+The functions are explained as follows −
+Statistical function
+NumPy is equipped with the robust statistical function as listed below
+
+- NumPy Functions
+  - Min np.min()
+  - Max np.max()
+  - Mean np.mean()
+  - Median np.median()
+  - Variance
+  - Percentile
+  - Standard deviation np.std()
+
+```python
+np_normal_dis = np.random.normal(5, 0.5, 100)
+np_normal_dis
+## min, max, mean, median, sd
+print('min: ', two_dimension_array.min())
+print('max: ', two_dimension_array.max())
+print('mean: ',two_dimension_array.mean())
+print('median: ', np.median(two_dimension_array))
+print('sd: ', two_dimension_array.std())
+```
+
+    min:  1
+    max:  55
+    mean:  14.777777777777779
+    sd:  18.913709183069525
+
+```python
+min:  1
+max:  55
+mean:  14.777777777777779
+sd:  18.913709183069525
+```
+
+```python
+print(two_dimension_array)
+print('Column with minimum: ', np.amin(two_dimension_array,axis=0))
+print('Column with maximum: ', np.amax(two_dimension_array,axis=0))
+print('=== Row ==')
+print('Row with minimum: ', np.amin(two_dimension_array,axis=1))
+print('Row with maximum: ', np.amax(two_dimension_array,axis=1))
+```
+
+    [[ 1  2  3]
+     [ 4 55 44]
+     [ 7  8  9]]
+    Column with minimum:  [1 2 3]
+    Column with maximum:  [ 7 55 44]
+    === Row ==
+    Row with minimum:  [1 4 7]
+    Row with maximum:  [ 3 55  9]
+
+### How to create repeating sequences?
+
+```python
+a = [1,2,3]
+
+# Repeat whole of 'a' two times
+print('Tile:   ', np.tile(a, 2))
+
+# Repeat each element of 'a' two times
+print('Repeat: ', np.repeat(a, 2))
+
+```
+
+    Tile:    [1 2 3 1 2 3]
+    Repeat:  [1 1 2 2 3 3]
+
+### How to generate random numbers?
+
+```python
+# One random number between [0,1)
+one_random_num = np.random.random()
+one_random_in = np.random
+print(one_random_num)
+```
+
+    0.6149403282678213
+
+```python
+0.4763968133790438
+```
+
+    0.4763968133790438
+
+```python
+# Random numbers between [0,1) of shape 2,3
+r = np.random.random(size=[2,3])
+print(r)
+```
+
+    [[0.13031737 0.4429537  0.1129527 ]
+     [0.76811539 0.88256594 0.6754075 ]]
+
+```python
+print(np.random.choice(['a', 'e', 'i', 'o', 'u'], size=10))
+```
+
+    ['u' 'o' 'o' 'i' 'e' 'e' 'u' 'o' 'u' 'a']
+
+```python
+['i' 'u' 'e' 'o' 'a' 'i' 'e' 'u' 'o' 'i']
+```
+
+    ['iueoaieuoi']
+
+```python
+## Random numbers between [0, 1) with shape 2x2
+rand = np.random.rand(2,2)
+rand
+```
+
+    array([[0.97992598, 0.79642484],
+           [0.65263629, 0.55763145]])
+
+```python
+rand2 = np.random.randn(2,2)
+rand2
+
+```
+
+    array([[ 1.65593322, -0.52326621],
+           [ 0.39071179, -2.03649407]])
+
+```python
+# Random integers between [0, 10) with shape 5x3
+rand_int = np.random.randint(0, 10, size=(5, 3))
+rand_int
+```
+
+    array([[0, 7, 5],
+           [4, 1, 4],
+           [3, 5, 3],
+           [4, 3, 8],
+           [4, 6, 7]])
+
+```py
+from scipy import stats
+np_normal_dis = np.random.normal(5, 0.5, 1000) # mean, standard deviation, number of samples
+np_normal_dis
+## min, max, mean, median, sd
+print('min: ', np.min(np_normal_dis))
+print('max: ', np.max(np_normal_dis))
+print('mean: ', np.mean(np_normal_dis))
+print('median: ', np.median(np_normal_dis))
+print('mode: ', stats.mode(np_normal_dis))
+print('sd: ', np.std(np_normal_dis))
+```
+
+```sh
+
+    min:  3.557811005458804
+    max:  6.876317743643499
+    mean:  5.035832048106663
+    median:  5.020161980441937
+    mode:  ModeResult(mode=array([3.55781101]), count=array([1]))
+    sd:  0.489682424165213
+
+```
+
+```python
+plt.hist(np_normal_dis, color="grey", bins=21)
+plt.show()
+```
+
+![png](../test_files/test_121_0.png)
+
+```python
+# numpy.dot(): Dot Product in Python using NumPy
+# Dot Product
+# NumPy is powerful library for matrices computation. For instance, you can compute the dot product with np.dot
+
+# Syntax
+
+# numpy.dot(x, y, out=None)
+```
+
+### Linear Algebra
+
+1. Dot Product
+
+```python
+## Linear algebra
+### Dot product: product of two arrays
+f = np.array([1,2,3])
+g = np.array([4,5,3])
+# 1*4 + 2*5 + 3*3 = 23
+np.dot(f, g)  # 23
+```
+
+### NumPy Matrix Multiplication with np.matmul()
+
+```python
+### Matmul: matrix product of two arrays
+h = [[1,2],[3,4]]
+i = [[5,6],[7,8]]
+### 1*5+2*7 = 19
+np.matmul(h, i)
+```
+
+```sh
+    array([[19, 22],
+           [43, 50]])
+
+```
+
+```py
+## Determinant of a 2x2 Matrix
+
+```py
+# 5*8 - 6*7 = -2
+np.linalg.det(i)
+```
+```
+
+```python
+np.linalg.det(i)
+```
+
+    -1.999999999999999
+
+```python
+Z = np.zeros((8,8))
+Z[1::2,::2] = 1
+Z[::2,1::2] = 1
+```
+
+```python
+Z
+```
+
+    array([[0., 1., 0., 1., 0., 1., 0., 1.],
+           [1., 0., 1., 0., 1., 0., 1., 0.],
+           [0., 1., 0., 1., 0., 1., 0., 1.],
+           [1., 0., 1., 0., 1., 0., 1., 0.],
+           [0., 1., 0., 1., 0., 1., 0., 1.],
+           [1., 0., 1., 0., 1., 0., 1., 0.],
+           [0., 1., 0., 1., 0., 1., 0., 1.],
+           [1., 0., 1., 0., 1., 0., 1., 0.]])
+
+```python
+new_list = [ x + 2 for x in range(0, 11)]
+```
+
+```python
+new_list
+```
+
+    [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+```python
+[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+```
+
+    [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+```python
+np_arr = np.array(range(0, 11))
+np_arr + 2
+```
+
+array([ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+
+We use linear equation for quantities which have linear relationship. Let's see the example below:
+
+```python
+temp = np.array([1,2,3,4,5])
+pressure = temp * 2 + 5
+pressure
+```
+
+array([ 7, 9, 11, 13, 15])
+
+```python
+plt.plot(temp,pressure)
+plt.xlabel('Temperature in oC')
+plt.ylabel('Pressure in atm')
+plt.title('Temperature vs Pressure')
+plt.xticks(np.arange(0, 6, step=0.5))
+plt.show()
+```
+
+![png](../test_files/test_141_0.png)
+
+To draw the Gaussian normal distribution using numpy. As you can see below, the NumPy can generate random numbers. To create random sample, we need the mean(mu), sigma(standard deviation), number of data points.
+
+```python
+mu = 28
+sigma = 15
+samples = 100000
+
+x = np.random.normal(mu, sigma, samples)
+
+plt.hist(x, bins=50)
+plt.xlabel("x")
+plt.ylabel("Frequency")
+plt.show()
+```
+
+
+
+# Summary
+
+To summarize, the main differences with python lists are:
+
+1. Arrays support vectorized operations, while lists don’t.
+1. Once an array is created, you cannot change its size. You will have to create a new array or overwrite the existing one.
+1. Every array has one and only one dtype. All items in it should be of that dtype.
+1. An equivalent NumPy array occupies much less space than a python list of lists.
+1. NumPy arrays support boolean indexing.
+
+## 💻 Exercises: Day 24
+
+### Exercises: Level 1
+
+1. Create a NumPy array containing numbers from 1 to 10.
+2. Create an array containing even numbers from 0 to 20.
+3. Find the shape, size and data type of a NumPy array.
+4. Convert a Python list into a NumPy array.
+5. Convert a NumPy array back into a Python list.
+6. Create a 3 × 3 array and print its first row and first column.
+
+### Exercises: Level 2
+
+1. Create a 3 × 3 NumPy array.
+2. Find the minimum, maximum, mean, median and standard deviation.
+3. Calculate the sum of all elements.
+4. Calculate the sum of each row and each column.
+5. Reshape a 1-dimensional array into a 3 × 3 array.
+6. Reverse the rows and columns.
+7. Use boolean indexing to find values greater than 50.
+
+### Exercises: Level 3
+
+1. Generate 100 random integers between 1 and 100.
+2. Find the mean, median, minimum and maximum.
+3. Find the standard deviation and variance.
+4. Create two NumPy arrays and perform addition, subtraction, multiplication and division.
+5. Calculate the dot product of two arrays.
+6. Create a 4 × 4 matrix and calculate its determinant.
+7. Create a 5 × 5 matrix containing random integers.
+8. Extract all values greater than 50 using boolean indexing.
+9. Create two arrays representing daily sales for Amit and Priya and calculate their combined daily sales and average sales.
+
+### Exercises: Level 4 - Data Engineering Practice
+
+1. Create a NumPy array representing daily transaction amounts for 30 days.
+2. Calculate:
+   - Total transactions
+   - Average transaction amount
+   - Minimum transaction
+   - Maximum transaction
+   - Standard deviation
+3. Filter transactions greater than the average transaction amount.
+4. Reshape the data into a 5 × 6 matrix.
+5. Calculate the total for each row and column.
+6. Explain why NumPy array operations can be faster and more convenient than manually looping through large numerical datasets.
+🎉 CONGRATULATIONS ! 🎉
+
+[<< Day 23](../Day_23_Virtual_Environment/23_Virtual_Environment.md) | [Day 25 >>](../Day_25_Pandas/25_Pandas.md)
+
+<sub>Author:
+<a href="https://github.com/camit001" target="_blank">Amit Kumar</a><br>
+
+</sub>
+</div>
+
+[<< Day 23](../23_Day_Virtual_Environment/23_Virtual_Environment.md) | [Day 25 >>](../25_Day_Pandas/25_Pandas.md)
 
 **[30DaysOfPython]**
 
@@ -48,10 +1364,10 @@ In the first section we defined Python as a great general-purpose programming la
 
 NumPy is the core library for scientific computing in Python. It provides a high-performance multidimensional array object, and tools for working with arrays.
 
-So far, we have been using vscode but from now on I would recommend using Jupyter Notebook. To access jupyter notebook let's install [anaconda](https://www.anaconda.com/). If you are using anaconda most of the common packages are included and you don't have install packages if you installed anaconda.
+So far, we have been using VS Code. For data analysis and experimentation, you can also use Jupyter Notebook. You can install Jupyter Notebook separately or use Anaconda, which includes many commonly used data science packages.
 
 ```sh
-asabeneh@Asabeneh:~/Desktop/30DaysOfPython$ pip install numpy
+python -m pip install numpy
 ```
 
 ## Importing NumPy
@@ -98,8 +1414,8 @@ Creating a float numpy array from list with a float data type parameter
     # Python list
     python_list = [1,2,3,4,5]
 
-    numy_array_from_list2 = np.array(python_list, dtype=float)
-    print(numy_array_from_list2) # array([1., 2., 3., 4., 5.])
+    numpy_array_from_list2 = np.array(python_list, dtype=float)
+    print(numpy_array_from_list2) # array([1., 2., 3., 4., 5.])
 ```
 
 ### Creating boolean numpy arrays
@@ -221,7 +1537,7 @@ two_dimensional_list = np.array([[0, 1, 2],
                               [6, 7, 8]])
 
 print('The size:', numpy_array_from_list.size) # 5
-print('The size:', two_dimensional_list.size)  # 3
+print('The size:', two_dimensional_list.size)  # 9
 
 ```
 
@@ -230,7 +1546,7 @@ print('The size:', two_dimensional_list.size)  # 3
     The size: 9
 ```
 
-## Mathematical Operation using numpy
+## Mathematical Operation using NumPy
 
 NumPy array is not like exactly like python list. To do mathematical operation in Python list we have to loop through the items but numpy can allow to do any mathematical operation without looping.
 Mathematical Operation:
@@ -531,8 +1847,8 @@ two_dimension_array[::]
 ```py
     # Numpy Zeroes
     # numpy.zeros(shape, dtype=float, order='C')
-    numpy_zeroes = np.zeros((3,3),dtype=int,order='C')
-    numpy_zeroes
+    numpy_zeros = np.zeros((3,3),dtype=int,order='C')
+    numpy_zeros
 ```
 
 ```sh
@@ -585,7 +1901,7 @@ flattened
 ```
 
 ```py
-    ## Horitzontal Stack
+    ## Horizontal Stack
     np_list_one = np.array([1,2,3])
     np_list_two = np.array([4,5,6])
 
@@ -664,7 +1980,7 @@ flattened
            [2, 3, 3]])
 ```
 
-### Generationg random numbers
+### Generating random numbers
 
 ```py
     # np.random.normal(mu, sigma, size)
@@ -696,13 +2012,12 @@ flattened
             70.81087439,  83.90130623,  87.58555972,  59.95462521])
 ```
 
-## Numpy and Statistics
+## NumPy and Statistics
 
 ```py
 import matplotlib.pyplot as plt
-import seaborn as sns
-sns.set()
-plt.hist(normal_array, color="grey", bins=50)
+plt.hist(normal_array, bins=50)
+plt.show()
 ```
 
 ```sh
@@ -756,9 +2071,9 @@ matrix([[1., 1., 1., 1.],
             [1., 1., 1., 1.]])
 ```
 
-### Numpy numpy.arange()
+### NumPy `numpy.arange()`
 
-#### What is Arrange?
+#### What is `arange()`?
 
 Sometimes, you want to create values that are evenly spaced within a defined interval. For instance, you want to create values from 1 to 10; you can use numpy.arange() function
 
@@ -939,7 +2254,7 @@ np_normal_dis
 print('min: ', two_dimension_array.min())
 print('max: ', two_dimension_array.max())
 print('mean: ',two_dimension_array.mean())
-# print('median: ', two_dimension_array.median())
+print('median: ', np.median(two_dimension_array))
 print('sd: ', two_dimension_array.std())
 ```
 
@@ -1028,7 +2343,7 @@ print(np.random.choice(['a', 'e', 'i', 'o', 'u'], size=10))
     ['iueoaieuoi']
 
 ```python
-## Random numbers between [0, 1] of shape 2, 2
+## Random numbers between [0, 1) with shape 2x2
 rand = np.random.rand(2,2)
 rand
 ```
@@ -1046,8 +2361,8 @@ rand2
            [ 0.39071179, -2.03649407]])
 
 ```python
-# Random integers between [0, 10) of shape 2,5
-rand_int = np.random.randint(0, 10, size=[5,3])
+# Random integers between [0, 10) with shape 5x3
+rand_int = np.random.randint(0, 10, size=(5, 3))
 rand_int
 ```
 
@@ -1107,14 +2422,14 @@ plt.show()
 ### Dot product: product of two arrays
 f = np.array([1,2,3])
 g = np.array([4,5,3])
-### 1*4+2*5 + 3*6
+# 1*4 + 2*5 + 3*3 = 23
 np.dot(f, g)  # 23
 ```
 
 ### NumPy Matrix Multiplication with np.matmul()
 
 ```python
-### Matmul: matruc product of two arrays
+# Matrix product of two arrays
 h = [[1,2],[3,4]]
 i = [[5,6],[7,8]]
 ### 1*5+2*7 = 19
@@ -1128,8 +2443,8 @@ np.matmul(h, i)
 ```
 
 ```py
-## Determinant 2*2 matrix
-### 5*8-7*6np.linalg.det(i)
+# Determinant of a 2x2 matrix
+# 5*8 - 6*7 = -2
 ```
 
 ```python
@@ -1209,8 +2524,9 @@ sigma = 15
 samples = 100000
 
 x = np.random.normal(mu, sigma, samples)
-ax = sns.distplot(x);
-ax.set(xlabel="x", ylabel='y')
+plt.hist(x, bins=50)
+plt.xlabel("x")
+plt.ylabel("Frequency")
 plt.show()
 ```
 
@@ -1228,8 +2544,41 @@ To summarize, the main differences with python lists are:
 
 ## 💻 Exercises: Day 24
 
-1. Repeat all the examples
+### Exercises: Level 1
+
+1. Create a NumPy array containing numbers from 1 to 10.
+2. Create an array containing even numbers from 0 to 20.
+3. Find the shape, size and data type of a NumPy array.
+4. Convert a Python list into a NumPy array.
+5. Convert a NumPy array back into a Python list.
+
+### Exercises: Level 2
+
+1. Create a 3 × 3 NumPy array.
+2. Find the minimum, maximum, mean, median and standard deviation.
+3. Extract the first row and first column.
+4. Reverse the rows and columns.
+5. Reshape a 1-dimensional array into a 3 × 3 array.
+6. Calculate the sum of all elements.
+7. Calculate the sum of each row and each column.
+
+### Exercises: Level 3
+
+1. Generate 100 random integers between 1 and 100.
+2. Find the mean, median, minimum and maximum.
+3. Find the standard deviation and variance.
+4. Create two NumPy arrays and perform:
+   - Addition
+   - Subtraction
+   - Multiplication
+   - Division
+5. Calculate the dot product of two arrays.
+6. Create a 4 × 4 matrix and calculate its determinant.
+7. Create a 5 × 5 matrix containing random integers.
+8. Extract all values greater than 50 using boolean indexing.
+
+🌕 You have completed Day 24! You have now learned the fundamentals of statistics and NumPy, including arrays, indexing, slicing, mathematical operations, random numbers, statistical functions and basic linear algebra. Keep practicing because NumPy will be an important foundation for data analysis, PySpark and data engineering.
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 23](../23_Day_Virtual_environment/23_Virtual_environment.md) | [Day 25 >>](../25_Day_Pandas/25_Pandas.md)
+[<< Day 23](../Day_23_Virtual_environment/23_Virtual_environment.md) | [Day 25 >>](../Day_25_Pandas/25_Pandas.md)
