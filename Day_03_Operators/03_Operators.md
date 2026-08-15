@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 3 - Operators</h1>
+  <h1> Python In 30 Days: Day 3 - Operators</h1>
   <!-- <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
   </a> 
@@ -13,9 +13,9 @@
 </sub>
 </div>
 
-[<< Day 2](../02_Day_Variables_builtin_functions/02_variables_builtin_functions.md) | [Day 4 >>](../04_Day_Strings/04_strings.md)
+[<< Day 2](../Day_02_Variables_builtin_functions/02_Variables_builtin_functions.md) | [Day 4 >>](../Day_04_Strings/04_Strings.md)
 
-**[30DaysOfPython]**
+**Python In 30 Days**
 
 - [📘 Day 3](#-day-3)
   - [Boolean](#boolean)
@@ -52,15 +52,15 @@ print("City:", city)
 
 ## Operators
 
-Python language supports several types of operators. In this section, we will focus on few of them.
+Python language supports several types of operators. In this section, we will focus on a few of them.
 
 ### Assignment Operators
 
-Assignment operators are used to assign values to variables. Let us take = as an example. Equal sign in mathematics shows that two values are equal, however in Python it means we are storing a value in a certain variable and we call it assignment or a assigning value to a variable. The table below shows the different types of python assignment operators, taken from [w3school](https://www.w3schools.com/python/python_operators.asp).
+Assignment operators are used to assign values to variables. Let us take = as an example. Equal sign in mathematics shows that two values are equal, however in Python it means we are storing a value in a certain variable and we call it assignment or a assigning value to a variable. The table below shows the different types of Python assignment operators, taken from [w3school](https://www.w3schools.com/python/python_operators.asp).
 
 **[Assignment Operators]**
 
-### Arithmetic Operators:
+### Arithmetic Operators
 
 - Addition(+): a + b
 - Subtraction(-): a - b
@@ -72,7 +72,7 @@ Assignment operators are used to assign values to variables. Let us take = as an
 
 **[Arithmetic Operators]**
 
-**Example:Integers**
+**Example: Integers**
 
 ```py
 # Arithmetic Operations in Python
@@ -90,7 +90,7 @@ print('Modulus: ', 3 % 2)         # 1, Gives the remainder
 print('Exponentiation: ', 2 ** 3) # 8 it means 2 * 2 * 2
 ```
 
-**Example:Floats**
+**Example: Floats**
 
 ```py
 # Floating numbers
@@ -98,7 +98,7 @@ print('Floating Point Number, PI', 3.14)
 print('Floating Point Number, gravity', 9.81)
 ```
 
-**Example:Complex numbers**
+**Example: Complex Numbers**
 
 ```py
 # Complex numbers
@@ -106,15 +106,15 @@ print('Complex number: ', 1 + 1j)
 print('Multiplying complex numbers: ',(1 + 1j) * (1 - 1j))
 ```
 
-Let's declare a variable and assign a number data type. I am going to use single character variable but remember do not develop a habit of declaring such types of variables. Variable names should be all the time mnemonic.
+Let's declare a variable and assign a number data type. I am going to use single character variable but remember do not develop a habit of declaring such types of variables. Variable names should generally be descriptive and meaningful.
 
 **Example:**
 
 ```python
 # Declaring the variable at the top first
 
-a = 3 # a is a variable name and 3 is an integer data type
-b = 2 # b is a variable name and 3 is an integer data type
+a = 3  # a is a variable name and 3 is an integer
+b = 2  # b is a variable name and 2 is an integer
 
 # Arithmetic operations and assigning the result to a variable
 total = a + b
@@ -192,7 +192,7 @@ print(density, 'Kg/m^3') # Adding unit to the density
 
 ### Comparison Operators
 
-In programming we compare values, we use comparison operators to compare two values. We check if a value is greater or less or equal to other value. The following table shows Python comparison operators which was taken from [w3shool](https://www.w3schools.com/python/python_operators.asp).
+In programming, we use comparison operators to compare two values. We check if a value is greater or less or equal to other value. The following table shows Python comparison operators which was taken from [W3Schools](https://www.w3schools.com/python/python_operators.asp).
 
 **[Comparison Operators]**
 **Example: Comparison Operators**
@@ -200,7 +200,7 @@ In programming we compare values, we use comparison operators to compare two val
 ```py
 print(3 > 2)     # True, because 3 is greater than 2
 print(3 >= 2)    # True, because 3 is greater than 2
-print(3 < 2)     # False,  because 3 is greater than 2
+print(3 < 2)     # False, because 3 is not less than 2
 print(2 < 3)     # True, because 2 is less than 3
 print(2 <= 3)    # True, because 2 is less than 3
 print(3 == 2)    # False, because 3 is not equal to 2
@@ -208,10 +208,10 @@ print(3 != 2)    # True, because 3 is not equal to 2
 print(len('mango') == len('avocado'))  # False
 print(len('mango') != len('avocado'))  # True
 print(len('mango') < len('avocado'))   # True
-print(len('milk') != len('meat'))      # False
+print(len('milk') != len('meat'))      # False, because both lengths are 4
 print(len('milk') == len('meat'))      # True
-print(len('tomato') == len('potato'))  # True
-print(len('python') > len('dragon'))   # False
+print(len('tomato') == len('potato'))  # True, because both lengths are 6
+print(len('python') > len('dragon'))   # False, because both lengths are 6
 
 
 # Comparing something gives either a True or False
@@ -232,15 +232,15 @@ In addition to the above comparison operator Python uses:
 print('1 is 1', 1 is 1)                   # True - because the data values are the same
 print('1 is not 2', 1 is not 2)           # True - because 1 is not 2
 print('A in Amit', 'A' in 'Amit') # True - A found in the string
-print('B not in Amit', 'B' in 'Amit') # False - there is no uppercase B
+print('B not in Amit', 'B' not in 'Amit') # True - there is no uppercase B
 print('coding' in 'coding for all') # True - because coding for all has the word coding
 print('a in an:', 'a' in 'an')      # True
-print('4 is 2 ** 2:', 4 is 2 ** 2)   # True
+print('4 == 2 ** 2:', 4 == 2 ** 2)   # True
 ```
 
 ### Logical Operators
 
-Unlike other programming languages python uses keywords _and_, _or_ and _not_ for logical operators. Logical operators are used to combine conditional statements:
+Unlike other programming languages Python uses the keywords _and_, _or_ and _not_ for logical operators. Logical operators are used to combine conditional statements:
 
 **[Logical Operators]**
 
@@ -288,18 +288,18 @@ The perimeter of the triangle is 12
 6. Get length and width of a rectangle using prompt. Calculate its area (area = length x width) and perimeter (perimeter = 2 x (length + width))
 7. Get radius of a circle using prompt. Calculate the area (area = pi x r x r) and circumference (c = 2 x pi x r) where pi = 3.14.
 8. Calculate the slope, x-intercept and y-intercept of y = 2x -2
-9. Slope is (m = y2-y1/x2-x1). Find the slope and [Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance#:~:text=In%20mathematics%2C%20the%20Euclidean%20distance,being%20called%20the%20Pythagorean%20distance.) between point (2, 2) and point (6,10) 
+9. Slope is `m = (y2 - y1) / (x2 - x1)`. Find the slope and [Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance#:~:text=In%20mathematics%2C%20the%20Euclidean%20distance,being%20called%20the%20Pythagorean%20distance.) between point (2, 2) and point (6,10) 
 10. Compare the slopes in tasks 8 and 9.
 11. Calculate the value of y (y = x^2 + 6x + 9). Try to use different x values and figure out at what x value y is going to be 0.
 12. Find the length of 'python' and 'dragon' and make a falsy comparison statement.
 13. Use _and_ operator to check if 'on' is found in both 'python' and 'dragon'
 14. _I hope this course is not full of jargon_. Use _in_ operator to check if _jargon_ is in the sentence.
-15. There is no 'on' in both dragon and python
+15. Check that `'on'` is not present in both `'dragon'` and `'python'`.
 16. Find the length of the text _python_ and convert the value to float and convert it to string
-17. Even numbers are divisible by 2 and the remainder is zero. How do you check if a number is even or not using python?
+17. Even numbers are divisible by 2 and the remainder is zero. How do you check if a number is even or not using Python?
 18. Check if the floor division of 7 by 3 is equal to the int converted value of 2.7.
 19. Check if type of '10' is equal to type of 10
-20. Check if int('9.8') is equal to 10
+20. Check if `float('9.8')` is equal to 10
 21. Write a script that prompts the user to enter hours and rate per hour. Calculate pay of the person?
 
 ```py
@@ -325,6 +325,6 @@ You have lived for 3153600000 seconds.
 5 1 5 25 125
 ```
 
-🎉 CONGRATULATIONS ! 🎉
+🎉 CONGRATULATIONS! 🎉
 
-[<< Day 2](../02_Day_Variables_builtin_functions/02_variables_builtin_functions.md) | [Day 4 >>](../04_Day_Strings/04_strings.md)
+[<< Day 2](../Day_02_Variables_builtin_functions/02_Variables_builtin_functions.md) | [Day 4 >>](../Day_04_Strings/04_Strings.md)
