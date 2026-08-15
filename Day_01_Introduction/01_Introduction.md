@@ -2328,4 +2328,4 @@ For a Data Engineer, understanding Python should go beyond syntax. The most impo
 The goal should be to understand **why Python behaves the way it does**, not just memorize syntax.
 
 
-**[Day 2 >>](Day_02_Variables_builtin_functions/02_variables_builtin_functions.md)**
+**[Day 2 >>](../Day_02_Variables_builtin_functions/02_variables_builtin_functions.md)**
