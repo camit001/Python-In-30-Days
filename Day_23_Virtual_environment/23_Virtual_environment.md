@@ -7,7 +7,7 @@
 </sub>
 </div>
 
-[<< Day 22](../Day_22_Web_scraping/22_Web_scraping.md) | [Day 24 >>](../Day_24_Statistics (NumPy)/24_Statistics (NumPy).md)
+[<< Day 22](../Day_22_Web_scraping/22_Web_scraping.md) | [Day 24 >>](../Day_24_Statistics%20(NumPy)/24_Statistics%20(NumPy).md)
 
 **Python In 30 Days**
 
@@ -620,4 +620,4 @@ Requirements:
 
 🎉 CONGRATULATIONS! 🎉
 
-[<< Day 22](../Day_22_Web_scraping/22_Web_scraping.md) | [Day 24 >>](../Day_24_Statistics Day_24_Statistics (NumPy)/24_Statistics (NumPy).md/24_Statistics (NumPy).md)
+[<< Day 22](../Day_22_Web_scraping/22_Web_scraping.md) | [Day 24 >>](../Day_24_Statistics%20(NumPy)/24_Statistics%20(NumPy).md)
