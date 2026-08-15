@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 4 - Strings</h1>
+  <h1> Python In 30 Days: Day 4 - Strings</h1>
 
 <sub>Author:
 <a href="https://github.com/camit001" target="_blank">Amit Kumar</a><br>
@@ -8,9 +8,9 @@
 
 </div>
 
-[<< Day 3](../03_Day_Operators/03_operators.md) | [Day 5 >>](../05_Day_Lists/05_lists.md)
+[<< Day 3](../Day_03_Operators/03_Operators.md) | [Day 5 >>](../Day_05_Lists/05_Lists.md)
 
-**[30DaysOfPython]**
+**Python In 30 Days**
 
 - [Day 4](#day-4)
   - [Strings](#strings)
@@ -47,7 +47,7 @@ print(f"City: {city}")
 ```
 
 
-Text is a string data type. Any data type written as text is a string. Any data under single, double or triple quote are strings. There are different string methods and built-in functions to deal with string data types. To check the length of a string use the len() method.
+Text is a string data type. Any data type written as text is a string. Any data under single, double or triple quote are strings. There are different string methods and built-in functions to deal with string data types. To check the length of a string, use the built-in `len()` function.
 
 ### Creating a String
 
@@ -58,7 +58,7 @@ print(len(letter))          # 1
 greeting = 'Hello, World!'  # String could be made using a single or double quote,"Hello, World!"
 print(greeting)             # Hello, World!
 print(len(greeting))        # 13
-sentence = "I hope you are enjoying 30 days of Python Challenge"
+sentence = "I hope you are enjoying Python In 30 Days"
 print(sentence)
 ```
 
@@ -67,13 +67,13 @@ Multiline string is created by using triple single (''') or triple double quotes
 ```py
 multiline_string = '''I am a teacher and enjoy teaching.
 I didn't find anything as rewarding as empowering people.
-That is why I created 30 days of python.'''
+That is why I created Python In 30 Days.'''
 print(multiline_string)
 
 # Another way of doing the same thing
 multiline_string = """I am a teacher and enjoy teaching.
 I didn't find anything as rewarding as empowering people.
-That is why I created 30 days of python."""
+That is why I created Python In 30 Days."""
 print(multiline_string)
 ```
 
@@ -88,10 +88,10 @@ space = ' '
 full_name = first_name  +  space + last_name
 print(full_name) # Amit Kumar
 # Checking the length of a string using len() built-in function
-print(len(first_name))  # 8
-print(len(last_name))   # 7
+print(len(first_name))  # 4
+print(len(last_name))   # 5
 print(len(first_name) > len(last_name)) # True
-print(len(full_name)) # 16
+print(len(full_name)) # 10
 ```
 
 ### Escape Sequences in Strings
@@ -261,7 +261,7 @@ print(second_last) # o
 
 #### Slicing Python Strings
 
-In python we can slice strings into substrings.
+In Python, we can slice strings to create substrings.
 
 ```py
 language = 'Python'
@@ -287,7 +287,7 @@ print(greeting[::-1]) # !dlroW ,olleH
 
 #### Skipping Characters While Slicing
 
-It is possible to skip characters while slicing by passing step argument to slice method.
+It is possible to skip characters while slicing by providing a `step` value.
 
 ```py
 language = 'Python'
@@ -295,9 +295,42 @@ pto = language[0:6:2] #
 print(pto) # Pto
 ```
 
+### Practical String Basics
+
+Before learning individual string methods, remember these three important ideas:
+
+1. **Strings are immutable.** Methods such as `upper()` and `replace()` return a new string instead of changing the original string.
+2. **Indexing starts at `0`.** For example, `"Python"[0]` is `"P"`.
+3. **Slicing uses `start:stop:step`**, and the `stop` index is not included.
+
+```py
+text = 'Python'
+
+print(text[0])       # P
+print(text[-1])      # n
+print(text[0:3])     # Pyt
+print(text[::-1])    # nohtyP
+
+upper_text = text.upper()
+print(upper_text)    # PYTHON
+print(text)          # Python
+```
+
+**Common mistake:** strings cannot be modified character-by-character because they are immutable.
+
+```py
+text = 'Python'
+# text[0] = 'J'     # TypeError
+
+text = 'J' + text[1:]
+print(text)          # Jython
+```
+
+**Practical tip:** For modern Python code, prefer **f-strings** for most string formatting because they are concise and readable.
+
 ### String Methods
 
-There are many string methods which allow us to format strings. See some of the string methods in the following example:
+There are many string methods that allow us to inspect, search, modify, and format strings. See some of the string methods in the following example:
 
 - capitalize(): Converts the first character of the string to capital letter
 
@@ -353,8 +386,8 @@ print(challenge.rfind('th')) # 17
 ```py
 first_name = 'Amit'
 last_name = 'Kumar'
-age = 250
-job = 'teacher'
+age = 25
+job = 'Python developer'
 country = 'India'
 sentence = 'I am {} {}. I am a {}. I am {} years old. I live in {}.'.format(first_name, last_name, job, age, country)
 print(sentence) # I am Amit Kumar. I am 250 years old. I am a teacher. I live in India.
@@ -537,7 +570,21 @@ challenge = '30 days of python'
 print(challenge.startswith('thirty')) # False
 ```
 
-🌕 You are an extraordinary person and you have a remarkable potential. You have just completed day 4 challenges and you are four steps a head in to your way to greatness. Now do some exercises for your brain and muscles.
+🌕 You have completed Day 4 and covered the fundamentals of Python strings. Now practice the exercises below to strengthen your understanding.
+
+### Quick String Method Reference
+
+| Method | Purpose | Example |
+|---|---|---|
+| `upper()` | Converts text to uppercase | `'python'.upper()` |
+| `lower()` | Converts text to lowercase | `'PYTHON'.lower()` |
+| `strip()` | Removes leading/trailing whitespace | `' Python '.strip()` |
+| `replace()` | Replaces part of a string | `'Python'.replace('P', 'J')` |
+| `split()` | Splits a string into a list | `'a,b,c'.split(',')` |
+| `join()` | Joins strings together | `'-'.join(['a', 'b'])` |
+| `find()` | Finds the first occurrence | `'Python'.find('th')` |
+| `startswith()` | Checks the beginning | `'Python'.startswith('Py')` |
+| `endswith()` | Checks the ending | `'Python'.endswith('on')` |
 
 ## 💻 Exercises - Day 4
 
@@ -583,7 +630,7 @@ print(challenge.startswith('thirty')) # False
 34. Use a tab escape sequence to write the following lines.
     ```py
     Name      Age     Country   City
-    Amit Kumar  250     India     Mumbai
+    Amit Kumar  25      India     Mumbai
     ```
 35. Use the string formatting method to display the following:
 
@@ -607,6 +654,6 @@ The area of a circle with radius 10 is 314 meters square.
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 3](../03_Day_Operators/03_operators.md) | [Day 5 >>](../05_Day_Lists/05_lists.md)
+[<< Day 3](../Day_03_Operators/03_Operators.md) | [Day 5 >>](../Day_05_Lists/05_Lists.md)
 
 
