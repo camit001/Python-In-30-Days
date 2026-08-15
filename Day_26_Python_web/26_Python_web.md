@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 26 - Python for web </h1>
+  <h1> Python In 30 Days: Day 26 - Python for Web </h1>
   
 
   <sub>Author:
@@ -7,17 +7,18 @@
 
   </sub>
 </div>
+
+[<< Day 25](../Day_25_Pandas/25_Pandas.md) | [Day 27 >>](../Day_27_Python_with_mongodb/27_Python_with_mongodb.md)
 </div>
 
-[<< Day 25 ](../25_Day_Pandas/25_pandas.md) | [Day 27 >>](../27_Day_Python_with_mongodb/27_python_with_mongodb.md)
 
-**[30DaysOfPython]**
+**[Python In 30 Days]**
 
 - [📘 Day 26](#-day-26)
   - [Python for Web](#python-for-web)
     - [Flask](#flask)
       - [Folder structure](#folder-structure)
-    - [Setting up your project directory](#setting-up-your-project-directory)
+    - [Setting up your project directoryy](#setting-up-your-project-directory)
     - [Creating routes](#creating-routes)
     - [Creating templates](#creating-templates)
     - [Python Script](#python-script)
@@ -35,13 +36,13 @@
 
 ## Python for Web
 
-Python is a general purpose programming language and it can be used for many places. In this section, we will see how we use Python for the web. There are many Python web frame works. Django and Flask are the most popular ones. Today, we will see how to use Flask for web development.
+Python is a general purpose programming language and it can be used for many places. In this section, we will see how we use Python for the web. There are many Python web frameworks. Django and Flask are the most popular ones. Today, we will see how to use Flask for web development.
 
 ### Flask
 
 Flask is a web development framework written in Python. Flask uses Jinja2 template engine. Flask can be also used with other modern front libraries such as React.
 
-If you did not install the virtualenv package yet install it first. Virtual environment will allows to isolate project dependencies from the local machine dependencies.
+If you did not install the virtualenv package yet install it first. Virtual environment will allows us to isolate project dependencies from the local machine's dependencies.
 
 #### Folder structure
 
@@ -65,7 +66,7 @@ After completing all the step, your project file structure should look like this
     └── result.html
 ```
 
-### Setting up your project directory
+### Setting up your project directoryy
 
 Follow the following steps to get started with Flask.
 
@@ -75,28 +76,38 @@ Step 1: install virtualenv using the following command.
 pip install virtualenv
 ```
 
-Step 2:
+Step 2: Create the project and virtual environment.
+
+**Mac/Linux:**
 
 ```sh
-asabeneh@Asabeneh:~/Desktop$ mkdir python_for_web
-asabeneh@Asabeneh:~/Desktop$ cd python_for_web/
-asabeneh@Asabeneh:~/Desktop/python_for_web$ virtualenv venv
-asabeneh@Asabeneh:~/Desktop/python_for_web$ source venv/bin/activate
-(env) asabeneh@Asabeneh:~/Desktop/python_for_web$ pip freeze
-(env) asabeneh@Asabeneh:~/Desktop/python_for_web$ pip install Flask
-(env) asabeneh@Asabeneh:~/Desktop/python_for_web$ pip freeze
-Click==7.0
-Flask==1.1.1
-itsdangerous==1.1.0
-Jinja2==2.10.3
-MarkupSafe==1.1.1
-Werkzeug==0.16.0
-(env) asabeneh@Asabeneh:~/Desktop/python_for_web$
+mkdir python_for_web
+cd python_for_web
+python3 -m venv venv
+source venv/bin/activate
 ```
 
-We created a project director named python_for_web. Inside the project we created a virtual environment *venv* which could be any name but I prefer to call it _venv_. Then we activated the virtual environment. We used pip freeze to check the installed packages in the project directory. The result of pip freeze was empty because a package was not installed yet.
+**Windows PowerShell:**
 
-Now, let's create app.py file in the project directory and write the following code. The app.py file will be the main file in the project. The following code has flask module, os module.
+```powershell
+mkdir python_for_web
+cd python_for_web
+py -m venv venv
+venv\Scripts\Activate.ps1
+```
+
+Then install Flask:
+
+```sh
+python -m pip install Flask
+python -m pip freeze
+```
+
+> The exact package versions will depend on when you install Flask. Avoid copying the old `Flask==1.1.1` dependency list from older tutorials into a new project unless you specifically need those legacy versions.
+
+We created a project directory named python_for_web. Inside the project we created a virtual environment *venv* which could be any name but I prefer to call it _venv_. Then we activated the virtual environment. We used pip freeze to check the installed packages in the project directoryy. The result of pip freeze was empty because a package was not installed yet.
+
+Now, let's create app.py file in the project directoryy and write the following code. The app.py file will be the main file in the project. The following code has flask module, os module.
 
 ### Creating routes
 
@@ -109,7 +120,7 @@ import os # importing operating system module
 
 app = Flask(__name__)
 
-@app.route('/') # this decorator create the home route
+@app.route('/') # this decorator createss the home route
 def home ():
     return '<h1>Welcome</h1>'
 
@@ -134,7 +145,7 @@ import os # importing operating system module
 
 app = Flask(__name__)
 
-@app.route('/') # this decorator create the home route
+@app.route('/') # this decorator createss the home route
 def home ():
     return '<h1>Welcome</h1>'
 
@@ -149,7 +160,7 @@ if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
-Now, we added the about route in the above code. How about if we want to render an HTML file instead of string? It is possible to render HTML file using the function *render_template*. Let us create a folder called templates and create home.html and about.html in the project directory. Let us also import the *render_template* function from flask.
+Now, we added the about route in the above code. What if we want to render an HTML file instead of string? It is possible to render HTML file using the function *render_template*. Let us create a folder called templates and create home.html and about.html in the project directoryy. Let us also import the *render_template* function from flask.
 
 ### Creating templates
 
@@ -200,7 +211,7 @@ import os # importing operating system module
 
 app = Flask(__name__)
 
-@app.route('/') # this decorator create the home route
+@app.route('/') # this decorator createss the home route
 def home ():
     return render_template('home.html')
 
@@ -237,20 +248,20 @@ import os # importing operating system module
 
 app = Flask(__name__)
 
-@app.route('/') # this decorator create the home route
+@app.route('/') # this decorator createss the home route
 def home ():
     techs = ['HTML', 'CSS', 'Flask', 'Python']
-    name = '30 Days Of Python Programming'
+    name = 'Python In 30 Days Programming'
     return render_template('home.html', techs=techs, name = name, title = 'Home')
 
 @app.route('/about')
 def about():
-    name = '30 Days Of Python Programming'
+    name = 'Python In 30 Days Programming'
     return render_template('about.html', name = name, title = 'About Us')
 
 @app.route('/post')
 def post():
-    name = 'Text Analyzer'
+    name = 'Python Text Analyzer'
     return render_template('post.html', name = name, title = name)
 
 
@@ -318,7 +329,7 @@ After we create the layout we will import to every file.
 
 #### Serving Static File
 
-Create a static folder in your project directory. Inside the static folder create CSS or styles folder and create a CSS stylesheet. We use the *url_for* module to serve the static file. 
+Create a static folder in your project directoryy. Inside the static folder create CSS or styles folder and create a CSS stylesheet. We use the *url_for* module to serve the static file. 
 
 layout.html
 
@@ -347,7 +358,7 @@ layout.html
     <header>
       <div class="menu-container">
         <div>
-          <a class="brand-name nav-link" href="/">30DaysOfPython</a>
+          <a class="brand-name nav-link" href="/">Python In 30 Days</a>
         </div>
         <ul class="nav-lists">
           <li class="nav-list">
@@ -358,7 +369,7 @@ layout.html
           </li>
           <li class="nav-list">
             <a class="nav-link active" href="{{ url_for('post') }}"
-              >Text Analyzer</a
+              >Python Text Analyzer</a
             >
           </li>
         </ul>
@@ -414,8 +425,8 @@ post.html
 ```html
 {% extends 'layout.html' %} {% block content %}
 <div class="container">
-  <h1>Text Analyzer</h1>
-  <form action="https://thirtydaysofpython-v1.herokuapp.com/post" method="POST">
+  <h1>Python Text Analyzer</h1>
+  <form action="{{ url_for('post') }}" method="POST">
     <div>
       <textarea rows="25" name="content" autofocus></textarea>
     </div>
@@ -430,7 +441,7 @@ post.html
 
 Request methods, there are different request methods(GET, POST, PUT, DELETE) are the common request methods which allow us to do CRUD(Create, Read, Update, Delete) operation.
 
-In the post, route we will use GET and POST method alternative depending on the type of request, check how it looks in the code below. The request method is a function to handle request methods and also to access form data.
+In the post, route we will use GET and POST method alternative depending on the request type, check how it looks in the code below. The request method is a function to handle request methods and also to access form data.
 app.py
 
 ```py
@@ -444,15 +455,15 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 
 
-@app.route('/') # this decorator create the home route
+@app.route('/') # this decorator createss the home route
 def home ():
     techs = ['HTML', 'CSS', 'Flask', 'Python']
-    name = '30 Days Of Python Programming'
+    name = 'Python In 30 Days Programming'
     return render_template('home.html', techs=techs, name = name, title = 'Home')
 
 @app.route('/about')
 def about():
-    name = '30 Days Of Python Programming'
+    name = 'Python In 30 Days Programming'
     return render_template('about.html', name = name, title = 'About Us')
 
 @app.route('/result')
@@ -461,7 +472,7 @@ def result():
 
 @app.route('/post', methods= ['GET','POST'])
 def post():
-    name = 'Text Analyzer'
+    name = 'Python Text Analyzer'
     if request.method == 'GET':
          return render_template('post.html', name = name, title = name)
     if request.method =='POST':
@@ -476,35 +487,142 @@ if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
+### Returning JSON
+
+Flask can also be used to build APIs, not only HTML pages.
+
+```py
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/api/profile')
+def profile():
+    return jsonify({
+        "name": "Amit Kumar",
+        "role": "Data Engineer",
+        "country": "India"
+    })
+```
+
+A request to `/api/profile` returns JSON instead of an HTML page.
+
+### Reading Query Parameters
+
+Query parameters can be accessed using `request.args`.
+
+```py
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route('/search')
+def search():
+    keyword = request.args.get('keyword', '')
+
+    return {
+        "keyword": keyword
+    }
+```
+
+For example:
+
+```text
+/search?keyword=python
+```
+
+returns:
+
+```json
+{
+  "keyword": "python"
+}
+```
+
+### Handling Form Data Safely
+
+When reading submitted form data, provide a default value when appropriate:
+
+```py
+content = request.form.get('content', '')
+```
+
+This avoids a `KeyError` when the field is missing.
+
 So far, we have seen how to use template and how to inject data to template, how to a common layout.
-Now, lets handle static file. Create a folder called static in the project director and create a folder called css. Inside css folder create main.css. Your main. css file will be linked to the layout.html.
+Now, lets handle static file. Create a folder called static in the project directory and create a folder called css. Inside css folder create main.css. Your main. css file will be linked to the layout.html.
 
 You don't have to write the css file, copy and use it. Let's move on to deployment.
 
 ### Deployment
 
-#### Creating Heroku account
+#### Deployment options
 
-Heroku provides a free deployment service for both front end and fullstack applications. Create an account on [heroku](https://www.heroku.com/) and install the heroku [CLI](https://devcenter.heroku.com/articles/heroku-cli) for you machine.
+Heroku provides a free deployment service for both front end and fullstack applications. Create an account on [heroku](https://www.heroku.com/) and install the heroku [CLI](https://devcenter.heroku.com/articles/heroku-cli) for your machine.
 After installing heroku write the following command
+
+#### Running Flask in Production
+
+For local development, Flask's development server is convenient:
+
+```sh
+python app.py
+```
+
+For production, use a WSGI server such as Gunicorn:
+
+```sh
+python -m pip install gunicorn
+gunicorn app:app
+```
+
+Here, `app:app` means:
+
+```text
+app.py       -> Python module
+app          -> Flask application object
+```
+
+A production command can also use the platform's `PORT` environment variable:
+
+```py
+import os
+
+port = int(os.environ.get("PORT", 5000))
+```
+
+This keeps the application portable across different hosting platforms.
 
 #### Login to Heroku
 
 ```sh
-asabeneh@Asabeneh:~$ heroku login
+amit@Amit:~$ heroku login
 heroku: Press any key to open up the browser to login or q to exit:
 ```
 
-Let's see the result by clicking any key from the keyboard. When you press any key from you keyboard it will open the heroku login page and click the login page. Then you will local machine will be connected to the remote heroku server. If you are connected to remote server, you will see this.
+Let's see the result by clicking any key from the keyboard. When you press any key from your keyboard it will open the heroku login page and click the login page. Then your local machine will be connected to the remote heroku server. If you are connected to remote server, you will see this.
 
 ```sh
-asabeneh@Asabeneh:~$ heroku login
+amit@Amit:~$ heroku login
 heroku: Press any key to open up the browser to login or q to exit:
 Opening browser to https://cli-auth.heroku.com/auth/browser/be12987c-583a-4458-a2c2-ba2ce7f41610
 Logging in... done
-Logged in as asabeneh@gmail.com
-asabeneh@Asabeneh:~$
+Logged in as amit@gmail.com
+amit@Amit:~$
 ```
+
+### Protecting the Project Environment
+
+Do not commit the virtual environment directory to Git. Create a `.gitignore` file:
+
+```gitignore
+venv/
+__pycache__/
+*.pyc
+.env
+```
+
+Keep secrets such as API keys and passwords in environment variables rather than hard-coding them in `app.py`.
 
 #### Create requirements and Procfile
 
@@ -514,30 +632,39 @@ Before we push our code to remote server, we need requirements
 - Procfile
 
 ```sh
-(env) asabeneh@Asabeneh:~/Desktop/python_for_web$ pip freeze
-Click==7.0
-Flask==1.1.1
-itsdangerous==1.1.0
-Jinja2==2.10.3
-MarkupSafe==1.1.1
-Werkzeug==0.16.0
-(env) asabeneh@Asabeneh:~/Desktop/python_for_web$ touch requirements.txt
-(env) asabeneh@Asabeneh:~/Desktop/python_for_web$ pip freeze > requirements.txt
-(env) asabeneh@Asabeneh:~/Desktop/python_for_web$ cat requirements.txt
-Click==7.0
-Flask==1.1.1
-itsdangerous==1.1.0
-Jinja2==2.10.3
-MarkupSafe==1.1.1
-Werkzeug==0.16.0
-(env) asabeneh@Asabeneh:~/Desktop/python_for_web$ touch Procfile
-(env) asabeneh@Asabeneh:~/Desktop/python_for_web$ ls
-Procfile          env/              static/
-app.py            requirements.txt  templates/
-(env) asabeneh@Asabeneh:~/Desktop/python_for_web$
+Create `requirements.txt` from the active virtual environment:
+
+```sh
+python -m pip freeze > requirements.txt
 ```
 
-The Procfile will have the command which run the application in the web server in our case on Heroku.
+You can inspect it with:
+
+```sh
+cat requirements.txt
+```
+
+On Windows PowerShell:
+
+```powershell
+Get-Content requirements.txt
+```
+
+For modern deployments, install Gunicorn where the hosting platform supports it:
+
+```sh
+python -m pip install gunicorn
+python -m pip freeze > requirements.txt
+```
+
+> A `Procfile` is platform-specific. Some modern hosting platforms use a dashboard start command instead. If your provider supports a `Procfile`, a typical entry is:
+
+```text
+web: gunicorn app:app
+```
+```
+
+The Procfile will have the command that runs the application in the web server in our case on Heroku.
 
 ```sh
 web: python app.py
@@ -545,22 +672,137 @@ web: python app.py
 
 #### Pushing project to heroku
 
-Now, it is ready to be deployed. Steps to deploy the application on heroku
+Now, the project is ready to deploy to a hosting platform.
 
-1. git init
-2. git add .
-3. git commit -m "commit message"
-4. heroku create 'name of the app as one word'
-5. git push heroku master
-6. heroku open(to launch the deployed application)
+A typical Git-based deployment flow is:
 
-After this step you will get an application like [this](http://thirdaysofpython-practice.herokuapp.com/)
+1. `git init`
+2. `git add .`
+3. `git commit -m "initial Flask application"`
+4. Create a repository on your Git hosting provider.
+5. `git remote add origin <repository-url>`
+6. `git push -u origin main`
+7. Connect the repository to your chosen Python hosting platform.
+8. Configure the build/install command and production start command.
+9. Add required environment variables.
+10. Deploy the application and open the generated service URL.
+
+A typical production start command is:
+
+```sh
+gunicorn app:app
+```
+
+The exact commands depend on the hosting provider, so avoid blindly following deployment commands from old tutorials. Humanity has apparently decided that cloud deployment instructions should age like milk.
+
+## Practical Flask Project Structure
+
+A clean Flask project can grow into a structure like this:
+
+```text
+python_for_web/
+│
+├── app.py
+├── requirements.txt
+├── .gitignore
+├── templates/
+│   ├── layout.html
+│   ├── home.html
+│   ├── about.html
+│   └── post.html
+│
+├── static/
+│   └── css/
+│       └── main.css
+│
+└── venv/
+```
+
+For larger applications, you can later split routes, services, configuration and database code into separate modules.
+
+### Useful Flask Concepts to Remember
+
+| Concept | Purpose |
+|---|---|
+| `Flask(__name__)` | Creates the Flask application |
+| `@app.route()` | Maps a URL to a Python function |
+| `render_template()` | Renders an HTML/Jinja template |
+| `request` | Reads incoming request data |
+| `request.args` | Reads query parameters |
+| `request.form` | Reads submitted form data |
+| `redirect()` | Redirects the browser |
+| `url_for()` | Builds URLs from route names |
+| `jsonify()` | Returns JSON responses |
+| `app.run()` | Runs the development server |
+| `gunicorn app:app` | Runs Flask with a production WSGI server |
+
+### Flask vs Django
+
+Both are popular Python web frameworks, but they have different philosophies:
+
+- **Flask** is lightweight and gives you more freedom to choose components.
+- **Django** is more batteries-included and provides many built-in features for larger web applications.
+
+For learning web fundamentals and small APIs, Flask is a useful starting point.
+
+### Important Security and Production Notes
+
+- Never expose passwords, API keys or database credentials in source code.
+- Use environment variables for secrets and configuration.
+- Validate user input before processing it.
+- Do not use `debug=True` in production.
+- Use HTTPS in production.
+- Use a production WSGI server such as Gunicorn rather than Flask's development server.
+- Keep dependencies updated and review security advisories.
 
 ## Exercises: Day 26
 
-1. You will build [this application](https://thirtydaysofpython-v1-final.herokuapp.com/). Only the text analyser part is left
+### Exercises: Level 1
 
+1. Create a Flask application with `/`, `/about`, and `/contact` routes.
+2. Return simple HTML from each route.
+3. Create `home.html` and `about.html` inside the `templates` directory.
+4. Render both templates using `render_template()`.
+5. Create a shared `layout.html` and use Jinja2 template inheritance.
+6. Add a CSS file inside `static/css/` and load it with `url_for()`.
 
+### Exercises: Level 2
+
+1. Create a `/profile` route that sends your name, role and city to a template.
+2. Display a list of Python technologies using a Jinja2 `for` loop.
+3. Create a `/search` route that reads a `keyword` query parameter.
+4. Create a form that accepts text using `POST`.
+5. Read the submitted text with `request.form.get()`.
+6. Redirect the user to a result page using `redirect()` and `url_for()`.
+
+### Exercises: Level 3
+
+1. Create a `/api/profile` endpoint that returns JSON.
+2. Create an `/api/products` endpoint that returns a list of products.
+3. Add a route that accepts an ID and returns the matching product.
+4. Return a suitable error response when the product does not exist.
+5. Add input validation to a form.
+6. Create a `.gitignore` file that excludes `venv/`, `__pycache__/`, `.env` and `.pyc` files.
+7. Create `requirements.txt` using `python -m pip freeze > requirements.txt`.
+8. Run the application locally with Flask's development server and then run it with Gunicorn.
+
+### Exercises: Level 4 - Data Engineering Practice
+
+Build a small **Data Quality Dashboard** with Flask.
+
+The application should:
+
+1. Have a home page showing the number of records processed.
+2. Have an `/api/data` endpoint returning sample JSON records.
+3. Provide a `/search` route to filter records by name or city.
+4. Show the number of valid and invalid records.
+5. Use Jinja2 templates for the dashboard.
+6. Use CSS from the `static` directory.
+7. Keep configuration values in environment variables.
+8. Store dependencies in `requirements.txt`.
+9. Add a `.gitignore` file.
+10. Run the application with a production WSGI server.
+    
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 25 ](../25_Day_Pandas/25_pandas.md) | [Day 27 >>](../27_Day_Python_with_mongodb/27_python_with_mongodb.md)
+[<< Day 25](../Day_25_Pandas/25_Pandas.md) | [Day 27 >>](../Day_27_Python_with_mongodb/27_Python_with_mongodb.md)
