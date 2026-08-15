@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 11 - Functions</h1>
+  <h1> Python In 30 Days: Day 11 - Functions</h1>
  
 
 <sub>Author:
@@ -8,9 +8,9 @@
 
 </div>
 
-[<< Day 10](../10_Day_Loops/10_Day_Loops.md) | [Day 12 >>](../12_Day_Modules/12_modules.md)
+[<< Day 10](../Day_10_Loops/10_Loops.md) | [Day 12 >>](../Day_12_Modules/12_Modules.md)
 
-**[30DaysOfPython]**
+**Python In 30 Days**
 
 - [📘 Day 11](#-day-11)
   - [Functions](#functions)
@@ -36,13 +36,36 @@
 
 So far we have seen many built-in Python functions. In this section, we will focus on custom functions. What is a function? Before we start making functions, let us learn what a function is and why we need them?
 
+### Why Use Functions?
+
+Functions are useful because they let us:
+
+- Reuse code instead of copying it.
+- Break a large program into smaller, understandable pieces.
+- Give meaningful names to operations.
+- Test individual pieces of logic more easily.
+- Return results that can be used elsewhere in a program.
+
+A simple function has four important parts:
+
+```py
+def function_name(parameter):
+    # function body
+    return value
+```
+
+- `def` starts the function definition.
+- `function_name` is the name used to call the function.
+- `parameter` receives input from the caller.
+- `return` sends a result back to the caller.
+
 ### Defining a Function
 
-A function is a reusable block of code or programming statements designed to perform a certain task. To define or declare a function, Python provides the _def_ keyword. The following is the syntax for defining a function. The function block of code is executed only if the function is called or invoked.
+A function is a reusable block of code designed to perform a specific task. Functions help us organize code, avoid repetition, and make programs easier to test and maintain. To define or declare a function, Python provides the _def_ keyword. The following is the syntax for defining a function. The function body is not executed when the function is defined. It runs when the function is called.
 
 ### Declaring and Calling a Function
 
-When we make a function, we call it declaring a function. When we start using the it,  we call it _calling_ or _invoking_ a function. Functions can be declared with or without parameters.
+When we create a function using `def`, we define the function. When we use its name followed by parentheses, we call or invoke the function. When we start using it, we call it _calling_ or _invoking_ a function. Functions can be declared with or without parameters.
 
 ```py
 # syntax
@@ -61,15 +84,15 @@ Function can be declared without parameters.
 **Example:**
 
 ```py
-def generate_full_name ():
-    first_name = 'Asabeneh'
-    last_name = 'Yetayeh'
+def generate_full_name():
+    first_name = 'Amit'
+    last_name = 'Kumar'
     space = ' '
     full_name = first_name + space + last_name
     print(full_name)
 generate_full_name () # calling a function
 
-def add_two_numbers ():
+def add_two_numbers():
     num_one = 2
     num_two = 3
     total = num_one + num_two
@@ -82,15 +105,15 @@ add_two_numbers()
 Functions return values using the _return_ statement. If a function has no return statement, it returns None. Let us rewrite the above functions using return. From now on, we get a value from a function when we call the function and print it.
 
 ```py
-def generate_full_name ():
-    first_name = 'Asabeneh'
-    last_name = 'Yetayeh'
+def generate_full_name():
+    first_name = 'Amit'
+    last_name = 'Kumar'
     space = ' '
     full_name = first_name + space + last_name
     return full_name
 print(generate_full_name())
 
-def add_two_numbers ():
+def add_two_numbers():
     num_one = 2
     num_two = 3
     total = num_one + num_two
@@ -100,7 +123,7 @@ print(add_two_numbers())
 
 ### Function with Parameters
 
-In a function we can pass different data types(number, string, boolean, list, tuple, dictionary or set) as parameters.
+In a function we can pass different data types (number, string, boolean, list, tuple, dictionary or set) as parameters.
 
 - Single Parameter: If our function takes a parameter we should call our function with an argument
 
@@ -117,11 +140,11 @@ In a function we can pass different data types(number, string, boolean, list, tu
 **Example:**
 
 ```py
-def greetings (name):
+def greetings(name):
     message = name + ', welcome to Python for Everyone!'
     return message
 
-print(greetings('Asabeneh'))
+print(greetings('Amit'))
 
 def add_ten(num):
     ten = 10
@@ -141,7 +164,7 @@ print(area_of_circle(10))
 def sum_of_numbers(n):
     total = 0
     for i in range(n+1):
-        total+=i
+        total += i
     return total
 print(sum_of_numbers(10)) # 55
 print(sum_of_numbers(100)) # 5050
@@ -162,24 +185,24 @@ print(sum_of_numbers(100)) # 5050
 **Example:**
 
 ```py
-def generate_full_name (first_name, last_name):
+def generate_full_name(first_name, last_name):
     space = ' '
       full_name = first_name + space + last_name
       return full_name
-print('Full Name: ', generate_full_name('Asabeneh','Yetayeh'))
+print('Full Name: ', generate_full_name('Amit','Kumar'))
 
 def sum_two_numbers (num_one, num_two):
     sum = num_one + num_two
     return sum
 print('Sum of two numbers: ', sum_two_numbers(1, 9))
 
-def calculate_age (current_year, birth_year):
+def calculate_age(current_year, birth_year):
     age = current_year - birth_year
     return age 
 
 print('Age: ', calculate_age(2021, 1819))
 
-def weight_of_object (mass, gravity):
+def weight_of_object(mass, gravity):
     weight = str(mass * gravity)+ ' N' # the value has to be changed to a string first
     return weight
 print('Weight of an object in Newtons: ', weight_of_object(100, 9.81))
@@ -206,9 +229,9 @@ def print_fullname(firstname, lastname):
     space = ' '
     full_name = firstname  + space + lastname
     print(full_name)
-print_fullname(firstname = 'Asabeneh', lastname = 'Yetayeh')
+print_fullname(firstname = 'Amit', lastname = 'Kumar')
 
-def add_two_numbers (num1, num2):
+def add_two_numbers(num1, num2):
     total = num1 + num2
     return total
 print(add_two_numbers(num2 = 3, num1 = 2)) # Order does not matter 
@@ -216,7 +239,7 @@ print(add_two_numbers(num2 = 3, num1 = 2)) # Order does not matter
 
 ### Function Returning a Value - Part 2
 
-If we do not return a value with a function, then our function is returning _None_ by default. To return a value with a function we use the keyword _return_ followed by the variable we are returning. We can return any kind of data types from a function.
+If a function reaches the end without executing a `return` statement, Python returns `None` automatically. To return a value with a function we use the keyword _return_ followed by the variable we are returning. We can return any kind of data types from a function.
 
 - Returning a string:
 **Example:**
@@ -224,13 +247,13 @@ If we do not return a value with a function, then our function is returning _Non
 ```py
 def print_name(firstname):
     return firstname
-print_name('Asabeneh') # Asabeneh
+print_name('Amit') # Amit
 
 def print_full_name(firstname, lastname):
     space = ' '
     full_name = firstname  + space + lastname
     return full_name
-print_full_name(firstname='Asabeneh', lastname='Yetayeh')
+print_full_name(firstname='Amit', lastname='Kumar')
 ```
 
 - Returning a number:
@@ -238,12 +261,12 @@ print_full_name(firstname='Asabeneh', lastname='Yetayeh')
 **Example:**
 
 ```py
-def add_two_numbers (num1, num2):
+def add_two_numbers(num1, num2):
     total = num1 + num2
     return total
 print(add_two_numbers(2, 3))
 
-def calculate_age (current_year, birth_year):
+def calculate_age(current_year, birth_year):
     age = current_year - birth_year
     return age
 print('Age: ', calculate_age(2019, 1819))
@@ -253,7 +276,7 @@ print('Age: ', calculate_age(2019, 1819))
   **Example:**
 
 ```py
-def is_even (n):
+def is_even(n):
     if n % 2 == 0:
         return True    # return stops further execution of the function, similar to break 
     return False
@@ -274,6 +297,33 @@ def find_even_numbers(n):
 print(find_even_numbers(10))
 ```
 
+### Local Variables and Scope
+
+Variables created inside a function are usually **local variables**. They can be used inside that function but are not automatically available outside it.
+
+```py
+def calculate_total():
+    price = 100
+    tax = 10
+    return price + tax
+
+print(calculate_total())
+# print(price)  # NameError
+```
+
+A variable defined outside a function belongs to the surrounding/global scope:
+
+```py
+tax_rate = 0.10
+
+def calculate_tax(amount):
+    return amount * tax_rate
+
+print(calculate_tax(100))
+```
+
+As a beginner, prefer passing required values as parameters and returning results instead of depending heavily on global variables.
+
 ### Function with Default Parameters
 
 Sometimes we pass default values to parameters, when we invoke the function. If we do not pass arguments when calling the function, their default values will be used.
@@ -292,13 +342,13 @@ function_name(arg)
 **Example:**
 
 ```py
-def greetings (name = 'Peter'):
+def greetings(name = 'Peter'):
     message = name + ', welcome to Python for Everyone!'
     return message
 print(greetings())
-print(greetings('Asabeneh'))
+print(greetings('Amit'))
 
-def generate_full_name (first_name = 'Asabeneh', last_name = 'Yetayeh'):
+def generate_full_name(first_name = 'Amit', last_name = 'Kumar'):
     space = ' '
     full_name = first_name + space + last_name
     return full_name
@@ -306,21 +356,40 @@ def generate_full_name (first_name = 'Asabeneh', last_name = 'Yetayeh'):
 print(generate_full_name())
 print(generate_full_name('David','Smith'))
 
-def calculate_age (birth_year,current_year = 2021):
+def calculate_age(birth_year,current_year = 2021):
     age = current_year - birth_year
     return age 
 print('Age: ', calculate_age(1821))
 
-def weight_of_object (mass, gravity = 9.81):
+def weight_of_object(mass, gravity = 9.81):
     weight = str(mass * gravity)+ ' N' # the value has to be changed to string first
     return weight
 print('Weight of an object in Newtons: ', weight_of_object(100)) # 9.81 - average gravity on Earth's surface
 print('Weight of an object in Newtons: ', weight_of_object(100, 1.62)) # gravity on the surface of the Moon
 ```
 
+### Positional vs Keyword Arguments
+
+Arguments can be passed by position:
+
+```py
+def introduce(name, city):
+    return f'{name} lives in {city}.'
+
+print(introduce('Amit', 'Mumbai'))
+```
+
+Or by keyword:
+
+```py
+print(introduce(city='Mumbai', name='Amit'))
+```
+
+Keyword arguments make calls easier to read and their order does not matter when the parameter names are supplied correctly.
+
 ### Arbitrary Number of Arguments
 
-If we do not know the number of arguments we pass to our function, we can create a function which can take arbitrary number of arguments by adding \* before the parameter name.
+If we do not know the number of arguments we pass to our function, we can create a function that can take arbitrary number of arguments by adding \* before the parameter name.
 
 ```py
 # syntax
@@ -350,11 +419,11 @@ def generate_groups (team,*args):
     print(team)
     for i in args:
         print(i) 
-generate_groups('Team-1','Asabeneh','Brook','David','Eyob')
+generate_groups('Team-1','Amit','Brook','David','Eyob')
 ```
-### Dictionary unpacking
+### Keyword Argument Unpacking with `**`
 
-You can call a function which has named arguments using a dictionary with matching key names. You do so using ``**``.
+You can call a function that has named arguments using a dictionary with matching key names. You do so using ``**``.
 
 ```py
 # Define a function that takes two arguments: 'name' and 'location'
@@ -376,6 +445,39 @@ greet(**my_dict)
 # Output: Hi there Alice how is the weather in New York
 ```
 
+### `*args` and `**kwargs`
+
+`*args` collects extra positional arguments into a tuple:
+
+```py
+def show_numbers(*args):
+    print(args)
+
+show_numbers(10, 20, 30)
+# (10, 20, 30)
+```
+
+`**kwargs` collects extra keyword arguments into a dictionary:
+
+```py
+def show_details(**kwargs):
+    print(kwargs)
+
+show_details(name='Amit', city='Mumbai')
+# {'name': 'Amit', 'city': 'Mumbai'}
+```
+
+A function can use both:
+
+```py
+def example(required, *args, **kwargs):
+    print(required)
+    print(args)
+    print(kwargs)
+```
+
+Use these features when the function genuinely needs a variable number of arguments. For normal functions, explicit parameters are usually clearer.
+
 ### Arbitrary Number of Named Arguments
 
 You can also define a function to accept an arbitrary number of named arguments.
@@ -395,14 +497,110 @@ Generally avoid this unless required as it makes it harder to understand what th
 
 ```py
 #You can pass functions around as parameters
-def square_number (n):
-    return n ** n
+def square_number(n):
+    return n ** 2
 def do_something(f, x):
     return f(x)
 print(do_something(square_number, 3)) # 27
 ```
 
-🌕 You achieved quite a lot so far.  Keep going! You have just completed day 11 challenges and you are 11 steps a head in to your way to greatness. Now do some exercises for your brain and muscles.
+## Lambda Functions
+
+A `lambda` is a small anonymous function. It can contain one expression and automatically returns the result.
+
+```py
+square = lambda x: x ** 2
+
+print(square(5))
+# 25
+```
+
+Lambdas are often useful for short operations passed to functions such as `sorted()`:
+
+```py
+employees = [
+    {'name': 'Amit', 'salary': 70000},
+    {'name': 'Rahul', 'salary': 50000},
+    {'name': 'Priya', 'salary': 90000}
+]
+
+employees.sort(key=lambda employee: employee['salary'])
+
+print(employees)
+```
+
+For complex logic, use a normal `def` function because it is easier to read and document.
+
+## Docstrings
+
+A function can document what it does using a docstring:
+
+```py
+def add_two_numbers(a, b):
+    """Return the sum of two numbers."""
+    return a + b
+
+print(add_two_numbers.__doc__)
+```
+
+Docstrings are useful for explaining a function's purpose, inputs, and returned result.
+
+## Type Hints
+
+Type hints make the expected input and output types clearer:
+
+```py
+def add_two_numbers(a: int, b: int) -> int:
+    return a + b
+
+print(add_two_numbers(10, 20))
+```
+
+Type hints do not automatically enforce the types at runtime. They mainly improve readability, editor support, and static analysis.
+
+## Practical Data Engineering Example
+
+Functions are especially useful when the same transformation must be applied to many records.
+
+```py
+def clean_name(name):
+    return name.strip().title()
+
+names = [' amit ', 'RAHUL', ' priya']
+
+cleaned_names = []
+
+for name in names:
+    cleaned_names.append(clean_name(name))
+
+print(cleaned_names)
+# ['Amit', 'Rahul', 'Priya']
+```
+
+A reusable validation function can also keep pipeline logic clean:
+
+```py
+def is_valid_employee(employee):
+    return (
+        employee.get('employee_id') is not None
+        and employee.get('name')
+        and employee.get('department')
+    )
+
+employee = {
+    'employee_id': 101,
+    'name': 'Amit',
+    'department': 'Data Engineering'
+}
+
+print(is_valid_employee(employee))
+# True
+```
+
+This pattern is useful in ETL and data-processing code because validation or transformation logic can be defined once and reused.
+
+
+🌕 You achieved quite a lot so far.  Keep going! You have just completed day 11 challenges and you are 11 steps ahead in your way to greatness. Now do some exercises for your brain and muscles.
 
 
 ## 💻 Exercises: Day 11
@@ -412,10 +610,10 @@ print(do_something(square_number, 3)) # 27
 1. Declare a function _add_two_numbers_. It takes two parameters and it returns a sum.
 2. Area of a circle is calculated as follows: area = π x r x r. Write a function that calculates _area_of_circle_.
 3. Write a function called add_all_nums which takes arbitrary number of arguments and sums all the arguments. Check if all the list items are number types. If not do give a reasonable feedback.
-4. Temperature in °C can be converted to °F using this formula: °F = (°C x 9/5) + 32. Write a function which converts °C to °F, _convert_celsius_to-fahrenheit_.
-5. Write a function called check-season, it takes a month parameter and returns the season: Autumn, Winter, Spring or Summer.
+4. Temperature in °C can be converted to °F using this formula: °F = (°C x 9/5) + 32. Write a function that converts °C to °F, _convert_celsius_to_fahrenheit_.
+5. Write a function called check_season, it takes a month parameter and returns the season: Autumn, Winter, Spring or Summer.
 6. Write a function called calculate_slope which return the slope of a linear equation
-7. Quadratic equation is calculated as follows: ax² + bx + c = 0. Write a function which calculates solution set of a quadratic equation, _solve_quadratic_eqn_.
+7. Quadratic equation is calculated as follows: ax² + bx + c = 0. Write a function that calculates solution set of a quadratic equation, _solve_quadratic_eqn_.
 8. Declare a function named print_list. It takes a list as a parameter and it prints out each element of the list.
 9. Declare a function named reverse_list. It takes an array as a parameter and it returns the reverse of the array (use loops).
 
@@ -491,13 +689,27 @@ print(sum_of_numbers(100)) # 5050
 
 1. Write a function called is_prime, which checks if a number is prime.
 1. Write a functions which checks if all items are unique in the list.
-1. Write a function which checks if all the items of the list are of the same data type.
-1. Write a function which check if provided variable is a valid python variable
+1. Write a function that checks if all the items of the list are of the same data type.
+1. Write a function that check if provided variable is a valid python variable
 1. Go to the data folder and access the countries-data.py file.
 
 - Create a function called the most_spoken_languages in the world. It should return 10 or 20 most spoken languages in the world in descending order
 - Create a function called the most_populated_countries. It should return 10 or 20 most populated countries in descending order.
 
-🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 10](../10_Day_Loops/10_Day_Loops.md) | [Day 12 >>](../12_Day_Modules/12_modules.md)
+### Extra Practice
+
+1. Write a function that accepts a list of numbers and returns the largest number.
+2. Write a function that accepts a list of strings and returns only strings longer than five characters.
+3. Write a function that counts how many times each value appears in a list.
+4. Write a function that removes duplicate values from a list while preserving their order.
+5. Write a function that validates an employee dictionary and returns `True` or `False`.
+6. Write a function that converts a list of Celsius temperatures into Fahrenheit temperatures.
+7. Write a function that accepts `*args` and returns the average of all numeric arguments.
+8. Write a function that accepts `**kwargs` and prints each key-value pair.
+9. Write a function with a docstring and type hints.
+10. Write a function and pass it as an argument to another function.
+
+🎉 CONGRATULATIONS! 🎉
+
+[<< Day 10](../Day_10_Loops/10_Loops.md) | [Day 12 >>](../Day_12_Modules/12_Modules.md)
