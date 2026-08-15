@@ -1,6 +1,6 @@
 
 <div align="center">
-  <h1> 30 Days Of Python: Day 2 - Variables, Builtin Functions</h1>
+  <h1> Python In 30 Days: Day 2 - Variables and Built-in Functions</h1>
   <!-- <a class="header-badge" target="_blank" href="">
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
   </a>
@@ -15,9 +15,9 @@
 
 </div>
 
-**[<<Day 01](01_Day_Introduction/01_Day_Introduction.md) | [Day 3 >>](03_Day_Operators/03_operators.md)**
+**[<< Day 1](../Day_01_Introduction/01_Introduction.md) | [Day 3 >>](../Day_03_Operators/03_Operators.md)**
 
-[30DaysOfPython]
+Python In 30 Days
 
 - [📘 Day 2](#-day-2)
   - [Built in functions](#built-in-functions)
@@ -32,7 +32,7 @@
 
 # 📘 Day 2
 
-## Built in functions
+## Built-in Functions
 
 In Python we have lots of built-in functions. Built-in functions are globally available for your use that mean you can make use of the built-in functions without importing or configuring. Some of the most commonly used Python built-in functions are the following: _print()_, _len()_, _type()_, _int()_, _float()_, _str()_, _input()_, _list()_, _dict()_, _min()_, _max()_, _sum()_, _sorted()_, _open()_, _file()_, _help()_, and _dir()_. In the following table you will see an exhaustive list of Python built-in functions taken from [python documentation](https://docs.python.org/3/library/functions.html).
 
@@ -40,13 +40,13 @@ In Python we have lots of built-in functions. Built-in functions are globally av
 ## Variables
 
 Variables store data in a computer memory. Mnemonic variables are recommended to use in many programming languages. A mnemonic variable is a variable name that can be easily remembered and associated. A variable refers to a memory address in which data is stored.
-Number at the beginning, special character, hyphen are not allowed when naming a variable. A variable can have a short name (like x, y, z), but a more descriptive name (firstname, lastname, age, country) is highly recommended.
+A variable name cannot start with a number and cannot contain spaces, hyphens, or most special characters. A variable can have a short name (like x, y, z), but a more descriptive name (first_name, last_name, age, country) is recommended.
 
 Python Variable Name Rules
 
 - A variable name must start with a letter or the underscore character
 - A variable name cannot start with a number
-- A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and \_ )
+- A variable name can only contain letters, numbers, and underscores (A-Z, a-z, 0-9, and `_`)
 - Variable names are case-sensitive (firstname, Firstname, FirstName and FIRSTNAME) are different variables)
 
 Here are some example of valid variable names:
@@ -61,9 +61,9 @@ first_name
 last_name
 capital_city
 _if # if we want to use reserved word as a variable
-year_2021
-year2021
-current_year_2021
+year_2026
+year2026
+current_year_2026
 birth_year
 num1
 num2
@@ -79,9 +79,9 @@ num-1
 1num
 ```
 
-We will use standard Python variable naming style which has been adopted by many Python developers. Python developers use snake case(snake_case) variable naming convention. We use underscore character after each word for a variable containing more than one word(eg. first_name, last_name, engine_rotation_speed).  The example below is an example of standard naming of variables, underscore is required when the variable name is more than one word.
+We will use standard Python variable naming style which has been adopted by many Python developers. Python developers commonly use the snake_case naming convention. We use underscore character after each word for a variable containing more than one word(eg. first_name, last_name, engine_rotation_speed).  The examples below follow the standard naming convention. An underscore separates words when a variable name contains more than one word.
 
-When we assign a certain data type to a variable, it is called variable declaration. For instance in the example below my first name is assigned to a variable first_name. The equal sign is an assignment operator. Assigning means storing data in the variable. The equal sign in Python is not equality as in Mathematics.
+When we assign a value to a variable, it is called variable assignment. For instance in the example below my first name is assigned to a variable first_name. The equal sign (`=`) is the assignment operator. Assignment means storing a value in a variable. The equal sign in Python is not equality as in Mathematics.
 
 _Example:_
 
@@ -91,7 +91,7 @@ first_name = 'Amit'
 last_name = 'Kumar'
 country = 'India'
 city = 'Mumbai'
-age = 250
+age = 25
 is_married = True
 skills = ['HTML', 'CSS', 'JS', 'React', 'Python']
 person_info = {
@@ -131,7 +131,7 @@ print('Skills: ', skills)
 print('Person information: ', person_info)
 ```
 
-### Declaring Multiple Variable in a Line
+### Declaring Multiple Variables in One Line
 
 Multiple variables can also be declared in one line:
 
@@ -176,7 +176,7 @@ first_name = 'Amit'     # str
 last_name = 'Kumar'       # str
 country = 'India'         # str
 city= 'Mumbai'            # str
-age = 250                   # int, it is not my real age, don't worry about it
+age = 25                   # int, it is an example age
 
 # Printing out types
 print(type('Amit'))          # str
@@ -191,8 +191,8 @@ print(type((1,2)))               # tuple
 print(type(zip([1,2],[3,4])))    # zip
 ```
 
-- Casting: Converting one data type to another data type. We use _int()_, _float()_, _str()_, _list_, _set_
-  When we do arithmetic operations string numbers should be first converted to int or float otherwise it will return an error. If we concatenate a number with a string, the number should be first converted to a string. We will talk about concatenation in String section.
+- Casting: Converting one data type to another data type. We use `int()`, `float()`, `str()`, `list()`, and `set()`
+  When performing arithmetic operations, strings containing numbers should first be converted to `int` or `float`; otherwise, Python may raise a `TypeError`. If we concatenate a number with a string, the number should first be converted to a string. We will talk about concatenation in String section.
 
   **Examples:**
 
@@ -226,7 +226,7 @@ print('num_int', int(num_int))      # 10
 first_name = 'Amit'
 print(first_name)               # 'Amit'
 first_name_to_list = list(first_name)
-print(first_name_to_list)            # ['A', 's', 'a', 'b', 'e', 'n', 'e', 'h']
+print(first_name_to_list)            # ['A', 'm', 'i', 't']
 ```
 
 ## Numbers
@@ -245,30 +245,30 @@ Number data types in Python:
    Example:
    1 + j, 2 + 4j, 1 - 1j
 
-🌕 You are awesome. You have just completed day 2 challenges and you are two steps ahead on your way to greatness. Now do some exercises for your brain and muscles.
+🌕 You have completed Day 2. Now practice the exercises below to strengthen your Python fundamentals.
 
 ## 💻 Exercises - Day 2
 
 ### Exercises: Level 1
 
-1. Inside 30DaysOfPython create a folder called day_2. Inside this folder create a file named variables.py
-2. Write a python comment saying 'Day 2: 30 Days of python programming'
-3. Declare a first name variable and assign a value to it
-4. Declare a last name variable and assign a value to it
-5. Declare a full name variable and assign a value to it
-6. Declare a country variable and assign the value 'India' to it
-7. Declare a city variable and assign the value 'Mumbai' to it
-8. Declare an age variable and assign a value to it
-9. Declare a year variable and assign a value to it
-10. Declare a variable is_married and assign a value to it
-11. Declare a variable is_true and assign a value to it
-12. Declare a variable is_light_on and assign a value to it
-13. Declare multiple variable on one line
+1. Inside Python In 30 Days create a folder called `Day_02_Variables_builtin_functions`. Inside this folder create a file named `variables.py`.
+2. Write a python comment saying 'Day 2: Python In 30 Days programming'
+3. Declare a `first_name` variable and assign a value to it
+4. Declare a `last_name` variable and assign a value to it
+5. Declare a `full_name` variable and assign a value to it
+6. Declare a `country` variable and assign the value 'India' to it
+7. Declare a `city` variable and assign the value 'Mumbai' to it
+8. Declare an `age` variable and assign a value to it
+9. Declare a `year` variable and assign a value to it
+10. Declare a variable `is_married` and assign a value to it
+11. Declare a variable `is_true` and assign a value to it
+12. Declare a variable `is_light_on` and assign a value to it
+13. Declare multiple variables on one line
 
 ### Exercises: Level 2
 
-1. Check the data type of all your variables using type() built-in function
-2. Using the _len()_ built-in function, find the length of your first name
+1. Check the data type of all your variables using the `type()` built-in function
+2. Using the `len()` built-in function, find the length of your first name
 3. Compare the length of your first name and your last name
 4. Declare 5 as num_one and 4 as num_two
 5. Add num_one and num_two and assign the value to a variable total
@@ -285,6 +285,6 @@ Number data types in Python:
 13. Use the built-in input function to get first name, last name, country and age from a user and store the value to their corresponding variable names
 14. Run help('keywords') in Python shell or in your file to check for the Python reserved words or keywords
 
-🎉 CONGRATULATIONS ! 🎉
+🎉 CONGRATULATIONS! 🎉
 
-[<< Day 1](../readme.md) | [Day 3 >>](../03_Day_Operators/03_operators.md)
+[<< Day 1](../Day_01_Introduction/01_Introduction.md) | [Day 3 >>](../Day_03_Operators/03_Operators.md)
