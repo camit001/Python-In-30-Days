@@ -7,7 +7,7 @@
 
 </div>
 
-[<< Day 11](../Day_11_Functions/11_Functions.md) | [Day 13 >>](../Day_13_List_Comprehension/13_List_Comprehension.md)
+[<< Day 11](../Day_11_Functions/11_Functions.md) | [Day 13 >>](../Day_13_List_comprehension/13_List_comprehension.md)
 
 **Python In 30 Days**
 
@@ -801,4 +801,4 @@ generate_colors('rgb', 1)
 
 🎉 CONGRATULATIONS! 🎉
 
-[<< Day 11](../Day_11_Functions/11_Functions.md) | [Day 13 >>](../Day_13_List_Comprehension/13_List_Comprehension.md)
+[<< Day 11](../Day_11_Functions/11_Functions.md) | [Day 13 >>](../Day_13_List_comprehension/13_List_comprehension.md)
