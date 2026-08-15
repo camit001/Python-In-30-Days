@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 19 - File Handling </h1>
+  <h1> Python In 30 Days: Day 19 - File Handling </h1>
   
 <sub>Author:
 <a href="https://github.com/camit001" target="_blank">Amit Kumar</a><br>
@@ -7,9 +7,9 @@
 </sub>
 </div>
 
-[<< Day 18](../18_Day_Regular_expressions/18_regular_expressions.md) | [Day 20 >>](../20_Day_Python_package_manager/20_python_package_manager.md)
+[<< Day 18](../Day_18_Regular_expressions/18_Regular_expressions.md) | [Day 20 >>](../Day_20_Python_package_manager/20_Python_package_manager.md)
 
-**[30DaysOfPython]**
+**Python In 30 Days**
 
 - [📘 Day 19](#-day-19)
   - [File Handling](#file-handling)
@@ -36,7 +36,7 @@
 
 So far we have seen different Python data types. We usually store our data in different file formats. In addition to handling files, we will also see different file formats(.txt, .json, .xml, .csv, .tsv, .excel) in this section. First, let us get familiar with handling files with common file format(.txt).
 
-File handling is an import part of programming which allows us to create, read, update and delete files. In Python to handle data we use _open()_ built-in function.
+File handling is an important part of programming which allows us to create, read, update and delete files. In Python to handle data we use _open()_ built-in function.
 
 ```py
 # Syntax
@@ -142,7 +142,7 @@ f.close()
 ['This is an example to show how to open a file and read.', 'This is the second line of the text.']
 ```
 
-After we open a file, we should close it. There is a high tendency of forgetting to close them. There is a new way of opening files using _with_ - closes the files by itself. Let us rewrite the the previous example with the _with_ method:
+After we open a file, we should close it. There is a high tendency of forgetting to close them. There is a new way of opening files using _with_ - closes the files by itself. Let us rewrite the previous example with the _with_ method:
 
 ```py
 with open('./files/reading_file_example.txt') as f:
@@ -198,6 +198,164 @@ else:
     print('The file does not exist')
 ```
 
+
+## Best Practice: `with open()`
+
+The recommended way to work with files is to use `with open(...)`. It automatically closes the file, even if an exception occurs.
+
+```py
+with open("./files/reading_file_example.txt", "r", encoding="utf-8") as f:
+    content = f.read()
+
+print(content)
+```
+
+### File Modes: Quick Reference
+
+| Mode | Meaning | Creates File | Overwrites Existing Content |
+|---|---|---:|---:|
+| `r` | Read | No | No |
+| `w` | Write | Yes | Yes |
+| `a` | Append | Yes | No |
+| `x` | Create only | Yes | No |
+| `r+` | Read and write | No | Can modify |
+| `w+` | Write and read | Yes | Yes |
+| `a+` | Append and read | Yes | No |
+
+For binary files, add `b`, such as `rb` or `wb`.
+
+### Using `pathlib`
+
+`pathlib` provides a modern and readable way to work with files and directories.
+
+```py
+from pathlib import Path
+
+file_path = Path("./files/example.txt")
+
+file_path.write_text("Hello Amit", encoding="utf-8")
+
+content = file_path.read_text(encoding="utf-8")
+print(content)
+
+print(file_path.name)
+print(file_path.suffix)
+print(file_path.exists())
+```
+
+### Reading a Large File Line by Line
+
+For large files, process one line at a time instead of loading the entire file into memory.
+
+```py
+with open("./files/reading_file_example.txt", "r", encoding="utf-8") as f:
+    for line in f:
+        print(line.strip())
+```
+
+### File Position: `tell()` and `seek()`
+
+```py
+with open("./files/reading_file_example.txt", "r", encoding="utf-8") as f:
+    print(f.tell())
+
+    print(f.read(10))
+
+    print(f.tell())
+
+    f.seek(0)
+    print(f.read(10))
+```
+
+- `tell()` returns the current file position.
+- `seek()` moves the file pointer.
+
+### Handling File Errors
+
+```py
+try:
+    with open("./files/example.txt", "r", encoding="utf-8") as f:
+        print(f.read())
+except FileNotFoundError:
+    print("The file was not found.")
+except PermissionError:
+    print("You do not have permission to read this file.")
+```
+
+### CSV with `DictReader`
+
+```py
+import csv
+
+with open("./files/employees.csv", "r", encoding="utf-8", newline="") as f:
+    reader = csv.DictReader(f)
+
+    for row in reader:
+        print(row["name"], row["city"])
+```
+
+### CSV with `DictWriter`
+
+```py
+import csv
+
+employees = [
+    {"name": "Amit", "city": "Mumbai"},
+    {"name": "Priya", "city": "Pune"},
+]
+
+with open("./files/employees.csv", "w", encoding="utf-8", newline="") as f:
+    fieldnames = ["name", "city"]
+
+    writer = csv.DictWriter(f, fieldnames=fieldnames)
+    writer.writeheader()
+    writer.writerows(employees)
+```
+
+## Practical Data Engineering Example
+
+File handling is important in data engineering because data frequently arrives as CSV, JSON, XML, or text files before being loaded into a database or data lake.
+
+```text
+Source File
+    ↓
+Read File
+    ↓
+Validate Data
+    ↓
+Clean / Transform
+    ↓
+Write Output
+    ↓
+Load into Database / Data Lake
+```
+
+### Process Multiple CSV Files
+
+```py
+from pathlib import Path
+
+data_folder = Path("./data")
+
+for file_path in data_folder.glob("*.csv"):
+    print("Processing:", file_path.name)
+```
+
+### Archive a Processed File
+
+```py
+from pathlib import Path
+import shutil
+
+source = Path("./data/input.csv")
+archive = Path("./data/archive/input.csv")
+
+archive.parent.mkdir(parents=True, exist_ok=True)
+shutil.move(source, archive)
+```
+
+This is a common pattern after successfully processing an incoming file.
+
 ## File Types
 
 ### File with txt Extension
@@ -206,27 +364,27 @@ File with _txt_ extension is a very common form of data and we have covered it i
 
 ### File with json Extension
 
-JSON stands for JavaScript Object Notation. Actually, it is a stringified JavaScript object or Python dictionary.
+JSON stands for JavaScriptt Object Notation. Actually, it is a stringified JavaScriptt object or Python dictionary.
 
 _Example:_
 
 ```py
 # dictionary
 person_dct= {
-    "name":"Asabeneh",
+    "name":"Amit",
     "country":"Finland",
     "city":"Helsinki",
-    "skills":["JavaScrip", "React","Python"]
+    "skills":["JavaScript", "React","Python"]
 }
 # JSON: A string form a dictionary
-person_json = "{'name': 'Asabeneh', 'country': 'Finland', 'city': 'Helsinki', 'skills': ['JavaScrip', 'React', 'Python']}"
+person_json = "{'name': 'Amit', 'country': 'Finland', 'city': 'Helsinki', 'skills': ['JavaScript', 'React', 'Python']}"
 
 # we use three quotes and make it multiple line to make it more readable
 person_json = '''{
-    "name":"Asabeneh",
+    "name":"Amit",
     "country":"Finland",
     "city":"Helsinki",
-    "skills":["JavaScrip", "React","Python"]
+    "skills":["JavaScript", "React","Python"]
 }'''
 ```
 
@@ -238,10 +396,10 @@ To change a JSON to a dictionary, first we import the json module and then we us
 import json
 # JSON
 person_json = '''{
-    "name": "Asabeneh",
+    "name": "Amit",
     "country": "Finland",
     "city": "Helsinki",
-    "skills": ["JavaScrip", "React", "Python"]
+    "skills": ["JavaScript", "React", "Python"]
 }'''
 # let's change JSON to dictionary
 person_dct = json.loads(person_json)
@@ -253,8 +411,8 @@ print(person_dct['name'])
 ```sh
 # output
 <class 'dict'>
-{'name': 'Asabeneh', 'country': 'Finland', 'city': 'Helsinki', 'skills': ['JavaScrip', 'React', 'Python']}
-Asabeneh
+{'name': 'Amit', 'country': 'Finland', 'city': 'Helsinki', 'skills': ['JavaScript', 'React', 'Python']}
+Amit
 ```
 
 ### Changing Dictionary to JSON
@@ -265,10 +423,10 @@ To change a dictionary to a JSON we use _dumps_ method from the json module.
 import json
 # python dictionary
 person = {
-    "name": "Asabeneh",
+    "name": "Amit",
     "country": "Finland",
     "city": "Helsinki",
-    "skills": ["JavaScrip", "React", "Python"]
+    "skills": ["JavaScript", "React", "Python"]
 }
 # let's convert it to  json
 person_json = json.dumps(person, indent=4) # indent could be 2, 4, 8. It beautifies the json
@@ -282,11 +440,11 @@ print(person_json)
 # JSON does not have type, it is a string type.
 <class 'str'>
 {
-    "name": "Asabeneh",
+    "name": "Amit",
     "country": "Finland",
     "city": "Helsinki",
     "skills": [
-        "JavaScrip",
+        "JavaScript",
         "React",
         "Python"
     ]
@@ -301,10 +459,10 @@ We can also save our data as a json file. Let us save it as a json file using th
 import json
 # python dictionary
 person = {
-    "name": "Asabeneh",
+    "name": "Amit",
     "country": "Finland",
     "city": "Helsinki",
-    "skills": ["JavaScrip", "React", "Python"]
+    "skills": ["JavaScript", "React", "Python"]
 }
 with open('./files/json_example.json', 'w', encoding='utf-8') as f:
     json.dump(person, f, ensure_ascii=False, indent=4)
@@ -320,7 +478,7 @@ CSV stands for comma separated values. CSV is a simple file format used to store
 
 ```csv
 "name","country","city","skills"
-"Asabeneh","Finland","Helsinki","JavaScript"
+"Amit","Finland","Helsinki","JavaScriptt"
 ```
 
 **Example:**
@@ -336,7 +494,7 @@ with open('./files/csv_example.csv') as f:
             line_count += 1
         else:
             print(
-                f'\t{row[0]} is a teachers. He lives in {row[1]}, {row[2]}.')
+                f'\t{row[0]} is a teacher. He lives in {row[1]}, {row[2]}.')
             line_count += 1
     print(f'Number of lines:  {line_count}')
 ```
@@ -345,7 +503,7 @@ with open('./files/csv_example.csv') as f:
 # output:
 Column names are :name, country, city, skills
 Number of lines:  1
-        Asabeneh is a teacher. He lives in Finland, Helsinki.
+        Amit is a teacher. He lives in Finland, Helsinki.
 Number of lines:  2
 ```
 
@@ -368,18 +526,18 @@ XML is another structured data format which looks like HTML. In XML the tags are
 ```xml
 <?xml version="1.0"?>
 <person gender="female">
-  <name>Asabeneh</name>
+  <name>Amit</name>
   <country>Finland</country>
   <city>Helsinki</city>
   <skills>
-    <skill>JavaScrip</skill>
+    <skill>JavaScript</skill>
     <skill>React</skill>
     <skill>Python</skill>
   </skills>
 </person>
 ```
 
-For more information on how to read an XML file check the [documentation](https://docs.python.org/2/library/xml.etree.elementtree.html)
+For more information on how to read an XML file check the [documentation](https://docs.python.org/3/library/xml.etree.elementtree.html)
 
 ```py
 import xml.etree.ElementTree as ET
@@ -407,11 +565,11 @@ field: skills
 
 ### Exercises: Level 1
 
-1. Write a function which count number of lines and number of words in a text. All the files are in the data the folder:
+1. Write a function which count number of lines and number of words in a text. All the files are in the data folder:
    1) Read obama_speech.txt file and count number of lines and words
    2) Read michelle_obama_speech.txt file and count number of lines and words
    3) Read donald_speech.txt file and count number of lines and words
-   4) Read melina_trump_speech.txt file and count number of lines and words
+   4) Read melania_trump_speech.txt file and count number of lines and words
 2. Read the countries_data.json data file in data directory, create a function that finds the ten most spoken languages
 
    ```py
@@ -495,17 +653,31 @@ field: skills
 ```
 
 3. Use the function, find_most_frequent_words to find:
-   1) The ten most frequent words used in [Obama's speech](https://github.com/Asabeneh/30-Days-Of-Python/blob/master/data/obama_speech.txt)
-   2) The ten most frequent words used in [Michelle's speech](https://github.com/Asabeneh/30-Days-Of-Python/blob/master/data/michelle_obama_speech.txt)
-   3) The ten most frequent words used in [Trump's speech](https://github.com/Asabeneh/30-Days-Of-Python/blob/master/data/donald_speech.txt)
-   4) The ten most frequent words used in [Melina's speech](https://github.com/Asabeneh/30-Days-Of-Python/blob/master/data/melina_trump_speech.txt)
-4. Write a python application that checks similarity between two texts. It takes a file or a string as a parameter and it will evaluate the similarity of the two texts. For instance check the similarity between the transcripts of [Michelle's](https://github.com/Asabeneh/30-Days-Of-Python/blob/master/data/michelle_obama_speech.txt) and [Melina's](https://github.com/Asabeneh/30-Days-Of-Python/blob/master/data/melina_trump_speech.txt) speech. You may need a couple of functions, function to clean the text(clean_text), function to remove support words(remove_support_words) and finally to check the similarity(check_text_similarity). List of [stop words](https://github.com/Asabeneh/30-Days-Of-Python/blob/master/data/stop_words.py) are in the data directory
+   1) The ten most frequent words used in [Obama's speech](https://github.com/Amit/30-Days-Of-Python/blob/master/data/obama_speech.txt)
+   2) The ten most frequent words used in [Michelle's speech](https://github.com/Amit/30-Days-Of-Python/blob/master/data/michelle_obama_speech.txt)
+   3) The ten most frequent words used in [Trump's speech](https://github.com/Amit/30-Days-Of-Python/blob/master/data/donald_speech.txt)
+   4) The ten most frequent words used in [Melania's speech](https://github.com/Amit/30-Days-Of-Python/blob/master/data/melania_trump_speech.txt)
+4. Write a python application that checks similarity between two texts. It takes a file or a string as a parameter and it will evaluate the similarity of the two texts. For instance check the similarity between the transcripts of [Michelle's](https://github.com/Amit/30-Days-Of-Python/blob/master/data/michelle_obama_speech.txt) and [Melania's](https://github.com/Amit/30-Days-Of-Python/blob/master/data/melania_trump_speech.txt) speech. You may need a couple of functions, function to clean the text(clean_text), function to remove support words(remove_support_words) and finally to check the similarity(check_text_similarity). List of [stop words](https://github.com/Amit/30-Days-Of-Python/blob/master/data/stop_words.py) are in the data directory
 5. Find the 10 most repeated words in the romeo_and_juliet.txt
-6. Read the [hacker news csv](https://github.com/Asabeneh/30-Days-Of-Python/blob/master/data/hacker_news.csv) file and find out:
+6. Read the [hacker news csv](https://github.com/Amit/30-Days-Of-Python/blob/master/data/hacker_news.csv) file and find out:
    1) Count the number of lines containing python or Python
-   2) Count the number lines containing JavaScript, javascript or Javascript
-   3) Count the number lines containing Java and not JavaScript
+   2) Count the number lines containing JavaScriptt, javascript or Javascript
+   3) Count the number lines containing Java and not JavaScriptt
+
+
+### Exercises: Level 4 - Practical File Handling
+
+1. Create a text file and write five employee names to it.
+2. Read the file and print each employee name on a separate line.
+3. Append a new employee without deleting existing data.
+4. Count the number of lines and words in the file.
+5. Read a CSV file using `csv.DictReader()` and print employees from Mumbai.
+6. Write a list of dictionaries to a CSV file using `csv.DictWriter()`.
+7. Read a JSON file using `json.load()` and print the employee names.
+8. Create a JSON file containing an employee's name, city, skills, and experience.
+9. Use `pathlib` to find every `.csv` file inside a folder.
+10. Build a small file-processing program that reads incoming CSV files, validates them, writes cleaned files to an output folder, and moves successfully processed files to an archive folder.
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 18](../18_Day_Regular_expressions/18_regular_expressions.md) | [Day 20 >>](../20_Day_Python_package_manager/20_python_package_manager.md)
+[<< Day 18](../Day_18_Regular_expressions/18_Regular_expressions.md) | [Day 20 >>](../Day_20_Python_ackage_manager/20_Python_package_manager.md)
