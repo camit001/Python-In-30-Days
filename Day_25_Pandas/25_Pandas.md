@@ -9,7 +9,7 @@
 
 </div>
 
-[<< Day 24](../24_Day_Statistics/24_statistics.md) | [Day 26 >>](../26_Day_Python_web/26_python_web.md)
+[<< Day 24](../Day_24_Statistics%20(NumPy)/24_Statistics%20(NumPy).md) | [Day 26 >>](../Day_26_Python_web/26_Python_web.md)
 
 **[30DaysOfPython]**
 
@@ -55,19 +55,17 @@ If you are using anaconda, you do not have install pandas.
 
 ### Installing Pandas
 
-For Mac:
-```py
-pip install conda
-conda install pandas
-```
-
-For Windows:
-```py
-pip install conda
+For Mac/Linux:
+```sh
 pip install pandas
 ```
 
-Pandas data structure is based on *Series* and *DataFrames*.
+For Windows:
+```sh
+pip install pandas
+```
+
+Pandas mainly works with two core data structures: *Series* and *DataFrames*.
 
 A *series* is a *column* and a DataFrame is a *multidimensional table* made up of collection of *series*. In order to create a pandas series we should use numpy to create a one dimensional arrays or a python list.
 Let us see an example of a series:
@@ -76,9 +74,9 @@ Let us see an example of a series:
 
 |   | Name |
 |---|---|
-| 0 | Asabeneh |
-| 1 | David |
-| 2 | John |
+| 0 | Amit |
+| 1 | Rahul |
+| 2 | Rohan |
 
 ### Countries Series
 
@@ -102,17 +100,17 @@ Let us see, an example of a pandas data frame:
 
 |   | Name | Country | City |
 |---|---|---|---|
-| 0 | Asabeneh | Finland | Helsinki |
-| 1 | David | UK | London |
-| 2 | John | Sweden | Stockholm |
+| 0 | Amit | Finland | Helsinki |
+| 1 | Rahul | UK | London |
+| 2 | Rohan | Sweden | Stockholm |
 
 Data frame is a collection of rows and columns. Look at the table below; it has many more columns than the example above:
 
 |   | Name | Country | City | Weight | Height |
 |---|---|---|---|---:|---:|
-| 0 | Asabeneh | Finland | Helsinki | 74 | 173 |
-| 1 | David | UK | London | 78 | 175 |
-| 2 | John | Sweden | Stockholm | 69 | 169 |
+| 0 | Amit | Finland | Helsinki | 74 | 173 |
+| 1 | Rahul | UK | London | 78 | 175 |
+| 2 | Rohan | Sweden | Stockholm | 69 | 169 |
 
 Next, we will see how to import pandas and how to create Series and DataFrames using pandas.
 
@@ -173,7 +171,7 @@ print(fruits)
 ### Creating Pandas Series from a Dictionary
 
 ```python
-dct = {'name':'Asabeneh','country':'Finland','city':'Helsinki'}
+dct = {'name':'Amit','country':'Finland','city':'Helsinki'}
 ```
 
 ```python
@@ -182,7 +180,7 @@ print(s)
 ```
 
 ```sh
-    name       Asabeneh
+    name       Amit
     country     Finland
     city       Helsinki
     dtype: object
@@ -231,9 +229,9 @@ Pandas data frames can be created in different ways.
 
 ```python
 data = [
-    ['Asabeneh', 'Finland', 'Helsink'],
-    ['David', 'UK', 'London'],
-    ['John', 'Sweden', 'Stockholm']
+    ['Amit', 'Finland', 'Helsink'],
+    ['Rahul', 'UK', 'London'],
+    ['Rohan', 'Sweden', 'Stockholm']
 ]
 df = pd.DataFrame(data, columns=['Names','Country','City'])
 print(df)
@@ -251,19 +249,19 @@ print(df)
   <tbody>
     <tr>
       <td>0</td>
-      <td>Asabeneh</td>
+      <td>Amit</td>
       <td>Finland</td>
       <td>Helsink</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>David</td>
+      <td>Rahul</td>
       <td>UK</td>
       <td>London</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>John</td>
+      <td>Rohan</td>
       <td>Sweden</td>
       <td>Stockholm</td>
     </tr>
@@ -273,7 +271,7 @@ print(df)
 ### Creating DataFrame Using Dictionary
 
 ```python
-data = {'Name': ['Asabeneh', 'David', 'John'], 'Country':[
+data = {'Name': ['Amit', 'Rahul', 'Rohan'], 'Country':[
     'Finland', 'UK', 'Sweden'], 'City': ['Helsiki', 'London', 'Stockholm']}
 df = pd.DataFrame(data)
 print(df)
@@ -291,19 +289,19 @@ print(df)
   <tbody>
     <tr>
       <td>0</td>
-      <td>Asabeneh</td>
+      <td>Amit</td>
       <td>Finland</td>
       <td>Helsiki</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>David</td>
+      <td>Rahul</td>
       <td>UK</td>
       <td>London</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>John</td>
+      <td>Rohan</td>
       <td>Sweden</td>
       <td>Stockholm</td>
     </tr>
@@ -314,9 +312,9 @@ print(df)
 
 ```python
 data = [
-    {'Name': 'Asabeneh', 'Country': 'Finland', 'City': 'Helsinki'},
-    {'Name': 'David', 'Country': 'UK', 'City': 'London'},
-    {'Name': 'John', 'Country': 'Sweden', 'City': 'Stockholm'}]
+    {'Name': 'Amit', 'Country': 'Finland', 'City': 'Helsinki'},
+    {'Name': 'Rahul', 'Country': 'UK', 'City': 'London'},
+    {'Name': 'Rohan', 'Country': 'Sweden', 'City': 'Stockholm'}]
 df = pd.DataFrame(data)
 print(df)
 ```
@@ -333,19 +331,19 @@ print(df)
   <tbody>
     <tr>
       <td>0</td>
-      <td>Asabeneh</td>
+      <td>Amit</td>
       <td>Finland</td>
       <td>Helsinki</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>David</td>
+      <td>Rahul</td>
       <td>UK</td>
       <td>London</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>John</td>
+      <td>Rohan</td>
       <td>Sweden</td>
       <td>Stockholm</td>
     </tr>
@@ -357,7 +355,7 @@ print(df)
 To download the CSV file, what is needed in this example, console/command line is enough:
 
 ```sh
-curl -O https://raw.githubusercontent.com/Asabeneh/30-Days-Of-Python/master/data/weight-height.csv
+curl -O https://raw.githubusercontent.com/Amit/30-Days-Of-Python/master/data/weight-height.csv
 ```
 
 Put the downloaded file in your working directory.
@@ -649,9 +647,9 @@ As always, first we import the necessary packages. Now, lets import pandas and n
 import pandas as pd
 import numpy as np
 data = [
-    {"Name": "Asabeneh", "Country":"Finland","City":"Helsinki"},
-    {"Name": "David", "Country":"UK","City":"London"},
-    {"Name": "John", "Country":"Sweden","City":"Stockholm"}]
+    {"Name": "Amit", "Country":"Finland","City":"Helsinki"},
+    {"Name": "Rahul", "Country":"UK","City":"London"},
+    {"Name": "Rohan", "Country":"Sweden","City":"Stockholm"}]
 df = pd.DataFrame(data)
 print(df)
 ```
@@ -668,19 +666,19 @@ print(df)
   <tbody>
     <tr>
       <td>0</td>
-      <td>Asabeneh</td>
+      <td>Amit</td>
       <td>Finland</td>
       <td>Helsinki</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>David</td>
+      <td>Rahul</td>
       <td>UK</td>
       <td>London</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>John</td>
+      <td>Rohan</td>
       <td>Sweden</td>
       <td>Stockholm</td>
     </tr>
@@ -714,21 +712,21 @@ df
   <tbody>
     <tr>
       <td>0</td>
-      <td>Asabeneh</td>
+      <td>Amit</td>
       <td>Finland</td>
       <td>Helsinki</td>
       <td>74</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>David</td>
+      <td>Rahul</td>
       <td>UK</td>
       <td>London</td>
       <td>78</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>John</td>
+      <td>Rohan</td>
       <td>Sweden</td>
       <td>Stockholm</td>
       <td>69</td>
@@ -758,7 +756,7 @@ print(df)
   <tbody>
     <tr>
       <td>0</td>
-      <td>Asabeneh</td>
+      <td>Amit</td>
       <td>Finland</td>
       <td>Helsinki</td>
       <td>74</td>
@@ -766,7 +764,7 @@ print(df)
     </tr>
     <tr>
       <td>1</td>
-      <td>David</td>
+      <td>Rahul</td>
       <td>UK</td>
       <td>London</td>
       <td>78</td>
@@ -774,7 +772,7 @@ print(df)
     </tr>
     <tr>
       <td>2</td>
-      <td>John</td>
+      <td>Rohan</td>
       <td>Sweden</td>
       <td>Stockholm</td>
       <td>69</td>
@@ -808,7 +806,7 @@ df
   <tbody>
     <tr>
       <td>0</td>
-      <td>Asabeneh</td>
+      <td>Amit</td>
       <td>Finland</td>
       <td>Helsinki</td>
       <td>74</td>
@@ -816,7 +814,7 @@ df
     </tr>
     <tr>
       <td>1</td>
-      <td>David</td>
+      <td>Rahul</td>
       <td>UK</td>
       <td>London</td>
       <td>78</td>
@@ -824,7 +822,7 @@ df
     </tr>
     <tr>
       <td>2</td>
-      <td>John</td>
+      <td>Rohan</td>
       <td>Sweden</td>
       <td>Stockholm</td>
       <td>69</td>
@@ -869,7 +867,7 @@ df
   <tbody>
     <tr>
       <td>0</td>
-      <td>Asabeneh</td>
+      <td>Amit</td>
       <td>Finland</td>
       <td>Helsinki</td>
       <td>74</td>
@@ -878,7 +876,7 @@ df
     </tr>
     <tr>
       <td>1</td>
-      <td>David</td>
+      <td>Rahul</td>
       <td>UK</td>
       <td>London</td>
       <td>78</td>
@@ -887,7 +885,7 @@ df
     </tr>
     <tr>
       <td>2</td>
-      <td>John</td>
+      <td>Rohan</td>
       <td>Sweden</td>
       <td>Stockholm</td>
       <td>69</td>
@@ -899,7 +897,7 @@ df
 
 ### Formatting DataFrame columns
 
-The BMI column values of the DataFrame are float with many significant digits after decimal. Let's change it to one significant digit after point.
+The BMI column values of the DataFrame are float with many significant digits after decimal. Let's round it to one digit after the decimal point.
 
 ```python
 df['BMI'] = round(df['BMI'], 1)
@@ -921,7 +919,7 @@ print(df)
   <tbody>
     <tr>
       <td>0</td>
-      <td>Asabeneh</td>
+      <td>Amit</td>
       <td>Finland</td>
       <td>Helsinki</td>
       <td>74</td>
@@ -930,7 +928,7 @@ print(df)
     </tr>
     <tr>
       <td>1</td>
-      <td>David</td>
+      <td>Rahul</td>
       <td>UK</td>
       <td>London</td>
       <td>78</td>
@@ -939,7 +937,7 @@ print(df)
     </tr>
     <tr>
       <td>2</td>
-      <td>John</td>
+      <td>Rohan</td>
       <td>Sweden</td>
       <td>Stockholm</td>
       <td>69</td>
@@ -953,7 +951,7 @@ The information in the DataFrame seems not yet complete, let's add birth year an
 
 ```python
 birth_year = ['1769', '1985', '1990']
-current_year = pd.Series(2020, index=[0, 1,2])
+current_year = pd.Series(2026, index=[0, 1, 2])
 df['Birth Year'] = birth_year
 df['Current Year'] = current_year
 df
@@ -976,36 +974,36 @@ df
   <tbody>
     <tr>
       <td>0</td>
-      <td>Asabeneh</td>
+      <td>Amit</td>
       <td>Finland</td>
       <td>Helsinki</td>
       <td>74</td>
       <td>1.73</td>
       <td>24.7</td>
       <td>1769</td>
-      <td>2020</td>
+      <td>2026</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>David</td>
+      <td>Rahul</td>
       <td>UK</td>
       <td>London</td>
       <td>78</td>
       <td>1.75</td>
       <td>25.5</td>
       <td>1985</td>
-      <td>2020</td>
+      <td>2026</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>John</td>
+      <td>Rohan</td>
       <td>Sweden</td>
       <td>Stockholm</td>
       <td>69</td>
       <td>1.69</td>
       <td>24.2</td>
       <td>1990</td>
-      <td>2020</td>
+      <td>2026</td>
     </tr>
   </tbody>
 </table>
@@ -1052,9 +1050,9 @@ ages = df['Current Year'] - df['Birth Year']
 ages
 ```
 
-    0    251
-    1     35
-    2     30
+    0    257
+    1     41
+    2     36
     dtype: int32
 
 ```python
@@ -1080,54 +1078,54 @@ print(df)
   <tbody>
     <tr>
       <td>0</td>
-      <td>Asabeneh</td>
+      <td>Amit</td>
       <td>Finland</td>
       <td>Helsinki</td>
       <td>74</td>
       <td>1.73</td>
       <td>24.7</td>
       <td>1769</td>
-      <td>2019</td>
-      <td>250</td>
+      <td>2026</td>
+      <td>257</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>David</td>
+      <td>Rahul</td>
       <td>UK</td>
       <td>London</td>
       <td>78</td>
       <td>1.75</td>
       <td>25.5</td>
       <td>1985</td>
-      <td>2019</td>
-      <td>34</td>
+      <td>2026</td>
+      <td>41</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>John</td>
+      <td>Rohan</td>
       <td>Sweden</td>
       <td>Stockholm</td>
       <td>69</td>
       <td>1.69</td>
       <td>24.2</td>
       <td>1990</td>
-      <td>2019</td>
-      <td>29</td>
+      <td>2026</td>
+      <td>36</td>
     </tr>
   </tbody>
 </table>
 
 The person in the first row lived so far for 251 years. It is unlikely for someone to live so long. Either it is a typo or the data is cooked. So lets fill that data with average of the columns without including outlier.
 
-mean = (35 + 30)/ 2
+mean = (41 + 36) / 2
 
 ```python
-mean = (35 + 30)/ 2
+mean = (41 + 36) / 2
 print('Mean: ',mean)	#it is good to add some description to the output, so we know what is what
 ```
 
 ```sh
-   Mean:  32.5
+   Mean:  38.5
 ```
 
 ### Boolean Indexing
@@ -1154,15 +1152,15 @@ print(df[df['Ages'] > 120])
   <tbody>
     <tr>
       <td>0</td>
-      <td>Asabeneh</td>
+      <td>Amit</td>
       <td>Finland</td>
       <td>Helsinki</td>
       <td>74</td>
       <td>1.73</td>
       <td>24.7</td>
       <td>1769</td>
-      <td>2020</td>
-      <td>251</td>
+      <td>2026</td>
+      <td>257</td>
     </tr>
   </tbody>
 </table>
@@ -1190,32 +1188,282 @@ print(df[df['Ages'] < 120])
   <tbody>
     <tr>
       <td>1</td>
-      <td>David</td>
+      <td>Rahul</td>
       <td>UK</td>
       <td>London</td>
       <td>78</td>
       <td>1.75</td>
       <td>25.5</td>
       <td>1985</td>
-      <td>2020</td>
-      <td>35</td>
+      <td>2026</td>
+      <td>41</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>John</td>
+      <td>Rohan</td>
       <td>Sweden</td>
       <td>Stockholm</td>
       <td>69</td>
       <td>1.69</td>
       <td>24.2</td>
       <td>1990</td>
-      <td>2020</td>
-      <td>30</td>
+      <td>2026</td>
+      <td>36</td>
     </tr>
   </tbody>
 </table>
 
+## Additional Pandas Operations
+
+The examples above cover the basic Series and DataFrame operations. In real data-engineering and data-analysis work, you will frequently need to select rows, filter data, handle missing values, sort records, group data, remove duplicates, join datasets, and save the result.
+
+### Selecting Rows and Columns with `loc` and `iloc`
+
+`loc` selects data by labels, while `iloc` selects data by integer position.
+
+```python
+# Select a column
+print(df['Name'])
+
+# Select rows by position
+print(df.iloc[0])
+print(df.iloc[0:2])
+
+# Select rows and columns by label
+print(df.loc[0, 'Name'])
+print(df.loc[0:1, ['Name', 'City']])
+```
+
+### Filtering Data
+
+Boolean conditions can be used to filter rows.
+
+```python
+# People whose weight is greater than 70
+filtered_df = df[df['Weight'] > 70]
+print(filtered_df)
+
+# Multiple conditions
+filtered_df = df[(df['Weight'] > 70) & (df['Height'] > 1.70)]
+print(filtered_df)
+```
+
+Use `&` for AND and `|` for OR when combining Pandas conditions. Put each condition inside parentheses.
+
+### Sorting Data
+
+The `sort_values()` method sorts rows based on one or more columns.
+
+```python
+# Sort by weight
+df_sorted = df.sort_values(by='Weight')
+print(df_sorted)
+
+# Sort from highest to lowest weight
+df_sorted = df.sort_values(by='Weight', ascending=False)
+print(df_sorted)
+
+# Sort by multiple columns
+df_sorted = df.sort_values(by=['Country', 'Weight'])
+print(df_sorted)
+```
+
+### Handling Missing Values
+
+Real datasets often contain missing values represented by `NaN`.
+
+```python
+import numpy as np
+
+data = {
+    'Name': ['Amit', 'Rahul', 'Rohan'],
+    'Age': [25, np.nan, 30]
+}
+
+df_missing = pd.DataFrame(data)
+
+print(df_missing.isna())
+print(df_missing.isna().sum())
+
+# Replace missing values
+df_missing['Age'] = df_missing['Age'].fillna(df_missing['Age'].mean())
+
+print(df_missing)
+```
+
+You can also remove rows containing missing values:
+
+```python
+df_clean = df_missing.dropna()
+print(df_clean)
+```
+
+### Removing Duplicate Rows
+
+The `drop_duplicates()` method removes duplicate records.
+
+```python
+data = {
+    'Name': ['Amit', 'Rahul', 'Amit'],
+    'City': ['Mumbai', 'Delhi', 'Mumbai']
+}
+
+df_duplicates = pd.DataFrame(data)
+
+print(df_duplicates.drop_duplicates())
+```
+
+### Grouping Data with `groupby()`
+
+`groupby()` is useful for aggregation and is commonly used in data analysis.
+
+```python
+data = {
+    'Department': ['IT', 'IT', 'HR', 'HR'],
+    'Salary': [60000, 70000, 50000, 55000]
+}
+
+df_salary = pd.DataFrame(data)
+
+department_salary = df_salary.groupby('Department')['Salary'].mean()
+
+print(department_salary)
+```
+
+Multiple aggregations can also be performed:
+
+```python
+summary = df_salary.groupby('Department')['Salary'].agg(
+    ['count', 'mean', 'min', 'max']
+)
+
+print(summary)
+```
+
+### Combining DataFrames with `merge()`
+
+`merge()` is similar to a SQL JOIN.
+
+```python
+employees = pd.DataFrame({
+    'EmployeeID': [1, 2, 3],
+    'Name': ['Amit', 'Rahul', 'Rohan'],
+    'DepartmentID': [10, 20, 10]
+})
+
+departments = pd.DataFrame({
+    'DepartmentID': [10, 20],
+    'Department': ['IT', 'HR']
+})
+
+result = pd.merge(
+    employees,
+    departments,
+    on='DepartmentID',
+    how='left'
+)
+
+print(result)
+```
+
+Common join types are:
+
+- `inner`
+- `left`
+- `right`
+- `outer`
+
+### Renaming Columns
+
+The `rename()` method changes column names.
+
+```python
+df = df.rename(columns={
+    'Name': 'EmployeeName',
+    'Weight': 'WeightKg'
+})
+
+print(df)
+```
+
+### Dropping Columns
+
+Use `drop()` to remove unwanted columns.
+
+```python
+df = df.drop(columns=['WeightKg'])
+print(df)
+```
+
+### Reading and Writing CSV Files
+
+Pandas can both read data from CSV files and write DataFrames back to CSV.
+
+```python
+# Read CSV
+df = pd.read_csv('employees.csv')
+
+# Write CSV
+df.to_csv('employees_output.csv', index=False)
+```
+
+Using `index=False` prevents Pandas from writing the DataFrame index as an extra column.
+
+### Useful Pandas Methods to Remember
+
+| Method | Purpose |
+|---|---|
+| `head()` | First rows |
+| `tail()` | Last rows |
+| `shape` | Number of rows and columns |
+| `columns` | Column names |
+| `dtypes` | Data types |
+| `info()` | Dataset structure |
+| `describe()` | Statistical summary |
+| `isna()` | Find missing values |
+| `fillna()` | Fill missing values |
+| `dropna()` | Remove missing-value rows |
+| `drop_duplicates()` | Remove duplicates |
+| `sort_values()` | Sort rows |
+| `groupby()` | Group and aggregate |
+| `merge()` | Join DataFrames |
+| `loc[]` | Label-based selection |
+| `iloc[]` | Position-based selection |
+| `to_csv()` | Save DataFrame as CSV |
+
+### Pandas vs SQL: A Useful Connection
+
+If you already know SQL, many Pandas operations have a familiar equivalent:
+
+| SQL | Pandas |
+|---|---|
+| `SELECT` | `df[['Column1', 'Column2']]` |
+| `WHERE` | `df[df['Column'] > value]` |
+| `ORDER BY` | `sort_values()` |
+| `GROUP BY` | `groupby()` |
+| `JOIN` | `merge()` |
+| `DISTINCT` | `drop_duplicates()` |
+| `IS NULL` | `isna()` |
+| `COALESCE`-like filling | `fillna()` |
+
+This connection is especially useful when moving between SQL and Python data processing.
+
+
 ## Exercises: Day 25
+
+### Additional Exercises
+
+1. Create a DataFrame containing `EmployeeID`, `Name`, `Department`, and `Salary`.
+2. Use `loc` and `iloc` to select specific rows and columns.
+3. Filter employees whose salary is greater than `60000`.
+4. Sort the DataFrame by salary from highest to lowest.
+5. Add a row containing a missing salary and use `fillna()` to replace it with the average salary.
+6. Add a duplicate row and remove it using `drop_duplicates()`.
+7. Use `groupby()` to calculate the average salary for each department.
+8. Create a second DataFrame containing department details and join it with the employee DataFrame using `merge()`.
+9. Rename one column and remove another column.
+10. Save the final DataFrame to `employees_output.csv`.
+
 
 1. Read the hacker_news.csv file from data directory
 1. Get the first five rows
@@ -1228,4 +1476,4 @@ print(df[df['Ages'] < 120])
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 24](../24_Day_Statistics/24_statistics.md) | [Day 26 >>](../26_Day_Python_web/26_python_web.md)
+[<< Day 24](../Day_24_Statistics%20(NumPy)/24_Statistics%20(NumPy).md) | [Day 26 >>](../Day_26_Python_web/26_Python_web.md)
