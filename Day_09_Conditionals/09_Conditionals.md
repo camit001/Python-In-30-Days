@@ -1,6 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 9 - Conditionals</h1>
-  
+  <h1>Python In 30 Days: Day 9 - Conditionals</h1>
 
 <sub>Author:
 <a href="https://github.com/camit001" target="_blank">Amit Kumar</a><br>
@@ -8,9 +7,9 @@
 
 </div>
 
-[<< Day 8](../08_Day_Dictionaries/08_Day_Dictionaries.md) | [Day 10 >>](../10_Day_Loops/10_loops.md)
+[<< Day 8](../Day_08_Dictionaries/08_Dictionaries.md) | [Day 10 >>](../Day_10_Loops/10_Loops.md)
 
-**[30DaysOfPython]**
+**Python In 30 Days**
 
 - [📘 Day 9](#-day-9)
   - [Conditionals](#conditionals)
@@ -21,6 +20,8 @@
     - [Nested Conditions](#nested-conditions)
     - [If Condition and Logical Operators](#if-condition-and-logical-operators)
     - [If and Or Logical Operators](#if-and-or-logical-operators)
+    - [Practical Conditional Patterns](#practical-conditional-patterns)
+    - [Truthiness in Python](#truthiness-in-python)
   - [💻 Exercises: Day 9](#-exercises-day-9)
     - [Exercises: Level 1](#exercises-level-1)
     - [Exercises: Level 2](#exercises-level-2)
@@ -30,59 +31,65 @@
 
 ## Conditionals
 
-By default, statements in Python script are executed sequentially from top to bottom. If the processing logic require so, the sequential flow of execution can be altered in two way:
+Python normally executes statements from top to bottom. Conditional statements allow the program to choose which block of code should run based on whether a condition is `True` or `False`.
 
-- Conditional execution: a block of one or more statements will be executed if a certain expression is true
-- Repetitive execution: a block of one or more statements will be repetitively executed as long as a certain expression is true. In this section, we will cover _if_, _else_, _elif_ statements. The comparison and logical operators we learned in previous sections will be useful here.
+The main conditional keywords are:
+
+- `if`: runs code when a condition is true.
+- `elif`: checks another condition when the previous condition was false.
+- `else`: runs when none of the preceding conditions are true.
 
 ### If Condition
 
-In python and other programming languages the key word _if_ is used to check if a condition is true and to execute the block code. Remember the indentation after the colon.
+The `if` keyword checks whether a condition is true and executes the indented block when it is.
+
+Remember the indentation after the colon.
 
 ```py
 # syntax
 if condition:
-    this part of code runs for truthy conditions
-```
-
-**Example: 1**
-
-```py
-a = 3
-if a > 0:
-    print('A is a positive number')
-# A is a positive number
-```
-
-As you can see in the example above, 3 is greater than 0. The condition was true and the block code was executed. However, if the condition is false, we do not see the result. In order to see the result of the falsy condition, we should have another block, which is going to be _else_.
-
-### If Else
-
-If condition is true the first block will be executed, if not the else condition will run.
-
-```py
-# syntax
-if condition:
-    this part of code runs for truthy conditions
-else:
-     this part of code runs for false conditions
+    code
 ```
 
 **Example:**
 
 ```py
 a = 3
+
+if a > 0:
+    print('A is a positive number')
+
+# A is a positive number
+```
+
+If the condition is false, the indented block is skipped.
+
+### If Else
+
+Use `else` when you want one block to run when the `if` condition is true and another block to run when it is false.
+
+```py
+# syntax
+if condition:
+    code_if_true
+else:
+    code_if_false
+```
+
+**Example:**
+
+```py
+a = 3
+
 if a < 0:
     print('A is a negative number')
 else:
     print('A is a positive number')
 ```
 
-The condition above proves false, therefore the else block was executed. How about if our condition is more than two? We could use _elif_.
-
 ### If Elif Else
 
-In our daily life, we make decisions on daily basis. We make decisions not by checking one or two conditions but multiple conditions. As similar to life, programming is also full of conditions. We use _elif_ when we have multiple conditions.
+Use `elif` when you need to check multiple conditions.
 
 ```py
 # syntax
@@ -92,13 +99,13 @@ elif condition:
     code
 else:
     code
-
 ```
 
 **Example:**
 
 ```py
 a = 0
+
 if a > 0:
     print('A is a positive number')
 elif a < 0:
@@ -107,55 +114,57 @@ else:
     print('A is zero')
 ```
 
+Python checks the conditions from top to bottom. Once one condition is true, its block runs and the remaining `elif` conditions are skipped.
+
 ### Short Hand
+
+A conditional expression can be written on one line:
 
 ```py
 # syntax
-code if condition else code
+value_if_true if condition else value_if_false
 ```
 
 **Example:**
 
 ```py
 a = 3
-print('A is positive') if a > 0 else print('A is negative') # first condition met, 'A is positive' will be printed
+
+result = 'A is positive' if a > 0 else 'A is negative or zero'
+print(result)
 ```
+
+The short-hand form is useful for simple expressions. For complex logic, a normal `if/else` block is easier to read.
 
 ### Nested Conditions
 
-Conditions can be nested
-
-```py
-# syntax
-if condition:
-    code
-    if condition:
-    code
-```
-
-**Example:**
+A conditional statement can contain another conditional statement.
 
 ```py
 a = 0
+
 if a > 0:
     if a % 2 == 0:
         print('A is a positive and even integer')
     else:
-        print('A is a positive number')
+        print('A is a positive odd integer')
 elif a == 0:
     print('A is zero')
 else:
     print('A is a negative number')
-
 ```
 
-We can avoid writing nested condition by using logical operator _and_.
+Nested conditions are useful when the second decision depends on the first decision.
+
+However, deeply nested conditions can become difficult to read. Logical operators can often simplify them.
 
 ### If Condition and Logical Operators
 
+The `and` operator requires both conditions to be true.
+
 ```py
 # syntax
-if condition and condition:
+if condition1 and condition2:
     code
 ```
 
@@ -163,10 +172,11 @@ if condition and condition:
 
 ```py
 a = 0
+
 if a > 0 and a % 2 == 0:
-        print('A is an even and positive integer')
-elif a > 0 and a % 2 !=  0:
-     print('A is a positive integer')
+    print('A is an even and positive integer')
+elif a > 0 and a % 2 != 0:
+    print('A is a positive integer')
 elif a == 0:
     print('A is zero')
 else:
@@ -175,9 +185,11 @@ else:
 
 ### If and Or Logical Operators
 
+The `or` operator requires at least one condition to be true.
+
 ```py
 # syntax
-if condition or condition:
+if condition1 or condition2:
     code
 ```
 
@@ -186,38 +198,138 @@ if condition or condition:
 ```py
 user = 'James'
 access_level = 3
+
 if user == 'admin' or access_level >= 4:
-        print('Access granted!')
+    print('Access granted!')
 else:
     print('Access denied!')
 ```
 
-🌕 You are doing great.Never give up because great things take time. You have just completed day 9 challenges and you are 9 steps a head in to your way to greatness. Now do some exercises for your brain and muscles.
+Here, access is granted if either the user is `admin` or the access level is at least `4`.
+
+## Practical Conditional Patterns
+
+Conditionals are commonly used to validate data and make decisions.
+
+### Checking a Range
+
+```py
+score = 85
+
+if score >= 90:
+    grade = 'A'
+elif score >= 80:
+    grade = 'B'
+elif score >= 70:
+    grade = 'C'
+elif score >= 60:
+    grade = 'D'
+else:
+    grade = 'F'
+
+print(grade)  # B
+```
+
+Notice that the conditions are checked from highest to lowest. The first matching condition wins.
+
+### Validating User Input
+
+```py
+age = int(input('Enter your age: '))
+
+if age < 0:
+    print('Age cannot be negative')
+elif age >= 18:
+    print('You are an adult')
+else:
+    print('You are a minor')
+```
+
+### Combining Conditions
+
+```py
+age = 25
+has_id = True
+
+if age >= 18 and has_id:
+    print('Access granted')
+else:
+    print('Access denied')
+```
+
+## Truthiness in Python
+
+Python conditions do not always have to be explicit comparisons. Python evaluates many values as either **truthy** or **falsy**.
+
+Common falsy values include:
+
+```py
+False
+None
+0
+0.0
+''
+[]
+()
+{}
+set()
+```
+
+Most other values are truthy.
+
+Example:
+
+```py
+name = ''
+
+if name:
+    print('Name was provided')
+else:
+    print('Name is empty')
+```
+
+This is useful when checking whether a string, list, dictionary, or other collection contains a value.
+
+**Practical tip:** Prefer clear conditions. For example:
+
+```py
+if items:
+    print('Items are available')
+```
+
+is usually clearer than:
+
+```py
+if len(items) > 0:
+    print('Items are available')
+```
 
 ## 💻 Exercises: Day 9
 
 ### Exercises: Level 1
 
-1. Get user input using input(“Enter your age: ”). If user is 18 or older, give feedback: You are old enough to drive. If below 18 give feedback to wait for the missing amount of years. Output:
+1. Get user input using `input("Enter your age: ")`. If the user is 18 or older, print:
 
-    ```sh
-    Enter your age: 30
-    You are old enough to learn to drive.
-    Output:
-    Enter your age: 15
-    You need 3 more years to learn to drive.
-    ```
+```text
+You are old enough to learn to drive.
+```
 
-2. Compare the values of my_age and your_age using if … else. Who is older (me or you)? Use input(“Enter your age: ”) to get the age as input. You can use a nested condition to print 'year' for 1 year difference in age, 'years' for bigger differences, and a custom text if my_age = your_age. Output:
+If the user is below 18, print how many more years they need to wait.
 
-    ```sh
-    Enter your age: 30
-    You are 5 years older than me.
-    ```
+Example:
 
-3. Get two numbers from the user using input prompt. If a is greater than b return a is greater than b, if a is less b return a is smaller than b, else a is equal to b. Output:
+```text
+Enter your age: 15
+You need 3 more years to learn to drive.
+```
 
-```sh
+2. Compare `my_age` and `your_age` using `if ... else`. Determine who is older. Use `input("Enter your age: ")` to get the user's age. If the difference is 1, use `year`; otherwise use `years`. If both ages are equal, print a suitable message.
+
+3. Get two numbers from the user. Compare them and print whether the first number is greater than, less than, or equal to the second number.
+
+Example:
+
+```text
 Enter number one: 4
 Enter number two: 3
 4 is greater than 3
@@ -225,57 +337,100 @@ Enter number two: 3
 
 ### Exercises: Level 2
 
-   1. Write a code which gives grade to students according to theirs scores:
+1. Write a program that gives a grade according to a student's score:
 
-    ```sh
-    90-100, A
-    80-89, B
-    70-79, C
-    60-69, D
-    0-59, F
-    ```
+```text
+90-100, A
+80-89, B
+70-79, C
+60-69, D
+0-59, F
+```
 
-   2. Get the month from user input then check if the season is Autumn, Winter, Spring or Summer. If the user input is:
-    September, October or November, the season is Autumn.
-    December, January or February, the season is Winter.
-    March, April or May, the season is Spring
-    June, July or August, the season is Summer
-   3. The following list contains some fruits:
+2. Get a month from the user and determine the season:
 
-    ```sh
-    fruits = ['banana', 'orange', 'mango', 'lemon']
-    ```
+```text
+September, October, November -> Autumn
+December, January, February -> Winter
+March, April, May -> Spring
+June, July, August -> Summer
+```
 
-    If a fruit doesn't exist in the list add the fruit to the list and print the modified list. If the fruit exists print('That fruit already exist in the list')
+3. The following list contains some fruits:
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+```
+
+Ask the user for a fruit. If it does not exist in the list, add it and print the modified list. If it already exists, print:
+
+```text
+That fruit already exists in the list.
+```
 
 ### Exercises: Level 3
 
-   1. Here we have a person dictionary. Feel free to modify it!
+1. Use the following person dictionary. Feel free to modify it:
 
 ```py
-        person={
-    'first_name': 'Asabeneh',
-    'last_name': 'Yetayeh',
-    'age': 250,
-    'country': 'Finland',
-    'is_married': True,
-    'skills': ['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],
+person = {
+    'first_name': 'Amit',
+    'last_name': 'Kumar',
+    'age': 25,
+    'country': 'India',
+    'is_married': False,
+    'skills': ['Python', 'SQL', 'PySpark', 'Databricks'],
     'address': {
-        'street': 'Space street',
-        'zipcode': '02210'
+        'city': 'Mumbai',
+        'zipcode': '400001'
     }
-    }
+}
 ```
 
-     * Check if the person dictionary has skills key, if so print out the middle skill in the skills list.
-     * Check if the person dictionary has skills key, if so check if the person has 'Python' skill and print out the result.
-     * If a person skills has only JavaScript and React, print('He is a front end developer'), if the person skills has Node, Python, MongoDB, print('He is a backend developer'), if the person skills has React, Node and MongoDB, Print('He is a fullstack developer'), else print('unknown title') - for more accurate results more conditions can be nested!
-     * If the person is married and if he lives in Finland, print the information in the following format:
+Complete the following:
+
+- Check whether the `person` dictionary has a `skills` key. If it does, print the middle skill in the skills list.
+- Check whether the person has the `Python` skill and print the result.
+- If the person has only JavaScript and React, print `He is a front end developer`.
+- If the person has Node, Python, and MongoDB, print `He is a backend developer`.
+- If the person has React, Node, and MongoDB, print `He is a fullstack developer`.
+- Otherwise, print `unknown title`.
+- If the person is married and lives in India, print information in this format:
+
+```text
+Amit Kumar lives in India. He is married.
+```
+
+### Extra Practice
+
+4. Write a program that checks whether a number is positive, negative, or zero.
+
+5. Write a program that checks whether a number is even or odd.
+
+6. Write a program that checks whether a user has permission based on:
 
 ```py
-    Asabeneh Yetayeh lives in Finland. He is married.
+is_admin = False
+has_permission = True
 ```
 
-🎉 CONGRATULATIONS ! 🎉
+7. Write a program that accepts a temperature and prints:
 
-[<< Day 8](../08_Day_Dictionaries/08_Day_Dictionaries.md) | [Day 10 >>](../10_Day_Loops/10_loops.md)
+```text
+Below 10 -> Cold
+10-24 -> Cool
+25-34 -> Warm
+35 or above -> Hot
+```
+
+8. Write a program that checks whether a list is empty using truthiness.
+
+9. Write a program that validates a username:
+
+- It must not be empty.
+- It must contain at least 3 characters.
+- Otherwise, print an appropriate error message.
+
+🎉 CONGRATULATIONS! 🎉
+
+[<< Day 8](../Day_08_Dictionaries/08_Dictionaries.md) | [Day 10 >>](../Day_10_Loops/10_Loops.md)
