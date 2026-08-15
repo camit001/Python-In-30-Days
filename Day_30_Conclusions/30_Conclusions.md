@@ -177,7 +177,7 @@ Use the project document as the practical part of the 30-day journey:
 
 [Student Management REST API](../Projects/Python_30_Days_Projects.md/project-05--student-management-rest-api.md)
 
-### BONUS Project 05
+### BONUS Project
 
 [Surprise 🎉🎉](../Projects/Python_30_Days_Projects.md/final-project--python-data-pipeline-project-.md)
 
