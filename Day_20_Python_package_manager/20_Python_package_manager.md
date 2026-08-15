@@ -1,4 +1,4 @@
-[20_Python_Package_Manager.md](https://github.com/user-attachments/files/31105311/20_Python_Package_Manager.md)<div align="center">
+<div align="center">
   <h1> Python In 30 Days: Day 20 - PIP & Package Management </h1>
   
 
