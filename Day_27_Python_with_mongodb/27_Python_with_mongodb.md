@@ -45,7 +45,7 @@ MongoDB is a NoSQL database. MongoDB stores data in a JSON like document which m
 
 **[SQL versus NoSQL]**
 
-In this section, we will focus on a NoSQL database MongoDB. Let's sign up on [MongoDB](https://www.mongodb.com/) by click on the sign in button then click register on the next page.
+In this section, we will focus on a NoSQL database MongoDB. Let's sign up on [MongoDB](https://www.mongodb.com/) by click on the sign in button then click register on the next page..
 
 ![MongoDB Sign up pages](../images/MongoDB/mongodb-signup-page.png)
 
