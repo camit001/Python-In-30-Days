@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 21 - Classes and Objects</h1>
+  <h1> Python In 30 Days: Day 21 - Classes and Objects</h1>
   
 
 <sub>Author:
@@ -9,9 +9,9 @@
 
 </div>
 
-[<< Day 20](../20_Day_Python_package_manager/20_python_package_manager.md) | [Day 22 >>](../22_Day_Web_scraping/22_web_scraping.md)
+[<< Day 20](../Day_20_Python_Package_Manager/20_Python_Package_Manager.md) | [Day 22 >>](../Day_22_Web_Scraping/22_Web_Scraping.md)
 
-**[30DaysOfPython]**
+**Python In 30 Days**
 
 - [📘 Day 21](#-day-21)
   - [Classes and Objects](#classes-and-objects)
@@ -38,8 +38,8 @@ We have been working with classes and objects right from the beginning of this c
 Let us check if everything in python is a class:
 
 ```py
-asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+amit@Amit:~$ python
+Python 3.13 (default, Jun 28 2026, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> num = 10
@@ -107,14 +107,14 @@ class Person:
         # self allows to attach parameter to the class
           self.name =name
 
-p = Person('Asabeneh')
+p = Person('Amit')
 print(p.name)
 print(p)
 ```
 
 ```sh
 # output
-Asabeneh
+Amit
 <__main__.Person object at 0x2abf46907e80>
 ```
 
@@ -130,7 +130,7 @@ class Person:
           self.city = city
 
 
-p = Person('Asabeneh', 'Yetayeh', 250, 'Finland', 'Helsinki')
+p = Person('Amit', 'Kumar', 250, 'Finland', 'Helsinki')
 print(p.firstname)
 print(p.lastname)
 print(p.age)
@@ -140,8 +140,8 @@ print(p.city)
 
 ```sh
 # output
-Asabeneh
-Yetayeh
+Amit
+Kumar
 250
 Finland
 Helsinki
@@ -164,13 +164,13 @@ class Person:
       def person_info(self):
         return f'{self.firstname} {self.lastname} is {self.age} years old. He lives in {self.city}, {self.country}'
 
-p = Person('Asabeneh', 'Yetayeh', 250, 'Finland', 'Helsinki')
+p = Person('Amit', 'Kumar', 250, 'Finland', 'Helsinki')
 print(p.person_info())
 ```
 
 ```sh
 # output
-Asabeneh Yetayeh is 250 years old. He lives in Helsinki, Finland
+Amit Kumar is 250 years old. He lives in Helsinki, Finland
 ```
 
 ### Object Default Methods
@@ -181,7 +181,7 @@ Sometimes, you may want to have default values for your object methods. If we gi
 
 ```py
 class Person:
-      def __init__(self, firstname='Asabeneh', lastname='Yetayeh', age=250, country='Finland', city='Helsinki'):
+      def __init__(self, firstname='Amit', lastname='Kumar', age=250, country='Finland', city='Helsinki'):
           self.firstname = firstname
           self.lastname = lastname
           self.age = age
@@ -199,7 +199,7 @@ print(p2.person_info())
 
 ```sh
 # output
-Asabeneh Yetayeh is 250 years old. He lives in Helsinki, Finland.
+Amit Kumar is 250 years old. He lives in Helsinki, Finland.
 John Doe is 30 years old. He lives in Noman city, Nomanland.
 ```
 
@@ -209,7 +209,7 @@ In the example below, the person class, all the constructor parameters have defa
 
 ```py
 class Person:
-      def __init__(self, firstname='Asabeneh', lastname='Yetayeh', age=250, country='Finland', city='Helsinki'):
+      def __init__(self, firstname='Amit', lastname='Kumar', age=250, country='Finland', city='Helsinki'):
           self.firstname = firstname
           self.lastname = lastname
           self.age = age
@@ -235,11 +235,153 @@ print(p2.skills)
 
 ```sh
 # output
-Asabeneh Yetayeh is 250 years old. He lives in Helsinki, Finland.
+Amit Kumar is 250 years old. He lives in Helsinki, Finland.
 John Doe is 30 years old. He lives in Noman city, Nomanland.
 ['HTML', 'CSS', 'JavaScript']
 []
 ```
+
+
+### Class Attributes vs Instance Attributes
+
+An **instance attribute** belongs to a specific object, while a **class attribute** is shared by all objects of that class.
+
+```py
+class Employee:
+    company = "Tech Solutions"  # class attribute
+
+    def __init__(self, name, role):
+        self.name = name          # instance attribute
+        self.role = role          # instance attribute
+
+
+emp1 = Employee("Amit", "Data Engineer")
+emp2 = Employee("Priya", "Python Developer")
+
+print(emp1.name)
+print(emp2.name)
+print(emp1.company)
+print(emp2.company)
+```
+
+If you change the class attribute, objects that have not overridden that attribute will see the new value.
+
+### Encapsulation with Naming Conventions
+
+Python does not enforce private fields in the same way as some languages, but `_name` and `__name` are commonly used to communicate that an attribute should not be accessed directly.
+
+```py
+class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self._balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self._balance += amount
+
+    def get_balance(self):
+        return self._balance
+
+
+account = BankAccount("Amit", 1000)
+account.deposit(500)
+
+print(account.get_balance())  # 1500
+```
+
+### `__str__()` Method
+
+The `__str__()` method controls the human-readable representation of an object when `print()` is used.
+
+```py
+class Person:
+    def __init__(self, name, city):
+        self.name = name
+        self.city = city
+
+    def __str__(self):
+        return f"{self.name} lives in {self.city}"
+
+
+person = Person("Amit", "Mumbai")
+print(person)
+```
+
+Output:
+
+```text
+Amit lives in Mumbai
+```
+
+### `__repr__()` Method
+
+`__repr__()` is intended to provide an unambiguous representation of an object, which is especially useful while debugging.
+
+```py
+class Employee:
+    def __init__(self, name, role):
+        self.name = name
+        self.role = role
+
+    def __repr__(self):
+        return f"Employee(name={self.name!r}, role={self.role!r})"
+
+
+employee = Employee("Amit", "Data Engineer")
+print(employee)
+```
+
+### `@classmethod` and `@staticmethod`
+
+A class method receives the class as `cls`, while a static method does not automatically receive either the instance or the class.
+
+```py
+class Employee:
+    company = "Tech Solutions"
+
+    def __init__(self, name):
+        self.name = name
+
+    @classmethod
+    def company_name(cls):
+        return cls.company
+
+    @staticmethod
+    def is_valid_name(name):
+        return bool(name.strip())
+
+
+print(Employee.company_name())
+print(Employee.is_valid_name("Amit"))
+```
+
+### Composition
+
+Composition means building one class using objects of another class.
+
+```py
+class Address:
+    def __init__(self, city, country):
+        self.city = city
+        self.country = country
+
+
+class Employee:
+    def __init__(self, name, address):
+        self.name = name
+        self.address = address
+
+
+address = Address("Mumbai", "India")
+employee = Employee("Amit", address)
+
+print(employee.name)
+print(employee.address.city)
+print(employee.address.country)
+```
+
+Composition is often useful when one object **has a** relationship with another object.
 
 ### Inheritance
 
@@ -251,8 +393,8 @@ class Student(Person):
     pass
 
 
-s1 = Student('Eyob', 'Yetayeh', 30, 'Finland', 'Helsinki')
-s2 = Student('Lidiya', 'Teklemariam', 28, 'Finland', 'Espoo')
+s1 = Student('Rahul', 'Kumar', 30, 'Finland', 'Helsinki')
+s2 = Student('Priya', 'Sharma', 28, 'Finland', 'Espoo')
 print(s1.person_info())
 s1.add_skill('JavaScript')
 s1.add_skill('React')
@@ -269,9 +411,9 @@ print(s2.skills)
 
 ```sh
 output
-Eyob Yetayeh is 30 years old. He lives in Helsinki, Finland.
+Rahul Kumar is 30 years old. He lives in Helsinki, Finland.
 ['JavaScript', 'React', 'Python']
-Lidiya Teklemariam is 28 years old. He lives in Espoo, Finland.
+Priya Sharma is 28 years old. He lives in Espoo, Finland.
 ['Organizing', 'Marketing', 'Digital Marketing']
 ```
 
@@ -282,15 +424,15 @@ We can add a new method to the child or we can override the parent class methods
 
 ```py
 class Student(Person):
-    def __init__ (self, firstname='Asabeneh', lastname='Yetayeh',age=250, country='Finland', city='Helsinki', gender='male'):
+    def __init__ (self, firstname='Amit', lastname='Kumar',age=250, country='Finland', city='Helsinki', gender='male'):
         self.gender = gender
         super().__init__(firstname, lastname,age, country, city)
     def person_info(self):
         gender = 'He' if self.gender =='male' else 'She'
         return f'{self.firstname} {self.lastname} is {self.age} years old. {gender} lives in {self.city}, {self.country}.'
 
-s1 = Student('Eyob', 'Yetayeh', 30, 'Finland', 'Helsinki','male')
-s2 = Student('Lidiya', 'Teklemariam', 28, 'Finland', 'Espoo', 'female')
+s1 = Student('Rahul', 'Kumar', 30, 'Finland', 'Helsinki','male')
+s2 = Student('Priya', 'Sharma', 28, 'Finland', 'Espoo', 'female')
 print(s1.person_info())
 s1.add_skill('JavaScript')
 s1.add_skill('React')
@@ -305,15 +447,65 @@ print(s2.skills)
 ```
 
 ```sh
-Eyob Yetayeh is 30 years old. He lives in Helsinki, Finland.
+Rahul Kumar is 30 years old. He lives in Helsinki, Finland.
 ['JavaScript', 'React', 'Python']
-Lidiya Teklemariam is 28 years old. She lives in Espoo, Finland.
+Priya Sharma is 28 years old. She lives in Espoo, Finland.
 ['Organizing', 'Marketing', 'Digital Marketing']
 ```
 
 We can use super() built-in function or the parent name Person to automatically inherit the methods and properties from its parent. In the example above we override the parent method. The child method has a different feature, it can identify, if the gender is male or female and assign the proper pronoun(He/She).
 
 🌕 Now, you are fully charged with a super power of programming.  Now do some exercises for your brain and muscles.
+
+
+## Practical Data Engineering Example
+
+Classes are useful in data engineering when you want to organize reusable behavior around files, pipelines, connections, or transformations.
+
+```py
+class DataPipeline:
+    def __init__(self, pipeline_name, source, target):
+        self.pipeline_name = pipeline_name
+        self.source = source
+        self.target = target
+        self.status = "Not Started"
+
+    def start(self):
+        self.status = "Running"
+        print(f"{self.pipeline_name} started")
+
+    def complete(self):
+        self.status = "Completed"
+        print(f"{self.pipeline_name} completed")
+
+    def info(self):
+        return {
+            "pipeline": self.pipeline_name,
+            "source": self.source,
+            "target": self.target,
+            "status": self.status
+        }
+
+
+pipeline = DataPipeline(
+    "Employee Ingestion",
+    "CSV",
+    "Azure SQL"
+)
+
+pipeline.start()
+print(pipeline.info())
+pipeline.complete()
+```
+
+Output will follow the pipeline state:
+
+```text
+Employee Ingestion started
+Employee Ingestion completed
+```
+
+This is a simple example of using OOP to keep related data and behavior together.
 
 ## 💻 Exercises: Day 21
 
@@ -357,6 +549,20 @@ Frequency Distribution: [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34
 
 1. Create a class called PersonAccount. It has firstname, lastname, incomes, expenses properties and it has total_income, total_expense, account_info, add_income, add_expense and account_balance methods. Incomes is a set of incomes and its description. The same goes for expenses. 
 
+
+### Exercises: Level 3 - Practical OOP
+
+1. Create an `Employee` class with `name`, `department`, and `salary` attributes.
+2. Add a method that returns the employee's information as a formatted string.
+3. Add a method that increases salary by a given percentage.
+4. Create a class attribute called `company_name` and display it for multiple employees.
+5. Create a `BankAccount` class with `deposit()`, `withdraw()`, and `get_balance()` methods.
+6. Create a `DataPipeline` class with `start()`, `complete()`, and `fail()` methods.
+7. Create a `CSVProcessor` class that stores an input file and output file and has a method called `process()`.
+8. Create a parent `Employee` class and child classes `DataEngineer` and `PythonDeveloper`.
+9. Override a method in the child class to display a role-specific message.
+10. Create two classes using composition, such as `Employee` and `Address`.
+
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 20](../20_Day_Python_package_manager/20_python_package_manager.md) | [Day 22 >>](../22_Day_Web_scraping/22_web_scraping.md)
+[<< Day 20](../Day_20_Python_Package_Manager/20_Python_Package_Manager.md) | [Day 22 >>](../Day_22_Web_Scraping/22_Web_Scraping.md)
