@@ -1,5 +1,6 @@
+
 <div align="center">
-  <h1> 30 Days Of Python: Day 29 - Building an API </h1>
+  <h1> Python In 30 Days: Day 29 - Building an API </h1>
   
 
 <sub>Author:
@@ -9,9 +10,9 @@
 
 </div>
 
-[<< Day 28](../28_Day_API/28_API.md) | [Day 29 >>](../30_Day_Conclusions/30_conclusions.md)
+[<< Day 28](../Day_28_API/28_API.md) | [Day 30 >>](../Day_30_Conclusions/30_conclusions.md)
 
-**[30DaysOfPython]**
+**[Python In 30 Days]**
 
 - [Day 29](#day-29)
 - [Building API](#building-api)
@@ -36,10 +37,10 @@ The browser can handle only get request. Therefore, we have to have a tool which
 
 Examples of API
 
-- Countries API: https://restcountries.eu/rest/v2/all
+- Countries API: https://restcountries.com/
 - Cats breed API: https://api.thecatapi.com/v1/breeds
 
-[Postman](https://www.getpostman.com/) is a very popular tool when it comes to API development. So, if you like to do this section you need to [download postman](https://www.getpostman.com/). An alternative of Postman is [Insomnia](https://insomnia.rest/download).
+[Postman](https://www.postman.com/) is a very popular tool when it comes to API development. So, if you like to do this section you need to [download postman](https://www.postman.com/). An alternative of Postman is [Insomnia](https://insomnia.rest/download).
 
 **[Postman]**
 
@@ -62,7 +63,7 @@ PUT        Used for object update
 DELETE     Used for object deletion
 ```
 
-Let us build an API which collects information about 30DaysOfPython students. We will collect the name, country, city, date of birth, skills and bio.
+Let us build an API which collects information about Python In 30 Days students. We will collect the name, country, city, date of birth, skills and bio.
 
 To implement this API, we will use:
 
@@ -71,421 +72,541 @@ To implement this API, we will use:
 - Flask
 - MongoDB
 
-### Retrieving data using get
+### Retrieving data using GET
 
-In this step, let us use dummy data and return it as a json. To return it as json, will use json module and Response module.
+First, create a simple Flask API using in-memory data. This lets us understand the API structure before introducing MongoDB.
 
 ```py
-# let's import the flask
-
-from flask import Flask,  Response
-import json
-import os
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-@app.route('/api/v1.0/students', methods = ['GET'])
-def students ():
-    student_list = [
-        {
-            'name':'Asabeneh',
-            'country':'Finland',
-            'city':'Helsinki',
-            'skills':['HTML', 'CSS','JavaScript','Python']
-        },
-        {
-            'name':'David',
-            'country':'UK',
-            'city':'London',
-            'skills':['Python','MongoDB']
-        },
-        {
-            'name':'John',
-            'country':'Sweden',
-            'city':'Stockholm',
-            'skills':['Java','C#']
-        }
-    ]
-    return Response(json.dumps(student_list), mimetype='application/json')
-
-
-if __name__ == '__main__':
-    # for deployment
-    # to make it work for both production and development
-    port = int(os.environ.get("PORT", 5000))
-    app.run(debug=True, host='0.0.0.0', port=port)
-```
-
-
-In stead of displaying dummy data let us connect the flask application with MongoDB and get data from mongoDB database.
-
-```py
-# let's import the flask
-
-from flask import Flask,  Response
-import json
-import pymongo
-import os
-
-app = Flask(__name__)
-
-#
-MONGODB_URI='mongodb+srv://asabeneh:your_password@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
-client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
-
-@app.route('/api/v1.0/students', methods = ['GET'])
-def students ():
-
-    return Response(json.dumps(student), mimetype='application/json')
-
-
-if __name__ == '__main__':
-    # for deployment
-    # to make it work for both production and development
-    port = int(os.environ.get("PORT", 5000))
-    app.run(debug=True, host='0.0.0.0', port=port)
-```
-
-By connecting the flask, we can fetch students collection data from the thirty_days_of_python database.
-
-```sh
-[
+students = [
     {
-        "_id": {
-            "$oid": "5df68a21f106fe2d315bbc8b"
-        },
-        "name": "Asabeneh",
-        "country": "Finland",
-        "city": "Helsinki",
-        "age": 38
+        "id": 1,
+        "name": "Amit Kumar",
+        "country": "India",
+        "city": "Mumbai",
+        "skills": ["Python", "SQL", "PySpark"]
     },
     {
-        "_id": {
-            "$oid": "5df68a23f106fe2d315bbc8c"
-        },
-        "name": "David",
-        "country": "UK",
-        "city": "London",
-        "age": 34
+        "id": 2,
+        "name": "Rahul Sharma",
+        "country": "India",
+        "city": "Pune",
+        "skills": ["Python", "Flask", "MongoDB"]
     },
     {
-        "_id": {
-            "$oid": "5df68a23f106fe2d315bbc8e"
-        },
-        "name": "Sami",
-        "country": "Finland",
-        "city": "Helsinki",
-        "age": 25
+        "id": 3,
+        "name": "Priya Patel",
+        "country": "India",
+        "city": "Ahmedabad",
+        "skills": ["Java", "SQL", "REST API"]
     }
 ]
+
+
+@app.get("/api/v1/students")
+def get_students():
+    return jsonify(students)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
 ```
 
-### Getting a document by id
+Run:
 
-We can access single document using an id, let's access Asabeneh using his id.
-http://localhost:5000/api/v1.0/students/5df68a21f106fe2d315bbc8b
+```sh
+python app.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:5000/api/v1/students
+```
+
+### Getting a document by ID
+
+We can add a path parameter to retrieve one student.
 
 ```py
-# let's import the flask
+@app.get("/api/v1/students/<int:student_id>")
+def get_student(student_id):
+    for student in students:
+        if student["id"] == student_id:
+            return jsonify(student)
 
-from flask import Flask,  Response
-import json
-from bson.objectid import ObjectId
-import json
-from bson.json_util import dumps
-import pymongo
+    return jsonify({"error": "Student not found"}), 404
+```
+
+Example:
+
+```text
+GET /api/v1/students/1
+```
+
+### Connecting Flask with MongoDB
+
+For a real application, data should normally be stored in a database instead of an in-memory list.
+
+Install the required packages:
+
+```sh
+pip install Flask pymongo
+```
+
+Use an environment variable for the MongoDB connection string. Never hard-code database credentials in source code.
+
+```py
 import os
+from flask import Flask, jsonify
+from pymongo import MongoClient
 
 app = Flask(__name__)
 
-#
-MONGODB_URI='mongodb+srv://asabeneh:your_password@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
-client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+MONGODB_URI = os.environ["MONGODB_URI"]
 
-@app.route('/api/v1.0/students', methods = ['GET'])
-def students ():
-
-    return Response(json.dumps(student), mimetype='application/json')
-@app.route('/api/v1.0/students/<id>', methods = ['GET'])
-def single_student (id):
-    student = db.students.find({'_id':ObjectId(id)})
-    return Response(dumps(student), mimetype='application/json')
-
-if __name__ == '__main__':
-    # for deployment
-    # to make it work for both production and development
-    port = int(os.environ.get("PORT", 5000))
-    app.run(debug=True, host='0.0.0.0', port=port)
+client = MongoClient(MONGODB_URI)
+db = client["python_api"]
+students_collection = db["students"]
 ```
 
-```sh
-[
-    {
-        "_id": {
-            "$oid": "5df68a21f106fe2d315bbc8b"
-        },
-        "name": "Asabeneh",
-        "country": "Finland",
-        "city": "Helsinki",
-        "age": 38
-    }
-]
+For local MongoDB:
+
+```text
+mongodb://localhost:27017/
+```
+
+For MongoDB Atlas, use the connection string supplied by your Atlas deployment and keep it in an environment variable.
+
+### Retrieving MongoDB documents
+
+MongoDB uses an `ObjectId` for the default `_id` field. Convert it to a string before returning JSON.
+
+```py
+@app.get("/api/v1/students")
+def get_students():
+    students = list(students_collection.find())
+
+    for student in students:
+        student["_id"] = str(student["_id"])
+
+    return jsonify(students)
 ```
 
 ### Creating data using POST
 
-We use the POST request method to create data
+We use `POST` to create a new student.
 
 ```py
-# let's import the flask
+from flask import request
 
-from flask import Flask,  Response
-import json
-from bson.objectid import ObjectId
-import json
-from bson.json_util import dumps
-import pymongo
-from datetime import datetime
-import os
+@app.post("/api/v1/students")
+def create_student():
+    data = request.get_json()
 
-app = Flask(__name__)
+    if not data:
+        return jsonify({"error": "JSON body is required"}), 400
 
-#
-MONGODB_URI='mongodb+srv://asabeneh:your_password@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
-client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+    required_fields = ["name", "country", "city", "skills"]
 
-@app.route('/api/v1.0/students', methods = ['GET'])
-def students ():
+    for field in required_fields:
+        if field not in data:
+            return jsonify({"error": f"{field} is required"}), 400
 
-    return Response(json.dumps(student), mimetype='application/json')
-@app.route('/api/v1.0/students/<id>', methods = ['GET'])
-def single_student (id):
-    student = db.students.find({'_id':ObjectId(id)})
-    return Response(dumps(student), mimetype='application/json')
-@app.route('/api/v1.0/students', methods = ['POST'])
-def create_student ():
-    name = request.form['name']
-    country = request.form['country']
-    city = request.form['city']
-    skills = request.form['skills'].split(', ')
-    bio = request.form['bio']
-    birthyear = request.form['birthyear']
-    created_at = datetime.now()
-    student = {
-        'name': name,
-        'country': country,
-        'city': city,
-        'birthyear': birthyear,
-        'skills': skills,
-        'bio': bio,
-        'created_at': created_at
+    result = students_collection.insert_one(data)
 
-    }
-    db.students.insert_one(student)
-    return ;
-def update_student (id):
-if __name__ == '__main__':
-    # for deployment
-    # to make it work for both production and development
-    port = int(os.environ.get("PORT", 5000))
-    app.run(debug=True, host='0.0.0.0', port=port)
+    return jsonify({
+        "message": "Student created successfully",
+        "id": str(result.inserted_id)
+    }), 201
 ```
+
+Example JSON:
+
+```json
+{
+    "name": "Neha Singh",
+    "country": "India",
+    "city": "Delhi",
+    "skills": ["Python", "SQL", "Databricks"]
+}
+```
+
+`201 Created` is the appropriate response for successful creation.
 
 ### Updating using PUT
 
-```py
-# let's import the flask
-
-from flask import Flask,  Response
-import json
-from bson.objectid import ObjectId
-import json
-from bson.json_util import dumps
-import pymongo
-from datetime import datetime
-import os
-
-app = Flask(__name__)
-
-#
-MONGODB_URI='mongodb+srv://asabeneh:your_password@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
-client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
-
-@app.route('/api/v1.0/students', methods = ['GET'])
-def students ():
-
-    return Response(json.dumps(student), mimetype='application/json')
-@app.route('/api/v1.0/students/<id>', methods = ['GET'])
-def single_student (id):
-    student = db.students.find({'_id':ObjectId(id)})
-    return Response(dumps(student), mimetype='application/json')
-@app.route('/api/v1.0/students', methods = ['POST'])
-def create_student ():
-    name = request.form['name']
-    country = request.form['country']
-    city = request.form['city']
-    skills = request.form['skills'].split(', ')
-    bio = request.form['bio']
-    birthyear = request.form['birthyear']
-    created_at = datetime.now()
-    student = {
-        'name': name,
-        'country': country,
-        'city': city,
-        'birthyear': birthyear,
-        'skills': skills,
-        'bio': bio,
-        'created_at': created_at
-
-    }
-    db.students.insert_one(student)
-    return
-@app.route('/api/v1.0/students/<id>', methods = ['PUT']) # this decorator create the home route
-def update_student (id):
-    query = {"_id":ObjectId(id)}
-    name = request.form['name']
-    country = request.form['country']
-    city = request.form['city']
-    skills = request.form['skills'].split(', ')
-    bio = request.form['bio']
-    birthyear = request.form['birthyear']
-    created_at = datetime.now()
-    student = {
-        'name': name,
-        'country': country,
-        'city': city,
-        'birthyear': birthyear,
-        'skills': skills,
-        'bio': bio,
-        'created_at': created_at
-
-    }
-    db.students.update_one(query, student)
-    # return Response(dumps({"result":"a new student has been created"}), mimetype='application/json')
-    return
-def update_student (id):
-if __name__ == '__main__':
-    # for deployment
-    # to make it work for both production and development
-    port = int(os.environ.get("PORT", 5000))
-    app.run(debug=True, host='0.0.0.0', port=port)
-```
-
-### Deleting a document using Delete
+`PUT` is commonly used to replace the current representation of a resource.
 
 ```py
-# let's import the flask
+from bson import ObjectId
+from bson.errors import InvalidId
 
-from flask import Flask,  Response
-import json
-from bson.objectid import ObjectId
-import json
-from bson.json_util import dumps
-import pymongo
-from datetime import datetime
+@app.put("/api/v1/students/<student_id>")
+def update_student(student_id):
+    try:
+        object_id = ObjectId(student_id)
+    except InvalidId:
+        return jsonify({"error": "Invalid student ID"}), 400
+
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"error": "JSON body is required"}), 400
+
+    result = students_collection.replace_one(
+        {"_id": object_id},
+        data
+    )
+
+    if result.matched_count == 0:
+        return jsonify({"error": "Student not found"}), 404
+
+    return jsonify({
+        "message": "Student updated successfully"
+    }), 200
+```
+
+### Partial updates using PATCH
+
+`PATCH` is useful when only selected fields need to be changed.
+
+```py
+@app.patch("/api/v1/students/<student_id>")
+def patch_student(student_id):
+    try:
+        object_id = ObjectId(student_id)
+    except InvalidId:
+        return jsonify({"error": "Invalid student ID"}), 400
+
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"error": "JSON body is required"}), 400
+
+    result = students_collection.update_one(
+        {"_id": object_id},
+        {"$set": data}
+    )
+
+    if result.matched_count == 0:
+        return jsonify({"error": "Student not found"}), 404
+
+    return jsonify({
+        "message": "Student partially updated successfully"
+    }), 200
+```
+
+Example body:
+
+```json
+{
+    "city": "Bengaluru"
+}
+```
+
+### Deleting a document using DELETE
+
+```py
+@app.delete("/api/v1/students/<student_id>")
+def delete_student(student_id):
+    try:
+        object_id = ObjectId(student_id)
+    except InvalidId:
+        return jsonify({"error": "Invalid student ID"}), 400
+
+    result = students_collection.delete_one({
+        "_id": object_id
+    })
+
+    if result.deleted_count == 0:
+        return jsonify({"error": "Student not found"}), 404
+
+    return "", 204
+```
+
+### Complete CRUD API structure
+
+```text
+GET     /api/v1/students
+GET     /api/v1/students/<id>
+POST    /api/v1/students
+PUT     /api/v1/students/<id>
+PATCH   /api/v1/students/<id>
+DELETE  /api/v1/students/<id>
+```
+
+CRUD means:
+
+```text
+Create -> POST
+Read   -> GET
+Update -> PUT / PATCH
+Delete -> DELETE
+```
+
+### Testing the API with Postman
+
+Use Postman to test each endpoint.
+
+#### GET
+
+```text
+GET http://127.0.0.1:5000/api/v1/students
+```
+
+#### POST
+
+```text
+POST http://127.0.0.1:5000/api/v1/students
+```
+
+Select:
+
+```text
+Body -> raw -> JSON
+```
+
+Then send:
+
+```json
+{
+    "name": "Neha Singh",
+    "country": "India",
+    "city": "Delhi",
+    "skills": ["Python", "SQL", "PySpark"]
+}
+```
+
+#### PUT
+
+```text
+PUT http://127.0.0.1:5000/api/v1/students/<id>
+```
+
+#### PATCH
+
+```text
+PATCH http://127.0.0.1:5000/api/v1/students/<id>
+```
+
+#### DELETE
+
+```text
+DELETE http://127.0.0.1:5000/api/v1/students/<id>
+```
+
+### API Validation and Error Handling
+
+A production API should validate input and return meaningful status codes.
+
+```py
+if not data.get("name"):
+    return jsonify({
+        "error": "name is required"
+    }), 400
+```
+
+Common responses:
+
+```text
+200 OK
+201 Created
+204 No Content
+400 Bad Request
+404 Not Found
+500 Internal Server Error
+```
+
+### API Security Basics
+
+Avoid:
+
+```py
+MONGODB_URI = "mongodb+srv://username:password@..."
+```
+
+Prefer:
+
+```py
 import os
 
-app = Flask(__name__)
-
-#
-MONGODB_URI='mongodb+srv://asabeneh:your_password@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
-client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
-
-@app.route('/api/v1.0/students', methods = ['GET'])
-def students ():
-
-    return Response(json.dumps(student), mimetype='application/json')
-@app.route('/api/v1.0/students/<id>', methods = ['GET'])
-def single_student (id):
-    student = db.students.find({'_id':ObjectId(id)})
-    return Response(dumps(student), mimetype='application/json')
-@app.route('/api/v1.0/students', methods = ['POST'])
-def create_student ():
-    name = request.form['name']
-    country = request.form['country']
-    city = request.form['city']
-    skills = request.form['skills'].split(', ')
-    bio = request.form['bio']
-    birthyear = request.form['birthyear']
-    created_at = datetime.now()
-    student = {
-        'name': name,
-        'country': country,
-        'city': city,
-        'birthyear': birthyear,
-        'skills': skills,
-        'bio': bio,
-        'created_at': created_at
-
-    }
-    db.students.insert_one(student)
-    return
-@app.route('/api/v1.0/students/<id>', methods = ['PUT']) # this decorator create the home route
-def update_student (id):
-    query = {"_id":ObjectId(id)}
-    name = request.form['name']
-    country = request.form['country']
-    city = request.form['city']
-    skills = request.form['skills'].split(', ')
-    bio = request.form['bio']
-    birthyear = request.form['birthyear']
-    created_at = datetime.now()
-    student = {
-        'name': name,
-        'country': country,
-        'city': city,
-        'birthyear': birthyear,
-        'skills': skills,
-        'bio': bio,
-        'created_at': created_at
-
-    }
-    db.students.update_one(query, student)
-    # return Response(dumps({"result":"a new student has been created"}), mimetype='application/json')
-    return
-@app.route('/api/v1.0/students/<id>', methods = ['PUT']) # this decorator create the home route
-def update_student (id):
-    query = {"_id":ObjectId(id)}
-    name = request.form['name']
-    country = request.form['country']
-    city = request.form['city']
-    skills = request.form['skills'].split(', ')
-    bio = request.form['bio']
-    birthyear = request.form['birthyear']
-    created_at = datetime.now()
-    student = {
-        'name': name,
-        'country': country,
-        'city': city,
-        'birthyear': birthyear,
-        'skills': skills,
-        'bio': bio,
-        'created_at': created_at
-
-    }
-    db.students.update_one(query, student)
-    # return Response(dumps({"result":"a new student has been created"}), mimetype='application/json')
-    return ;
-@app.route('/api/v1.0/students/<id>', methods = ['DELETE'])
-def delete_student (id):
-    db.students.delete_one({"_id":ObjectId(id)})
-    return
-if __name__ == '__main__':
-    # for deployment
-    # to make it work for both production and development
-    port = int(os.environ.get("PORT", 5000))
-    app.run(debug=True, host='0.0.0.0', port=port)
+MONGODB_URI = os.environ["MONGODB_URI"]
 ```
+
+For production applications, also consider:
+
+- Authentication
+- Authorization
+- HTTPS
+- Input validation
+- Rate limiting
+- Secure secret management
+- Logging and monitoring
+- CORS configuration where required
+
+## Data Engineering Connection
+
+APIs are commonly used in data engineering pipelines.
+
+```text
+External API
+     |
+     | GET /sales
+     v
+Azure Data Factory
+     |
+     v
+ADLS Gen2
+     |
+     v
+Databricks / PySpark
+     |
+     v
+Delta Lake
+     |
+     v
+Analytics / Reporting
+```
+
+A data engineer may consume REST APIs, handle pagination, authenticate with tokens, process JSON responses, and load the data into a data lake or warehouse.
+
+Example:
+
+```py
+import requests
+
+url = "https://api.example.com/sales"
+
+response = requests.get(url, timeout=30)
+response.raise_for_status()
+
+data = response.json()
+
+for record in data:
+    print(record)
+```
+
+This is where API concepts connect directly with ETL and data engineering work.
+
+## Personal Example
+
+```py
+student = {
+    "name": "Amit Kumar",
+    "country": "India",
+    "city": "Mumbai",
+    "skills": ["Python", "SQL", "PySpark"]
+}
+
+print(student)
+```
+
+This structured data can be exposed through a REST API and consumed by applications or data pipelines.
 
 ## 💻 Exercises: Day 29
 
-1. Implement the above example and develop [this](https://thirtydayofpython-api.herokuapp.com/)
+### Exercises: Level 1
 
-🎉 CONGRATULATIONS ! 🎉
+1. Implement `GET /api/v1/students` using Flask.
+2. Add `GET /api/v1/students/<id>`.
+3. Return `404` when a student does not exist.
+4. Test both endpoints using Postman.
+5. Use Indian sample names such as Amit Kumar, Rahul Sharma, Priya Patel, and Neha Singh.
 
-[<< Day 28](../28_Day_API/28_API.md) | [Day 30 >>](../30_Day_Conclusions/30_conclusions.md)
+### Exercises: Level 2
+
+1. Connect the Flask application to MongoDB.
+2. Create a `students` collection.
+3. Implement `POST /api/v1/students`.
+4. Implement `PUT /api/v1/students/<id>`.
+5. Implement `PATCH /api/v1/students/<id>`.
+6. Implement `DELETE /api/v1/students/<id>`.
+7. Return appropriate HTTP status codes.
+8. Validate required fields before inserting or updating data.
+
+### Exercises: Level 3
+
+Build a complete Student REST API:
+
+```text
+GET     /api/v1/students
+GET     /api/v1/students/<id>
+POST    /api/v1/students
+PUT     /api/v1/students/<id>
+PATCH   /api/v1/students/<id>
+DELETE  /api/v1/students/<id>
+```
+
+Add:
+
+- JSON request and response bodies
+- MongoDB persistence
+- Input validation
+- Error handling
+- Proper HTTP status codes
+- Postman testing
+
+### Exercises: Level 4 - Data Engineering Practice
+
+Create an **Employee API** using Flask and MongoDB.
+
+Example employee:
+
+```json
+{
+    "name": "Amit Kumar",
+    "department": "Data Engineering",
+    "city": "Mumbai",
+    "skills": ["SQL", "Python", "PySpark"],
+    "experience": 4
+}
+```
+
+Implement:
+
+```text
+GET     /api/v1/employees
+GET     /api/v1/employees/<id>
+POST    /api/v1/employees
+PUT     /api/v1/employees/<id>
+PATCH   /api/v1/employees/<id>
+DELETE  /api/v1/employees/<id>
+```
+
+Then add:
+
+1. Filter employees by department.
+2. Filter employees by city.
+3. Add pagination using `limit` and `offset`.
+4. Add sorting by experience.
+5. Return consistent JSON responses.
+6. Test every endpoint using Postman.
+7. Create a Python script that consumes your API using `requests`.
+8. Save the API response as JSON.
+9. Design a simple pipeline that loads API data into a data lake.
+
+Example:
+
+```text
+REST API
+   |
+   v
+Python / ADF
+   |
+   v
+ADLS Gen2
+   |
+   v
+Databricks + PySpark
+   |
+   v
+Delta Lake
+```
+
+🎉 CONGRATULATIONS! 🎉
+
+[<< Day 28](../Day_28_API/28_API.md) | [Day 30 >>](../Day_30_Conclusions/30_conclusions.md)
