@@ -163,23 +163,23 @@ Use the project document as the practical part of the 30-day journey:
 
 ### Project 02
 
-[Expense Tracker](../Projects/Python_30_Days_Projects.md/project-02--expense-tracker.md)
+[Expense Tracker](../Projects/Python_30_Days_Projects/project-02--expense-tracker.md)
 
 ### Project 03
 
-[Sales Data Analyzer](../Projects/Python_30_Days_Projects.md/project-03--sales-data-analyzer.md)
+[Sales Data Analyzer](../Projects/Python_30_Days_Projects/project-03--sales-data-analyzer.md)
 
 ### Project 04
 
-[Employee Data Analyzer](../Projects/Python_30_Days_Projects.md/project-04--employee-data-analyzer.md)
+[Employee Data Analyzer](../Projects/Python_30_Days_Projects/project-04--employee-data-analyzer.md)
 
 ### Project 05
 
-[Student Management REST API](../Projects/Python_30_Days_Projects.md/project-05--student-management-rest-api.md)
+[Student Management REST API](../Projects/Python_30_Days_Projects/project-05--student-management-rest-api.md)
 
 ### BONUS Project
 
-[Surprise 🎉🎉](../Projects/Python_30_Days_Projects.md/final-project--python-data-pipeline-project.md)
+[Surprise 🎉🎉](../Projects/Python_30_Days_Projects/final-project--python-data-pipeline-project.md)
 
 
 > **Note:** The project navigation above assumes the project file is stored at `Projects/Python_30_Days_Projects.md`, matching the relative Markdown navigation pattern used by the Day files.
