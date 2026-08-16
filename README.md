@@ -1,7 +1,11 @@
 [README_Python-In-30-Days.md](https://github.com/camit001/Python-In-30-Days/README.md)
-# Python-In-30-Days
+<div align="center">
+  <h1> Python In 30 Days</h1>
 
 A structured 30-day learning journey from Python fundamentals to practical topics including web scraping, Pandas, MongoDB, APIs and API development.
+
+
+
 <sub>Author:
 <a href="https://github.com/camit001" target="_blank">Amit Kumar</a><br>
 
