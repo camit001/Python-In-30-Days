@@ -1,9 +1,14 @@
-# Python in 30 Days - Project Overview
 
+<div align="center">
+  <h1> Python in 30 Days - Project Overview </h1>
 This document gives a short overview of the practical projects created for the **Python in 30 Days** learning path.
 
 The projects are arranged from beginner-friendly Python programming to practical data processing, APIs, and a complete data pipeline.
 
+<sub>Author:
+<a href="https://github.com/camit001" target="_blank">Amit Kumar</a><br>
+
+</sub></div>
 ---
 
 ## Project 1 - Student Result Analyzer
