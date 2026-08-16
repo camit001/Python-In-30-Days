@@ -9,7 +9,7 @@ A structured 30-day learning journey from Python fundamentals to practical topic
 <sub>Author:
 <a href="https://github.com/camit001" target="_blank">Amit Kumar</a><br>
 
-</sub>
+</sub></div>
 ## Roadmap
 
 ## Daily Learning Plan
