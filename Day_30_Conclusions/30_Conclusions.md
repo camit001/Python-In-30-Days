@@ -179,7 +179,7 @@ Use the project document as the practical part of the 30-day journey:
 
 ### BONUS Project
 
-[Surprise 🎉🎉](../Projects/Python_30_Days_Projects.md/final-project--python-data-pipeline-project-.md)
+[Surprise 🎉🎉](../Projects/Python_30_Days_Projects.md/final-project--python-data-pipeline-project.md)
 
 
 > **Note:** The project navigation above assumes the project file is stored at `Projects/Python_30_Days_Projects.md`, matching the relative Markdown navigation pattern used by the Day files.
