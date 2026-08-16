@@ -2,7 +2,10 @@
 # Python-In-30-Days
 
 A structured 30-day learning journey from Python fundamentals to practical topics including web scraping, Pandas, MongoDB, APIs and API development.
+<sub>Author:
+<a href="https://github.com/camit001" target="_blank">Amit Kumar</a><br>
 
+</sub>
 ## Roadmap
 
 ## Daily Learning Plan
@@ -48,11 +51,11 @@ After completing the 30-day learning path, apply the concepts through the follow
 | Project | Project | Main Focus |
 | --: | --- | --- |
 | [01](./Projects/Python_30_Days_Projects/project-01--student-result-analyzer.md) | [Student Result Analyzer](./Projects/Python_30_Days_Projects/project-01--student-result-analyzer.md) | Python fundamentals, CSV processing, functions, conditions, calculations |
-| [02](../Projects/Python_30_Days_Projects/project-02--expense-tracker.md) | [Expense Tracker](../Projects/Python_30_Days_Projects/project-02--expense-tracker.md) | File handling, dictionaries, filtering, aggregation and reporting |
-| [03](../Projects/Python_30_Days_Projects/project-03--sales-data-analyzer.md) | [Sales Data Analyzer](../Projects/Python_30_Days_Projects/project-03--sales-data-analyzer.md) | Sales analysis, aggregation, business metrics and data processing |
-| [04](../Projects/Python_30_Days_Projects/project-04--employee-data-analyzer.md) | [Employee Data Analyzer](../Projects/Python_30_Days_Projects/project-04--employee-data-analyzer.md) | Employee data, grouping, salary analysis and reporting |
-| [05](../Projects/Python_30_Days_Projects/project-05--student-management-rest-api.md) | [Student Management REST API](../Projects/Python_30_Days_Projects/project-05--student-management-rest-api.md) | FastAPI, REST, HTTP, JSON, CRUD and MongoDB |
-| [06](../Projects/Python_30_Days_Projects/final-project--python-data-pipeline-project.md) | [Final Python Data Pipeline](../Projects/Python_30_Days_Projects/final-project--python-data-pipeline-project.md) | Data ingestion, validation, transformation, error handling and ETL |
+| [02](./Projects/Python_30_Days_Projects/project-02--expense-tracker.md) | [Expense Tracker](./Projects/Python_30_Days_Projects/project-02--expense-tracker.md) | File handling, dictionaries, filtering, aggregation and reporting |
+| [03](./Projects/Python_30_Days_Projects/project-03--sales-data-analyzer.md) | [Sales Data Analyzer](./Projects/Python_30_Days_Projects/project-03--sales-data-analyzer.md) | Sales analysis, aggregation, business metrics and data processing |
+| [04](./Projects/Python_30_Days_Projects/project-04--employee-data-analyzer.md) | [Employee Data Analyzer](./Projects/Python_30_Days_Projects/project-04--employee-data-analyzer.md) | Employee data, grouping, salary analysis and reporting |
+| [05](./Projects/Python_30_Days_Projects/project-05--student-management-rest-api.md) | [Student Management REST API](./Projects/Python_30_Days_Projects/project-05--student-management-rest-api.md) | FastAPI, REST, HTTP, JSON, CRUD and MongoDB |
+| [06](./Projects/Python_30_Days_Projects/final-project--python-data-pipeline-project.md) | [Final Python Data Pipeline](./Projects/Python_30_Days_Projects/final-project--python-data-pipeline-project.md) | Data ingestion, validation, transformation, error handling and ETL |
 
 ### Project Navigation
 
