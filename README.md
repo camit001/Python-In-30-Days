@@ -23,7 +23,7 @@ A structured 30-day learning journey from Python fundamentals to practical topic
 | [12](./Day_12_Modules/12_Modules.md) | [Modules](./Day_12_Modules/12_Modules.md) |
 | [13](./Day_13_List_comprehension/13_List_comprehension.md) | [List Comprehension](./Day_13_List_comprehension/13_List_comprehension.md) |
 | [14](./Day_14_Higher_order_functions/14_Higher_order_functions.md) | [Higher-Order Functions](./Day_14_Higher_order_functions/14_Higher_order_functions.md) |
-| [15](./Day_15_Python_type_errors/15_Python_type_errors.md) | [Python Type Errors](./Day_15_Python_type_errors/15_python_type_errors.md) |
+| [15](./Day_15_Python_type_errors/15_Python_type_errors.md) | [Python Type Errors](./Day_15_Python_type_errors/15_Python_type_errors.md) |
 | [16](./Day_16_Python_date_time/16_Python_date_time.md) | [Python Date & Time](./Day_16_Python_date_time/16_Python_date_time.md) |
 | [17](./Day_17_Exception_handling/17_Exception_handling.md) | [Exception Handling](./Day_17_Exception_handling/17_Exception_handling.md) |
 | [18](./Day_18_Regular_expressions/18_Regular_expressions.md) | [Regular Expressions](./Day_18_Regular_expressions/18_Regular_expressions.md) |
@@ -47,7 +47,7 @@ After completing the 30-day learning path, apply the concepts through the follow
 
 | Project | Project | Main Focus |
 | --: | --- | --- |
-| [01](../Projects/Python_30_Days_Projects/project-01--student-result-analyzer.md) | [Student Result Analyzer](../Projects/Python_30_Days_Projects/project-01--student-result-analyzer.md) | Python fundamentals, CSV processing, functions, conditions, calculations |
+| [01](./Projects/Python_30_Days_Projects/project-01--student-result-analyzer.md) | [Student Result Analyzer](./Projects/Python_30_Days_Projects/project-01--student-result-analyzer.md) | Python fundamentals, CSV processing, functions, conditions, calculations |
 | [02](../Projects/Python_30_Days_Projects/project-02--expense-tracker.md) | [Expense Tracker](../Projects/Python_30_Days_Projects/project-02--expense-tracker.md) | File handling, dictionaries, filtering, aggregation and reporting |
 | [03](../Projects/Python_30_Days_Projects/project-03--sales-data-analyzer.md) | [Sales Data Analyzer](../Projects/Python_30_Days_Projects/project-03--sales-data-analyzer.md) | Sales analysis, aggregation, business metrics and data processing |
 | [04](../Projects/Python_30_Days_Projects/project-04--employee-data-analyzer.md) | [Employee Data Analyzer](../Projects/Python_30_Days_Projects/project-04--employee-data-analyzer.md) | Employee data, grouping, salary analysis and reporting |
