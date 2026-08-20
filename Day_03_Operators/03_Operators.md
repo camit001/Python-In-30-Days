@@ -62,13 +62,15 @@ Assignment operators are used to assign values to variables. Let us take = as an
 
 ### Arithmetic Operators
 
-- Addition(+): a + b
-- Subtraction(-): a - b
-- Multiplication(*): a * b
-- Division(/): a / b
-- Modulus(%): a % b
-- Floor division(//): a // b
-- Exponentiation(**): a ** b
+| Operator | Name | Syntax | Example | Result |
+|----------|------|--------|---------|--------|
+| `+` | Addition | `a + b` | `10 + 3` | `13` |
+| `-` | Subtraction | `a - b` | `10 - 3` | `7` |
+| `*` | Multiplication | `a * b` | `10 * 3` | `30` |
+| `/` | Division | `a / b` | `10 / 3` | `3.3333` |
+| `%` | Modulus | `a % b` | `10 % 3` | `1` |
+| `//` | Floor Division | `a // b` | `10 // 3` | `3` |
+| `**` | Exponentiation | `a ** b` | `10 ** 3` | `1000` |
 
 **[Arithmetic Operators]**
 
@@ -160,7 +162,7 @@ print('division: ', div)
 print('remainder: ', remainder)
 ```
 
-Let us start connecting the dots and start making use of what we already know to calculate (area, volume,density,  weight, perimeter, distance, force).
+Let us start connecting the dots and start making use of what we already know to calculate (area, volume, density, weight, perimeter, distance, force).
 
 **Example:**
 
@@ -195,6 +197,16 @@ print(density, 'Kg/m^3') # Adding unit to the density
 In programming, we use comparison operators to compare two values. We check if a value is greater or less or equal to other value. The following table shows Python comparison operators which was taken from [W3Schools](https://www.w3schools.com/python/python_operators.asp).
 
 **[Comparison Operators]**
+| Operator | Name | Syntax | Example | Result |
+|----------|------|--------|---------|--------|
+| `==` | Equal to | `a == b` | `10 == 10` | `True` |
+| `!=` | Not equal to | `a != b` | `10 != 5` | `True` |
+| `>` | Greater than | `a > b` | `10 > 5` | `True` |
+| `<` | Less than | `a < b` | `10 < 5` | `False` |
+| `>=` | Greater than or equal to | `a >= b` | `10 >= 10` | `True` |
+| `<=` | Less than or equal to | `a <= b` | `10 <= 5` | `False` |
+
+
 **Example: Comparison Operators**
 
 ```py
